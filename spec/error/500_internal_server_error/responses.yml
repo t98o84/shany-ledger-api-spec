@@ -1,0 +1,6 @@
+InternalServerErrorResponse:
+  description: サーバーで何らかの問題が発生した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/InternalServerError"

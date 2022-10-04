@@ -1,0 +1,21 @@
+AuthSignupRequest:
+  type: object
+  properties:
+    email:
+      type: string
+      format: email
+    password:
+      type: string
+      minLength: 6
+      maxLength: 255
+  required:
+    - email
+    - password
+
+AuthSignupSuccessResponse:
+  type: object
+  properties:
+    accessToken:
+      $ref: "../token/schemas.yml#/AccessToken"
+    user:
+      $ref: "../../user/schemas.yml#/User"

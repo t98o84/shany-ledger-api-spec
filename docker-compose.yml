@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  bundle:
+    image: openapitools/openapi-generator-cli:v6.2.0
+    volumes:
+      - ./spec:/local/spec
+      - type: bind
+        source: ./spec/openapi.yml
+        target: /local/bundle/openapi/openapi.yaml
+    command: generate -g openapi-yaml -i /local/spec/root.yml -o /local/bundle
+
+  doc:
+    image: redocly/redoc
+    volumes:
+      - ./spec:/usr/share/nginx/html/api
+    environment:
+      SPEC_URL: api/openapi.yml
+    ports:
+      - "${DOC_PORT:-8080}:80"
+    depends_on:
+      bundle:
+        condition: service_completed_successfully
+
+  client:
+    image: openapitools/openapi-generator-cli:v6.2.0
+    volumes:
+      - ./spec:/local/spec
+      - ./client:/local/client
+    command: generate -g typescript-axios -i /local/spec/openapi.yml -o /local/client
+    depends_on:
+      bundle:
+        condition: service_completed_successfully

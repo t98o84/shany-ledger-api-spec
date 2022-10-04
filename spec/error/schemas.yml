@@ -1,0 +1,29 @@
+ProblemDetails:
+  title: エラーの詳細
+  description: RFC7807（https://www.rfc-editor.org/rfc/rfc7807）に準拠したエラー詳細のベースです。
+  type: object
+  properties:
+    code:
+      description: エラー内容が判別可能な文字列のコードです。
+      type: string
+    type:
+      description: エラーの詳細ドキュメントへのURLです。
+      type: string
+      format: uri
+      default: "about:blank"
+    title:
+      description: 人間が読むことのできる短いサマリーです。
+      type: string
+    detail:
+      description: 人間が読むことのできる説明文です。
+      type: string
+    status:
+      description: サーバによって生成されたHTTPステータスコードです。
+      type: integer
+    instance:
+      description: 問題の発生箇所の参照URIです。
+      type: string
+      format: uri
+  required:
+    - code
+    - title

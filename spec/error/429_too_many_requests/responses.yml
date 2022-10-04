@@ -1,0 +1,6 @@
+TooManyRequestsErrorResponse:
+  description: ユーザーが指定された時間内に多くのリクエストを送信した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/TooManyRequestsError"

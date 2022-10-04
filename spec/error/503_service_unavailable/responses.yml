@@ -1,0 +1,6 @@
+ServiceUnavailableErrorResponse:
+  description: メンテナンスもしくは過負荷等により一時的にサービスが利用できなくなった場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/ServiceUnavailableError"

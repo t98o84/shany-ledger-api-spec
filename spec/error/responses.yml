@@ -1,0 +1,9 @@
+ProblemDetailsResponse:
+  description: サインアップのリクエストです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/ProblemDetails"
+      examples:
+        $ref: "./examples.yml#/ProblemDetailsExample"

@@ -1,0 +1,8 @@
+ProblemDetailsExample:
+  value:
+    code: "ExampleFailed"
+    type: "about:blank"
+    title: "Example title"
+    detail: "Example Detail"
+    status: 400
+    instance: "https://example.com/example"

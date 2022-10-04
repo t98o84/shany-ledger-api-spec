@@ -1,0 +1,7 @@
+AccessToken:
+  type: string
+
+AccessTokens:
+  type: array
+  items:
+    $ref: "#/AccessToken"

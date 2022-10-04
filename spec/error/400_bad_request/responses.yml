@@ -1,0 +1,6 @@
+BadRequestErrorResponse:
+  description: リクエスト内容に誤りがあった場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/BadRequestError"

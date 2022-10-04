@@ -1,0 +1,35 @@
+ServiceUnavailableError:
+  title: ServiceUnavailableError
+  description: メンテナンスもしくは過負荷等により一時的にサービスが利用できなくなった場合のエラー詳細です。
+  oneOf:
+    - $ref: "#/DefaultServiceUnavailableError"
+    - $ref: "#/Maintenance"
+
+DefaultServiceUnavailableError:
+  title: DefaultServiceUnavailableError
+  description: 過負荷等の問題により一時的にサービスが利用できなくなった場合のエラー詳細です。
+  type: null
+  nullable: true
+
+Maintenance:
+  title: Maintenance
+  description: メンテナンスのため一時的にサービスが利用できなくなった場合のエラー詳細です。
+  type: object
+  allOf:
+    - $ref: "../schemas.yml#/ProblemDetails"
+    - properties:
+        code:
+          type: string
+          enum:
+            - Maintenance
+        startAt:
+          description: メンテナンス開始日時
+          type: string
+          format: date-time
+        endAt:
+          description: メンテナンス終了予定日時
+          type: string
+          format: date-time
+      required:
+        - startAt
+        - endAt

@@ -1,0 +1,34 @@
+User:
+  type: object
+  required:
+    - id
+    - name
+    - email
+    - createdAt
+    - updatedAt
+    - deletedAt
+  properties:
+    id:
+      type: string
+      format: uuid
+    name:
+      type: string
+      minLength: 1
+      maxLength: 100
+    email:
+      type: string
+      format: email
+    emailVerifiedAt:
+      type:
+        - string
+        - null
+      format: date-time
+    createdAt:
+      type: string
+      format: date-time
+    updatedAt:
+      type: string
+      format: date-time
+    deletedAt:
+      type: string
+      format: date-time

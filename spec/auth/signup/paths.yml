@@ -5,11 +5,15 @@ post:
     - auth
   operationId: signUpWithEmailAndPassword
   requestBody:
-    $ref: "./auth/signup/request_bodies.yml#/AuthSignUpRequest"
+    $ref: "./auth/signup/request_bodies.yml#/AuthSignupRequest"
   responses:
     "200":
-      $ref: "./auth/signup/responses.yml#/AuthSignUpSuccessResponse"
+      $ref: "./auth/signup/responses.yml#/AuthSignupSuccessResponse"
     "400":
       $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
     "419":
       $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+    "500":
+      $ref: "./error/500_internal_server_error/responses.yml#/InternalServerErrorResponse"
+    "503":
+      $ref: "./error/503_service_unavailable/responses.yml#/ServiceUnavailableErrorResponse"

@@ -25,5 +25,5 @@ ProblemDetails:
       type: string
       format: uri
   required:
-  - code
-  - title
+    - code
+    - title

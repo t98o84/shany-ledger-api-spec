@@ -1,29 +1,18 @@
-AuthSignUpRequest:
-  title: AuthSignUpRequest
-  description: メールアドレスとパスワードを使用したサインアップのリクエストボディです。
+AuthSignupRequest:
   type: object
   properties:
     email:
-      $ref: "../../user/schemas.yml#/Email"
+      $ref: "../../user/schemas.yml#/UserEmail"
     password:
-     $ref: "../../user/schemas.yml#/Password"
+     $ref: "../../user/schemas.yml#/UserPassword"
   required:
     - email
     - password
 
-AuthSignUpSuccessResponse:
-  title: AuthSignUpSuccessResponse
-  description: サインアップが成功した場合のレスポンスボディです。
+AuthSignupSuccessResponse:
   type: object
   properties:
-    access_token:
+    accessToken:
       $ref: "../token/schemas.yml#/AccessToken"
     user:
       $ref: "../../user/schemas.yml#/User"
-    workspace:
-      $ref: "../../workspace/schemas.yml#/Workspace"
-  required:
-    - access_token
-    - user
-    - workspace
-

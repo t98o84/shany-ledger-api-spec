@@ -2,44 +2,44 @@ BadRequestError:
   title: BadRequestError
   description: リクエスト内容に誤りがあった場合のエラー詳細です。
   oneOf:
-  - $ref: "#/DefaultBadRequestError"
-  - $ref: "#/ValidationError"
+    - $ref: "#/DefaultBadRequestError"
+    - $ref: "#/ValidationError"
 
 DefaultBadRequestError:
   title: DefaultBadRequestError
   description: リクエスト内容に誤りがあった場合のエラー詳細です。
   allOf:
-  - $ref: "../schemas.yml#/ProblemDetails"
-  - properties:
-      status:
-        type: integer
-        enum:
-        - 400
+    - $ref: "../schemas.yml#/ProblemDetails"
+    - properties:
+        status:
+          type: integer
+          enum:
+            - 400
 
 ValidationError:
   title: ValidationError
   description: バリデーションに失敗した場合のエラー詳細です。
   allOf:
-  - $ref: "#/DefaultBadRequestError"
-  - properties:
-      code:
-        type: string
-        enum:
-          - ValidationError
-      errors:
-        type: array
-        items:
-          type: object
-          properties:
-            field:
-              type: string
-              example: example.0.id
-            title:
-              type: string
-            detail:
-              type: string
-          required:
-          - field
-          - title
+    - $ref: "#/DefaultBadRequestError"
+    - properties:
+        code:
+          type: string
+          enum:
+            - ValidationError
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+                example: example.0.id
+              title:
+                type: string
+              detail:
+                type: string
+            required:
+              - field
+              - title
       required:
-      - errors
+        - errors

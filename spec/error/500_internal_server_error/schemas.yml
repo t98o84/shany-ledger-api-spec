@@ -2,13 +2,13 @@ InternalServerError:
   title: InternalServerError
   description:  サーバーで何らかの問題が発生した場合のエラー詳細です。
   allOf:
-  - $ref: "../schemas.yml#/ProblemDetails"
-  - properties:
-      status:
-        type: integer
-        enum:
-        - 500
-      code:
-        type: string
-        enum:
-        - InternalServerError
+    - $ref: "../schemas.yml#/ProblemDetails"
+    - properties:
+        status:
+          type: integer
+          enum:
+            - 500
+        code:
+          type: string
+          enum:
+            - InternalServerError

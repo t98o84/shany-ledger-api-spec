@@ -1,0 +1,126 @@
+name: Generate API Client
+
+on:
+  push:
+    branches:
+      - main
+
+# 複数回連続実行された場合、直列に実行されて、最後のワークフローが有効になるようにconcurrencyを設定
+concurrency: ${{ github.workflow }}
+
+jobs:
+  generate-api-client:
+    runs-on: ubuntu-latest
+    steps:
+      # OpenAPIの定義リポジトリ(selfリポジトリ) をチェックアウト
+      - name: Checkout Current Repository
+        uses: actions/checkout@v3
+
+      # nodeセットアップ
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: https://npm.pkg.github.com
+
+      # yqセットアップ （root.ymlの分析に利用）
+      - name: Setup yq
+        uses: chrisdickinson/setup-yq@latest
+
+      # 現在のバージョン番号を取得（例. current_version = 1.2.3）
+      - name: Get vars
+        id: vars
+        run: |
+          echo "::set-output name=current_version::`yq r root.yml 'info.version'`"
+
+      # 基本はpatchバージョンが更新されます
+      # コミットコメントを遡り、プレフィックスに特定の文字列があればマイナーやマジョリティバージョンを更新
+      - name: Get version type
+        uses: actions/github-script@v6
+        id: version-type
+        with:
+          script: |
+            const commits = ${{ toJSON(github.event.commits) }}
+            for (const commit of commits.reverse()) {
+              if (commit.message.startsWith('[openapi/major]')) return 'major'
+              if (commit.message.startsWith('[openapi/minor]')) return 'minor'
+              if (commit.message.startsWith('[openapi/patch]')) return 'patch'
+            }
+            return 'patch'
+          result-encoding: string
+
+      # patchバージョンを更新（例. 1.2.3 → 1.2.4）
+      - name: Version Up (patch)
+        if: steps.version-type.outputs.result == 'patch'
+        run: |
+          VERSION=${{ steps.vars.outputs.current_version }} &&
+          a=( ${VERSION//./ } ) && a[2]=$((a[2] + 1))
+          echo "new_version=${a[0]}.${a[1]}.${a[2]}" >> $GITHUB_ENV
+
+      # minorバージョンを更新（例. 1.2.3 → 1.3.0）
+      - name: Version Up (minor)
+        if: steps.version-type.outputs.result == 'minor'
+        run: |
+          VERSION=${{ steps.vars.outputs.current_version }} &&
+          a=( ${VERSION//./ } ) && a[1]=$((a[1] + 1))
+          echo "new_version=${a[0]}.${a[1]}.0" >> $GITHUB_ENV
+
+      # majorバージョンを更新（例. 1.2.3 → 2.0.0）
+      - name: Version Up (major)
+        if: steps.version-type.outputs.result == 'major'
+        run: |
+          VERSION=${{ steps.vars.outputs.current_version }} &&
+          a=( ${VERSION//./ } ) && a[0]=$((a[0] + 1))
+          echo "new_version=${a[0]}.0.0" >> $GITHUB_ENV
+
+      # root.yml のバージョンを上書きする
+      - name: OpenAPI Versioning
+        run: |
+          sed -i -e "s/version: ${{ steps.vars.outputs.current_version }}/version: ${{ env.new_version }}/" root.yml
+
+      # OpenAPIの定義リポジトリ(selfリポジトリ) へコミット
+      - name: Commit New Version to baseinc/backend repo
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(release): root.yml update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # APIクライアントリポジトリをチェックアウト
+      - name: Checkout Axios Client Repository
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository_owner }}/shany-ledger-api-client
+          path: client
+
+      # https://openapi-generator.tech/docs/usage/#generate
+      - name: OpenAPI Generate typescript-axios
+        uses: openapi-generators/openapitools-generator-action@v1
+        with:
+          generator: typescript-axios
+          generator-tag: latest
+          command-args: |
+            -i=root.yml \
+            -o=client/packages/axios/src \
+            --generate-alias-as-model \
+            --enable-post-process-file
+
+      # root.yml で更新したバージョン番号と同じものを、package.json に対して適用する
+      - name: Update release version
+        run: |
+          cd client/packages/axios
+          npm version ${{ env.new_version }}
+
+      # PRを生成する
+      # [automerge] というプレフィックスをコミットコメントにつけることで、次の工程で自動マージが発火する
+      - name: Create pull request to axios client
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: client
+          delete-branch: true
+          commit-message: "chore(release): npm package update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
+          title: "[automerge] chore(release): npm package update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
+          body: |
+            openapi-typescript-axios: ${{ env.new_version }}
+          branch: chore/api-client-axios
+          branch-suffix: short-commit-hash # 同じプルリクは作らない

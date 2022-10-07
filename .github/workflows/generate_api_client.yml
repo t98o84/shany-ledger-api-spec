@@ -79,11 +79,10 @@ jobs:
           sed -i -e "s/version: ${{ steps.vars.outputs.current_version }}/version: ${{ env.new_version }}/" spec/root.yml
 
       # OpenAPIの定義リポジトリ(selfリポジトリ) へコミット
-      - name: Commit New Version to baseinc/backend repo
+      - name: Commit New Version to self repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "chore(release): spec/root.yml update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # APIクライアントリポジトリをチェックアウト
       - name: Checkout Axios Client Repository
@@ -91,6 +90,7 @@ jobs:
         with:
           repository: ${{ github.repository_owner }}/shany-ledger-api-client
           path: client
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       # https://openapi-generator.tech/docs/usage/#generate
       - name: OpenAPI Generate typescript-axios

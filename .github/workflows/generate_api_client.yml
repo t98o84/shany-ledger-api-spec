@@ -90,7 +90,7 @@ jobs:
         with:
           repository: ${{ github.repository_owner }}/shany-ledger-api-client
           path: client
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # https://openapi-generator.tech/docs/usage/#generate
       - name: OpenAPI Generate typescript-axios

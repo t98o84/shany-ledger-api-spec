@@ -9,9 +9,9 @@ info:
     url: https://shany-ledger.com/support
     email: support@shany-ledger.com
   license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.0.2
+    name: CC(Creative Commons)
+    url: https://creativecommons.org/licenses/
+  version: 0.0.3
 
 servers:
   - url: http://localhost/v1

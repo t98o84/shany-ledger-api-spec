@@ -84,20 +84,28 @@ jobs:
         with:
           commit_message: "chore(release): spec/root.yml update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
 
+      # GitHub Apps のtoken を取得
+      - name: Generate apps token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.OPENAPI_CLIENT_GENERATED_APP_ID }}
+          private_key: ${{ secrets.OPENAPI_CLIENT_GENERATED_PRIVATE_KEY }}
+
       # APIクライアントリポジトリをチェックアウト
       - name: Checkout Axios Client Repository
         uses: actions/checkout@v3
         with:
+          token: ${{ steps.generate_token.outputs.token }}
           repository: ${{ github.repository_owner }}/shany-ledger-api-client
           path: client
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       # https://openapi-generator.tech/docs/usage/#generate
       - name: OpenAPI Generate typescript-axios
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: typescript-axios
-          generator-tag: latest
+          generator-tag: v6.2.0
           command-args: |
             -i=spec/root.yml \
             -o=client/packages/axios/src \

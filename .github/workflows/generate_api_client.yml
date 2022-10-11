@@ -123,7 +123,7 @@ jobs:
       - name: Create pull request to axios client
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
           path: client
           delete-branch: true
           commit-message: "chore(release): npm package update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"

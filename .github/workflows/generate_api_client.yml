@@ -31,7 +31,7 @@ jobs:
       - name: Get vars
         id: vars
         run: |
-          echo "::set-output name=current_version::`yq r spec/root.yml 'info.version'`"
+          echo "current_version=`yq r spec/root.yml 'info.version'`" >> $GITHUB_ENV
 
       # 基本はpatchバージョンが更新されます
       # コミットコメントを遡り、プレフィックスに特定の文字列があればマイナーやマジョリティバージョンを更新
@@ -53,7 +53,7 @@ jobs:
       - name: Version Up (patch)
         if: steps.version-type.outputs.result == 'patch'
         run: |
-          VERSION=${{ steps.vars.outputs.current_version }} &&
+          VERSION=${{ env.current_version }} &&
           a=( ${VERSION//./ } ) && a[2]=$((a[2] + 1))
           echo "new_version=${a[0]}.${a[1]}.${a[2]}" >> $GITHUB_ENV
 
@@ -61,7 +61,7 @@ jobs:
       - name: Version Up (minor)
         if: steps.version-type.outputs.result == 'minor'
         run: |
-          VERSION=${{ steps.vars.outputs.current_version }} &&
+          VERSION=${{ env.current_version }} &&
           a=( ${VERSION//./ } ) && a[1]=$((a[1] + 1))
           echo "new_version=${a[0]}.${a[1]}.0" >> $GITHUB_ENV
 
@@ -69,20 +69,20 @@ jobs:
       - name: Version Up (major)
         if: steps.version-type.outputs.result == 'major'
         run: |
-          VERSION=${{ steps.vars.outputs.current_version }} &&
+          VERSION=${{ env.current_version }} &&
           a=( ${VERSION//./ } ) && a[0]=$((a[0] + 1))
           echo "new_version=${a[0]}.0.0" >> $GITHUB_ENV
 
       # root.yml のバージョンを上書きする
       - name: OpenAPI Versioning
         run: |
-          sed -i -e "s/version: ${{ steps.vars.outputs.current_version }}/version: ${{ env.new_version }}/" spec/root.yml
+          sed -i -e "s/version: ${{ env.current_version }}/version: ${{ env.new_version }}/" spec/root.yml
 
       # OpenAPIの定義リポジトリ(selfリポジトリ) へコミット
       - name: Commit New Version to self repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore(release): spec/root.yml update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
+          commit_message: "chore(release): spec/root.yml update version from ${{ env.current_version }} to ${{ env.new_version }}"
 
       # GitHub Apps のtoken を取得
       - name: Generate apps token
@@ -126,8 +126,8 @@ jobs:
           token: ${{ steps.generate_token.outputs.token }}
           path: client
           delete-branch: true
-          commit-message: "chore(release): npm package update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
-          title: "[automerge] chore(release): npm package update version from ${{ steps.vars.outputs.current_version }} to ${{ env.new_version }}"
+          commit-message: "chore(release): npm package update version from ${{ env.current_version }} to ${{ env.new_version }}"
+          title: "[automerge] chore(release): npm package update version from ${{ env.current_version }} to ${{ env.new_version }}"
           body: |
             openapi-typescript-axios: ${{ env.new_version }}
           branch: chore/api-client-axios

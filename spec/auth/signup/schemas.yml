@@ -1,4 +1,6 @@
 AuthSignupRequest:
+  title: AuthSignupRequest
+  description: メールアドレスとパスワードを使用したサインアップのリクエストボディです。
   type: object
   properties:
     email:
@@ -6,10 +8,12 @@ AuthSignupRequest:
     password:
      $ref: "../../user/schemas.yml#/UserPassword"
   required:
-    - email
-    - password
+  - email
+  - password
 
 AuthSignupSuccessResponse:
+  title: AuthSignupSuccessResponse
+  description: サインアップが成功した場合のレスポンスボディです。
   type: object
   properties:
     accessToken:

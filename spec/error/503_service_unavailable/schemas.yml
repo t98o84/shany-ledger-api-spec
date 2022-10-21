@@ -16,20 +16,24 @@ Maintenance:
   description: メンテナンスのため一時的にサービスが利用できなくなった場合のエラー詳細です。
   type: object
   allOf:
-    - $ref: "../schemas.yml#/ProblemDetails"
-    - properties:
-        code:
-          type: string
-          enum:
-            - Maintenance
-        startAt:
-          description: メンテナンス開始日時
-          type: string
-          format: date-time
-        endAt:
-          description: メンテナンス終了予定日時
-          type: string
-          format: date-time
-      required:
-        - startAt
-        - endAt
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      code:
+        type: string
+        enum:
+          - Maintenance
+      status:
+        type: integer
+        enum:
+        - 503
+      startAt:
+        description: メンテナンス開始日時
+        type: string
+        format: date-time
+      endAt:
+        description: メンテナンス終了予定日時
+        type: string
+        format: date-time
+    required:
+    - startAt
+    - endAt

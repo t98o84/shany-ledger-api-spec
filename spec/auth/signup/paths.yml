@@ -13,7 +13,3 @@ post:
       $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
     "419":
       $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
-    "500":
-      $ref: "./error/500_internal_server_error/responses.yml#/InternalServerErrorResponse"
-    "503":
-      $ref: "./error/503_service_unavailable/responses.yml#/ServiceUnavailableErrorResponse"

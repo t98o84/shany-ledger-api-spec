@@ -6,4 +6,5 @@ ProblemDetailsResponse:
       schema:
         $ref: "./schemas.yml#/ProblemDetails"
       examples:
-        $ref: "./examples.yml#/ProblemDetailsExample"
+        ProblemDetailsExample:
+          $ref: "./examples.yml#/ProblemDetailsExample"

@@ -106,15 +106,14 @@ jobs:
         with:
           generator: typescript-axios
           generator-tag: v6.2.0
+          config-file: openapi-generator/typescript-axios-config.yml
+          openapi-file: spec/root.yml
           command-args: |
-            -i=spec/root.yml \
             -o=client/packages/axios/src \
             --api-package api \
             --model-package model \
             --generate-alias-as-model \
-            --enable-post-process-file \
-            --additional-properties withInterfaces=true \ 
-            --additional-properties withSeparateModelsAndApi=true
+            --enable-post-process-file
 
       # root.yml で更新したバージョン番号と同じものを、package.json に対して適用する
       - name: Update release version

@@ -27,7 +27,7 @@ services:
     volumes:
       - ./spec:/local/spec
       - ./client:/local/client
-    command: generate -g typescript-axios -i /local/spec/openapi.yml -o /local/client
+    command: generate -g typescript-axios -i /local/spec/openapi.yml -o /local/client --api-package api --model-package model --generate-alias-as-model --enable-post-process-file --additional-properties withInterfaces=true --additional-properties withSeparateModelsAndApi=true
     depends_on:
       bundle:
         condition: service_completed_successfully

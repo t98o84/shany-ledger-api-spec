@@ -1,0 +1,14 @@
+UnauthorizedError:
+  title: UnauthorizedError
+  description: 有効な認証資格が不足していることによりリクエストが適用されない場合のエラー詳細です。
+  allOf:
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 401
+      code:
+        type: string
+        enum:
+        - UnauthorizedError

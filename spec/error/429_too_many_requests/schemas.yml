@@ -2,15 +2,13 @@ TooManyRequestsError:
   title: TooManyRequestsError
   description: リクエスト内容に誤りがあった場合のエラー詳細です。
   allOf:
-    - $ref: "../schemas.yml#/ProblemDetails"
-    - properties:
-        status:
-          type: integer
-          enum:
-            - 429
-        code:
-          type: string
-          enum:
-            - TooManyRequests
-            - TooManySignUpAttempts
-            - TooManySignInAttempts
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 429
+      code:
+        type: string
+        enum:
+        - TooManyRequestsError

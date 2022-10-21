@@ -1,0 +1,14 @@
+ForbiddenError:
+  title: ForbiddenError
+  description: サーバーがリクエストを理解したものの、認証が拒否された場合のエラー詳細です。
+  allOf:
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 403
+      code:
+        type: string
+        enum:
+        - ForbiddenError

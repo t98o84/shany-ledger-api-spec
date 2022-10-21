@@ -1,4 +1,6 @@
 AuthSignupRequest:
+  title: AuthSignupRequest
+  description: メールアドレスとパスワードを使用したサインアップのリクエストボディです。
   type: object
   properties:
     email:
@@ -6,13 +8,15 @@ AuthSignupRequest:
       format: email
     password:
       type: string
-      minLength: 6
+      minLength: 1
       maxLength: 255
   required:
-    - email
-    - password
+  - email
+  - password
 
 AuthSignupSuccessResponse:
+  title: AuthSignupSuccessResponse
+  description: サインアップが成功した場合のレスポンスボディです。
   type: object
   properties:
     accessToken:

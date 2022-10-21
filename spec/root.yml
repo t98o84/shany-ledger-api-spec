@@ -14,15 +14,40 @@ info:
   version: 0.0.6
 
 servers:
-  - url: http://localhost/v1
-    description: 開発環境
-  - url: https://api.shany-ledger.com/v1
-    description: 本番環境
+- url: http://localhost/v1
+  description: 開発環境
+- url: https://api.shany-ledger.com/v1
+  description: 本番環境
 
 tags:
-  - name: auth
-    description: ユーザーの認証・認可に関するAPIグループです。
+- name: auth
+  description: ユーザーの認証・認可に関するAPIグループです。
 
 paths:
   /signup:
     $ref: "./auth/signup/paths.yml"
+
+components:
+  schemas:
+    BadRequestError:
+      $ref: "./error/400_bad_request/schemas.yml#/BadRequestError"
+    UnauthorizedError:
+      $ref: "./error/401_unauthorized/schemas.yml#/UnauthorizedError"
+    ForbiddenError:
+      $ref: "./error/403_forbidden/schemas.yml#/ForbiddenError"
+    NotFoundError:
+      $ref: "./error/404_not_found/schemas.yml#/NotFoundError"
+    RequestTimeoutError:
+      $ref: "./error/408_request_timeout/schemas.yml#/RequestTimeoutError"
+    ConflictError:
+      $ref: "./error/409_conflict/schemas.yml#/ConflictError"
+    GoneError:
+      $ref: "./error/410_gone/schemas.yml#/GoneError"
+    TooManyRequestsError:
+      $ref: "./error/429_too_many_requests/schemas.yml#/TooManyRequestsError"
+    InternalServerError:
+      $ref: "./error/500_internal_server_error/schemas.yml#/InternalServerError"
+    BadGatewayError:
+      $ref: "./error/502_bad_gateway/schemas.yml#/BadGatewayError"
+    ServiceUnavailableError:
+      $ref: "./error/503_service_unavailable/schemas.yml#/ServiceUnavailableError"

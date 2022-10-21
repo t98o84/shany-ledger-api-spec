@@ -1,0 +1,14 @@
+NotFoundError:
+  title: NotFoundError
+  description: サーバーがリクエストされたリソースを見つけることができない場合のエラー詳細です。
+  allOf:
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 404
+      code:
+        type: string
+        enum:
+        - NotFoundError

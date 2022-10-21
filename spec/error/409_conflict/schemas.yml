@@ -1,0 +1,14 @@
+ConflictError:
+  title: ConflictError
+  description: 競合が発生した場合のエラー詳細です。
+  allOf:
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 409
+      code:
+        type: string
+        enum:
+        - ConflictError

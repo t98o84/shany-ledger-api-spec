@@ -1,0 +1,14 @@
+RequestTimeoutError:
+  title: RequestTimeoutError
+  description: サーバーがこの未使用のコネクションをシャットダウンした場合のエラー詳細です。
+  allOf:
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 408
+      code:
+        type: string
+        enum:
+        - RequestTimeoutError

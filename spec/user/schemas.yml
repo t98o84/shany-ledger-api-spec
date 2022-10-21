@@ -1,12 +1,12 @@
 User:
   type: object
   required:
-    - id
-    - name
-    - email
-    - createdAt
-    - updatedAt
-    - deletedAt
+  - id
+  - name
+  - email
+  - createdAt
+  - updatedAt
+  - deletedAt
   properties:
     id:
       type: string
@@ -20,8 +20,8 @@ User:
       format: email
     emailVerifiedAt:
       type:
-        - string
-        - null
+      - string
+      - null
       format: date-time
     createdAt:
       type: string
@@ -30,5 +30,7 @@ User:
       type: string
       format: date-time
     deletedAt:
-      type: string
+      type:
+      - string
+      - null
       format: date-time

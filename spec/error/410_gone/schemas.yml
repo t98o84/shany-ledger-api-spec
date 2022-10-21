@@ -1,0 +1,14 @@
+GoneError:
+  title: GoneError
+  description: 永久的に利用できなくなっている対象リソースにアクセスしている場合のエラー詳細です。
+  allOf:
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 410
+      code:
+        type: string
+        enum:
+        - GoneError

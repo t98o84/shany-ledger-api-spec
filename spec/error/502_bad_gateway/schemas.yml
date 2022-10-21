@@ -1,0 +1,14 @@
+BadGatewayError:
+  title: BadGatewayError
+  description: ゲートウェイまたはプロキシとして機能しているサーバーが上流のサーバーから無効なレスポンスを受け取った場合のエラー詳細です。
+  allOf:
+  - $ref: "../schemas.yml#/ProblemDetails"
+  - properties:
+      status:
+        type: integer
+        enum:
+        - 502
+      code:
+        type: string
+        enum:
+        - BadGatewayError

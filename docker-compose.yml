@@ -26,8 +26,9 @@ services:
     image: openapitools/openapi-generator-cli:v6.2.0
     volumes:
       - ./spec:/local/spec
+      - ./openapi-generator/typescript-axios-config.yml:/local/openapi-generator/typescript-axios-config.yml
       - ./client:/local/client
-    command: generate -g typescript-axios -i /local/spec/openapi.yml -o /local/client -c openapi-generator/typescript-axios-config.yml --api-package api --model-package model --generate-alias-as-model --enable-post-process-file
+    command: generate -g typescript-axios -i /local/spec/openapi.yml -o /local/client -c /local/openapi-generator/typescript-axios-config.yml --generate-alias-as-model --enable-post-process-file
     depends_on:
       bundle:
         condition: service_completed_successfully

@@ -110,8 +110,6 @@ jobs:
           openapi-file: spec/root.yml
           command-args: |
             -o=client/packages/axios/src \
-            --api-package api \
-            --model-package model \
             --generate-alias-as-model \
             --enable-post-process-file
 

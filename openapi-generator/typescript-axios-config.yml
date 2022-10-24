@@ -1,3 +1,2 @@
 additionalProperties:
   withInterfaces: "true"
-  withSeparateModelsAndApi: "true"

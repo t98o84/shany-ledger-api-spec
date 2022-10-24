@@ -51,3 +51,21 @@ components:
       $ref: "./error/502_bad_gateway/schemas.yml#/BadGatewayError"
     ServiceUnavailableError:
       $ref: "./error/503_service_unavailable/schemas.yml#/ServiceUnavailableError"
+  headers:
+    X-RateLimit-Limit:
+      description: 15分あたりのリクエスト制限です。
+      schema:
+        type: integer
+    X-RateLimit-Remaining:
+      description: タイムウィンドウに残っているリクエストの数です。
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: 現在のレートリミットウィンドウがリセットされるUTC日時です。
+      schema:
+        type: string
+        format: date-time
+    Retry-After:
+      description: 現在のレートリミットウィンドウがリセットされるまでの秒数です。
+      schema:
+        type: integer

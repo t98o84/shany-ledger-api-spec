@@ -1,5 +1,4 @@
 # shany-ledger-spec
-
 ShanyLedgerのAPIスキーマ定義
 
 ## 環境構築

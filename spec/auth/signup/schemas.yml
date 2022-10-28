@@ -11,15 +11,18 @@ AuthSignupRequest:
       minLength: 1
       maxLength: 255
   required:
-  - email
-  - password
+    - email
+    - password
 
 AuthSignupSuccessResponse:
   title: AuthSignupSuccessResponse
   description: サインアップが成功した場合のレスポンスボディです。
   type: object
   properties:
-    accessToken:
+    access_token:
       $ref: "../token/schemas.yml#/AccessToken"
     user:
       $ref: "../../user/schemas.yml#/User"
+  required:
+    - access_token
+    - user

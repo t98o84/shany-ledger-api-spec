@@ -1,5 +1,5 @@
-AuthSignupRequest:
-  title: AuthSignupRequest
+AuthSignUpRequest:
+  title: AuthSignUpRequest
   description: メールアドレスとパスワードを使用したサインアップのリクエストボディです。
   type: object
   properties:
@@ -14,8 +14,8 @@ AuthSignupRequest:
     - email
     - password
 
-AuthSignupSuccessResponse:
-  title: AuthSignupSuccessResponse
+AuthSignUpSuccessResponse:
+  title: AuthSignUpSuccessResponse
   description: サインアップが成功した場合のレスポンスボディです。
   type: object
   properties:
@@ -23,6 +23,9 @@ AuthSignupSuccessResponse:
       $ref: "../token/schemas.yml#/AccessToken"
     user:
       $ref: "../../user/schemas.yml#/User"
+    workspace:
+      $ref: "../../workspace/schemas.yml#/Workspace"
   required:
     - access_token
     - user
+    - workspace

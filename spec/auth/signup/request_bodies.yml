@@ -1,7 +1,7 @@
-AuthSignupRequest:
+AuthSignUpRequest:
   description: サインアップのリクエストです。
   required: true
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/AuthSignupRequest"
+        $ref: "./schemas.yml#/AuthSignUpRequest"

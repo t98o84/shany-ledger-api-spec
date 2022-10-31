@@ -1,0 +1,60 @@
+Workspace:
+  title: Workspace
+  description: ワークスペースの情報です。
+  type: object
+  properties:
+    id:
+      type: string
+      format: uuid
+    icon:
+      type: string
+      nullable: true
+      format: uri
+    url:
+      type: string
+      minLength: 1
+      maxLength: 100
+      pattern: "^(?!-)([0-9a-z-]){1,100}(?<!-)$"
+    name:
+      type: string
+      minLength: 1
+      maxLength: 100
+    description:
+      type: string
+      nullable: true
+      maxLength: 255
+  required:
+    - id
+    - icon
+    - url
+    - name
+    - description
+
+WorkspaceMember:
+  title: WorkspaceMember
+  description: ワークスペースの参加者情報です。
+  type: object
+  properties:
+    $ref: "../user/schames.ymll#/User/"
+
+WorkspaceSecuritySettings:
+  title: WorkspaceMember
+  description: ワークスペースの参加者情報です。
+  type: object
+  properties:
+    access_restriction:
+      type: string
+      default: MemberOnly
+      enum:
+        - None
+        - MemberOnly
+    participation_method:
+      type: string
+      default: Invitation
+      enum:
+        - Free
+        - Entry
+        - Invitation
+  required:
+    - access_restriction
+    - participation_method

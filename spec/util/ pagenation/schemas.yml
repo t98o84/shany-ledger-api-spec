@@ -1,0 +1,106 @@
+OffsetPagenation:
+  title: OffsetPagenation
+  description: オフセットベースのページネーションです。
+  type: object
+  required:
+    - total
+    - per_page
+    - current_page
+    - last_page
+    - first_page_url
+    - last_page_url
+    - path
+    - from
+    - to
+    - data
+  properties:
+    total:
+      type: integer
+      format: int32
+    per_page:
+      type: integer
+      format: int32
+    current_page:
+      type: integer
+      format: int32
+    last_page:
+      type: integer
+      format: int32
+    first_page_url:
+      type: string
+      format: uri
+    last_page_url:
+      type: string
+      format: uri
+    next_page_url:
+      type: string
+      nullable: true
+      format: uri
+    prev_page_url:
+      type: string
+      nullable: true
+      format: uri
+    path:
+      type: string
+      format: uri
+    from:
+      type: integer
+      format: int32
+    to:
+      type: integer
+      format: int32
+    data:
+      type: array
+      items:
+        type: {}
+
+CursorPagination:
+  title: CursorPagination
+  description: カーソルベースのページネーションです。
+  type: object
+  required:
+    - meta
+    - links
+    - data
+  properties:
+    meta:
+      type: object
+      required:
+        - hasMore
+        - perPage
+      properties:
+        hasMore:
+          type: boolean
+        perPage:
+          type: integer
+          format: int32
+        from:
+          type:
+            - string
+            - integer
+            - null
+        to:
+          type:
+            - string
+            - integer
+            - null
+    links:
+      type: object
+      required:
+        - first
+        - prev
+        - next
+      properties:
+        first:
+          type: string
+          format: uri
+        prev:
+          type: string
+          format: uri
+        next:
+          type: string
+          format: uri
+    data:
+      type: array
+      items:
+        type: {}

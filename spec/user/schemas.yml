@@ -1,12 +1,12 @@
 User:
   type: object
   required:
-  - id
-  - name
-  - email
-  - createdAt
-  - updatedAt
-  - deletedAt
+    - id
+    - name
+    - avatar
+    - email
+    - createdAt
+    - updatedAt
   properties:
     id:
       type: string
@@ -15,22 +15,20 @@ User:
       type: string
       minLength: 1
       maxLength: 100
+    avatar:
+      type: string
+      nullable: true
+      format: uri
     email:
       type: string
       format: email
-    emailVerifiedAt:
-      type:
-      - string
-      - null
+    email_verified_at:
+      type: string
+      nullable: true
       format: date-time
-    createdAt:
+    created_at:
       type: string
       format: date-time
-    updatedAt:
+    updated_at:
       type: string
-      format: date-time
-    deletedAt:
-      type:
-      - string
-      - null
       format: date-time

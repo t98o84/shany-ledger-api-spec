@@ -5,10 +5,10 @@ post:
     - auth
   operationId: signUpWithEmailAndPassword
   requestBody:
-    $ref: "./auth/signup/request_bodies.yml#/AuthSignupRequest"
+    $ref: "./auth/signup/request_bodies.yml#/AuthSignUpRequest"
   responses:
     "200":
-      $ref: "./auth/signup/responses.yml#/AuthSignupSuccessResponse"
+      $ref: "./auth/signup/responses.yml#/AuthSignUpSuccessResponse"
     "400":
       $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
     "419":

@@ -6,7 +6,7 @@ AuthSignupRequest:
     email:
       $ref: "../../user/schemas.yml#/UserEmail"
     password:
-     $ref: "../../user/schemas.yml#/UserPassword"
+      $ref: "../../user/schemas.yml#/UserPassword"
   required:
     - email
     - password

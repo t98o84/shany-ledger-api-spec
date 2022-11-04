@@ -4,9 +4,9 @@ AuthSignInRequest:
   type: object
   properties:
     email:
-      $ref: "../../user/schemas.yml#/Email"
+      $ref: "../../user/schemas.yml#/UserEmail"
     password:
-     $ref: "../../user/schemas.yml#/Password"
+     $ref: "../../user/schemas.yml#/UserPassword"
   required:
     - email
     - password

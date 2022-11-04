@@ -1,6 +1,6 @@
 post:
-  summary: サインインを行います。
-  description: メールアドレスとパスワードを使用してサインインを行います。
+  summary: サインアップとサインインを行います。
+  description: メールアドレスとパスワードを使用してサインアップとサインインを行います。
   tags:
     - auth
   operationId: signInWithEmailAndPassword

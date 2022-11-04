@@ -1,0 +1,7 @@
+AuthSignInRequest:
+  description: サインアップのリクエストです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/AuthSignInRequest"

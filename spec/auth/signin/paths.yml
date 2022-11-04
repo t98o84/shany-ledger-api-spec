@@ -1,0 +1,15 @@
+post:
+  summary: サインアップとサインインを行います。
+  description: メールアドレスとパスワードを使用してサインアップとサインインを行います。
+  tags:
+    - auth
+  operationId: signInWithEmailAndPassword
+  requestBody:
+    $ref: "./auth/signin/request_bodies.yml#/AuthSignInRequest"
+  responses:
+    "200":
+      $ref: "./auth/signin/responses.yml#/AuthSignInSuccessResponse"
+    "400":
+      $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+    "419":
+      $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"

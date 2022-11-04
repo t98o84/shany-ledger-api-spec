@@ -1,0 +1,11 @@
+IncrimentId:
+  title: IncrimentId
+  description: 数値フォーマットのIDです
+  type: integer
+  format: int64
+
+Uuid:
+  title: Uuid
+  description: UuidフォーマットのIDです。
+  type: string
+  format: uuid

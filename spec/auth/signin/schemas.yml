@@ -1,0 +1,24 @@
+AuthSignInRequest:
+  title: AuthSignInRequest
+  description: メールアドレスとパスワードを使用したサインインのリクエストボディです。
+  type: object
+  properties:
+    email:
+      $ref: "../../user/schemas.yml#/Email"
+    password:
+     $ref: "../../user/schemas.yml#/Password"
+  required:
+    - email
+    - password
+
+AuthSignInSuccessResponse:
+  title: AuthSignInSuccessResponse
+  description: サインインが成功した場合のレスポンスボディです。
+  type: object
+  properties:
+    access_token:
+      $ref: "../token/schemas.yml#/AccessToken"
+    user:
+      $ref: "../../user/schemas.yml#/User"
+  required:
+    - access_token

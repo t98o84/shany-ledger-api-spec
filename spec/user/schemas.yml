@@ -9,26 +9,42 @@ User:
     - updatedAt
   properties:
     id:
-      type: string
-      format: uuid
+      $ref: "#/Id"
     name:
-      type: string
-      minLength: 1
-      maxLength: 100
+      $ref: "#/Name"
     avatar:
-      type: string
-      nullable: true
-      format: uri
+      $ref: "#/Avatar"
     email:
-      type: string
-      format: email
+      $ref: "#/Email"
     email_verified_at:
-      type: string
-      nullable: true
-      format: date-time
+      $ref: "#/EmailVerifiedAt"
     created_at:
-      type: string
-      format: date-time
+      $ref: "#/CreatedAt"
     updated_at:
-      type: string
-      format: date-time
+      $ref: "#/UpdatedAt"
+
+Id:
+   $ref: "../util/id/schemas.yml#/Uuid"
+Name:
+  type: string
+  minLength: 1
+  maxLength: 100
+Password:
+  type: string
+  minLength: 8
+  maxLength: 255
+Avatar:
+  type: string
+  nullable: true
+  format: uri
+Email:
+  type: string
+  format: email
+EmailVerifiedAt:
+  type: string
+  nullable: true
+  format: date-time
+CreatedAt:
+  $ref: "../util/datetime/schemas.yml#/CreatedAt"
+UpdatedAt:
+  $ref: "../util/datetime/schemas.yml#/UpdatedAt"

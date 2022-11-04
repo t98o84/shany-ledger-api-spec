@@ -26,6 +26,8 @@ tags:
 paths:
   /signup:
     $ref: "./auth/signup/paths.yml"
+  /signin:
+    $ref: "./auth/signin/paths.yml"
 
 components:
   schemas:

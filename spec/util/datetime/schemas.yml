@@ -1,0 +1,17 @@
+CreatedAt:
+  title: CreatedAt
+  description: 作成日時です。
+  type: string
+  format: date-time
+
+UpdatedAt:
+  title: UpdatedAt
+  description: 更新日時です。
+  type: string
+  format: date-time
+
+DeletedAt:
+  title: DeletedAt
+  description: 削除日時です。
+  type: string
+  format: date-time

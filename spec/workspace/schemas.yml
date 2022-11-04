@@ -4,25 +4,15 @@ Workspace:
   type: object
   properties:
     id:
-      type: string
-      format: uuid
+      $ref: "#/Id"
     icon:
-      type: string
-      nullable: true
-      format: uri
+      $ref: "#/Icon"
     url:
-      type: string
-      minLength: 1
-      maxLength: 100
-      pattern: "^(?!-)([0-9a-z-]){1,100}(?<!-)$"
+      $ref: "#/Url"
     name:
-      type: string
-      minLength: 1
-      maxLength: 100
+      $ref: "#/Name"
     description:
-      type: string
-      nullable: true
-      maxLength: 255
+      $ref: "#/Description"
   required:
     - id
     - icon
@@ -30,13 +20,31 @@ Workspace:
     - name
     - description
 
+Id:
+  $ref: "../util/id/schemas.yml#/Uuid"
+Icon:
+  type: string
+  nullable: true
+  format: uri
+Url:
+  type: string
+  minLength: 1
+  maxLength: 100
+  pattern: "^(?!-)([0-9a-z-]){1,100}(?<!-)$"
+Name:
+  type: string
+  minLength: 1
+  maxLength: 100
+Description:
+  type: string
+  nullable: true
+  maxLength: 255
 WorkspaceMember:
   title: WorkspaceMember
   description: ワークスペースの参加者情報です。
   type: object
   properties:
     $ref: "../user/schames.ymll#/User/"
-
 WorkspaceSecuritySettings:
   title: WorkspaceMember
   description: ワークスペースの参加者情報です。

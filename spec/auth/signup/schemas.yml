@@ -4,12 +4,9 @@ AuthSignUpRequest:
   type: object
   properties:
     email:
-      type: string
-      format: email
+      $ref: "../../user/schemas.yml#/Email"
     password:
-      type: string
-      minLength: 1
-      maxLength: 255
+     $ref: "../../user/schemas.yml#/Password"
   required:
     - email
     - password
@@ -29,3 +26,4 @@ AuthSignUpSuccessResponse:
     - access_token
     - user
     - workspace
+

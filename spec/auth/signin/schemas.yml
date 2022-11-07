@@ -22,3 +22,4 @@ AuthSignInSuccessResponse:
       $ref: "../../user/schemas.yml#/User"
   required:
     - access_token
+    - user

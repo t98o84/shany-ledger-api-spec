@@ -1,0 +1,7 @@
+WorkspaceId:
+  name: workspaceId
+  in: path
+  description: ワークスペースのIDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceId"

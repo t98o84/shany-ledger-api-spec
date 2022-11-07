@@ -1,0 +1,30 @@
+WorkspacesGetSuccessResponse:
+  description: ワークスペースの一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/Workspaces"
+
+WorkspaceCreateSuccessResponse:
+  description: ワークスペースの新規作成が成功した場合のレスポンスです。
+  headers:
+    Location:
+      schema:
+        $ref: "#/components/headers/Location"
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/Workspace"
+
+WorkspaceGetSuccessResponse:
+  description: ワークスペースの取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/Workspace"
+
+WorkspaceUpdateSuccessResponse:
+  description: ワークスペースの更新が成功した場合のレスポンスです。
+
+WorkspaceDeleteSuccessResponse:
+  description: ワークスペースの削除が成功した場合のレスポンスです。

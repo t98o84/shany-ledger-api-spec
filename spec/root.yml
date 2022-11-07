@@ -9,9 +9,9 @@ info:
     url: https://shany-ledger.com/support
     email: support@shany-ledger.com
   license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.0
+    name: CC(Creative Commons)
+    url: https://creativecommons.org/licenses/
+  version: 0.0.20
 
 servers:
 - url: http://localhost/v1
@@ -22,12 +22,18 @@ servers:
 tags:
 - name: auth
   description: ユーザーの認証・認可に関するAPIグループです。
+- name: workspace
+  description: ワークスペースに関するAPIグループです。
 
 paths:
-  /signup:
+  /sign-up:
     $ref: "./auth/signup/paths.yml"
-  /signin:
+  /sign-in:
     $ref: "./auth/signin/paths.yml"
+  /workspaces:
+    $ref: "./workspace/paths.yml#/Workspaces"
+  /workspaces/[id]:
+    $ref: "./workspace/paths.yml#/Workspace"
 
 components:
   schemas:
@@ -53,3 +59,26 @@ components:
       $ref: "./error/502_bad_gateway/schemas.yml#/BadGatewayError"
     ServiceUnavailableError:
       $ref: "./error/503_service_unavailable/schemas.yml#/ServiceUnavailableError"
+  headers:
+    X-RateLimit-Limit:
+      description: 15分あたりのリクエスト制限です。
+      schema:
+        type: integer
+    X-RateLimit-Remaining:
+      description: タイムウィンドウに残っているリクエストの数です。
+      schema:
+        type: integer
+    X-RateLimit-Reset:
+      description: 現在のレートリミットウィンドウがリセットされるUTC日時です。
+      schema:
+        type: string
+        format: date-time
+    Retry-After:
+      description: 現在のレートリミットウィンドウがリセットされるまでの秒数です。
+      schema:
+        type: integer
+    Location:
+      description: リダイレクト先のURLを示します。
+      schema:
+        type: string
+        format: uri

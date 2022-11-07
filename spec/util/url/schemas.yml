@@ -1,0 +1,5 @@
+UrlPathId:
+  type: string
+  minLength: 1
+  maxLength: 100
+  pattern: "^(?!-)([0-9a-z-]){1,100}(?<!-)$"

@@ -1,68 +1,47 @@
+Workspaces:
+  title: Workspace
+  description: 対象のユーザーが所属するワークスペースの一覧情報です。
+  allOf:
+    - $ref: "../util/pagenation/schemas.yml#/OffsetPagenation"
+    - properties:
+        data:
+          type: array
+          items:
+            $ref: "#/Workspace"
+
 Workspace:
   title: Workspace
   description: ワークスペースの情報です。
   type: object
   properties:
     id:
-      $ref: "#/Id"
+      allOf:
+        - $ref: "#/WorkspaceId"
+        - readOnly: true
     icon:
-      $ref: "#/Icon"
+      $ref: "#/WorkspaceIcon"
     url:
-      $ref: "#/Url"
+      $ref: "#/WorkspaceUrl"
     name:
-      $ref: "#/Name"
+      $ref: "#/WorkspaceName"
     description:
-      $ref: "#/Description"
+      $ref: "#/WorkspaceDescription"
   required:
     - id
-    - icon
     - url
     - name
-    - description
 
-Id:
-  $ref: "../util/id/schemas.yml#/Uuid"
-Icon:
+WorkspaceId:
+   $ref: "../util/id/schemas.yml#/Uuid"
+WorkspaceIcon:
   type: string
-  nullable: true
   format: uri
-Url:
+WorkspaceUrl:
+  $ref: "../util/url/schemas.yml#/UrlPathId"
+WorkspaceName:
   type: string
   minLength: 1
   maxLength: 100
-  pattern: "^(?!-)([0-9a-z-]){1,100}(?<!-)$"
-Name:
+WorkspaceDescription:
   type: string
-  minLength: 1
-  maxLength: 100
-Description:
-  type: string
-  nullable: true
   maxLength: 255
-WorkspaceMember:
-  title: WorkspaceMember
-  description: ワークスペースの参加者情報です。
-  type: object
-  properties:
-    $ref: "../user/schames.ymll#/User/"
-WorkspaceSecuritySettings:
-  title: WorkspaceMember
-  description: ワークスペースの参加者情報です。
-  type: object
-  properties:
-    access_restriction:
-      type: string
-      default: MemberOnly
-      enum:
-        - None
-        - MemberOnly
-    participation_method:
-      type: string
-      default: Invitation
-      enum:
-        - Free
-        - Entry
-        - Invitation
-  required:
-    - access_restriction
-    - participation_method

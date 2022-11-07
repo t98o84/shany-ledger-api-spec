@@ -1,0 +1,6 @@
+GoneErrorResponse:
+  description: 永久的に利用できなくなっている対象リソースにアクセスしている場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/GoneError"

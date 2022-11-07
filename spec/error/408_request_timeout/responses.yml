@@ -1,0 +1,6 @@
+RequestTimeoutErrorResponse:
+  description: サーバーがこの未使用のコネクションをシャットダウンした場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/RequestTimeoutError"

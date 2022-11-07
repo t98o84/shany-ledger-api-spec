@@ -1,0 +1,6 @@
+BadGatewayErrorResponse:
+  description: ゲートウェイまたはプロキシとして機能しているサーバーが上流のサーバーから無効なレスポンスを受け取った場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/BadGatewayError"

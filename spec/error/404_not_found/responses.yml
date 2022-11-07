@@ -1,0 +1,6 @@
+NotFoundErrorResponse:
+  description: サーバーがリクエストされたリソースを見つけることができない場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/NotFoundError"

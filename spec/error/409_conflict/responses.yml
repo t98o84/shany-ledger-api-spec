@@ -1,0 +1,6 @@
+ConflictErrorResponse:
+  description: 競合が発生した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/ConflictError"

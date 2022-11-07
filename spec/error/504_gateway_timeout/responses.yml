@@ -1,0 +1,6 @@
+GatewayTimeoutErrorResponse:
+  description: リクエストを完了するために必要な上流のサーバーからのレスポンスが時間内に得られなかった場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/GatewayTimeoutError"

@@ -1,14 +1,14 @@
 GatewayTimeoutError:
   title: GatewayTimeoutError
-  description: 未認証の場合のエラー詳細です。
+  description: リクエストを完了するために必要な上流のサーバーからのレスポンスが時間内に得られなかった場合のエラー詳細です。
   allOf:
   - $ref: "../schemas.yml#/ProblemDetails"
   - properties:
       status:
         type: integer
         enum:
-        - 401
+        - 504
       code:
         type: string
         enum:
-        - UnauthorizedError
+        - GatewayTimeoutError

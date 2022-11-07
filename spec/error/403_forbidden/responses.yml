@@ -1,0 +1,6 @@
+ForbiddenErrorResponse:
+  description: サーバーがリクエストを理解したものの、認証が拒否された場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/ForbiddenError"

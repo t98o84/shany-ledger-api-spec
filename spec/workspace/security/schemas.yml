@@ -1,0 +1,16 @@
+WorkspaceSecurity:
+  title: WorkspaceMember
+  description: ワークスペースの参加者情報です。
+  type: object
+  properties:
+    access_restriction:
+      $ref: "#/WorkspaceSecurityAccessRestriction"
+  required:
+    - access_restriction
+
+WorkspaceSecurityAccessRestriction:
+  type: string
+  default: MemberOnly
+  enum:
+    - None
+    - MemberOnly

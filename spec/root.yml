@@ -34,6 +34,8 @@ paths:
     $ref: "./workspace/paths.yml#/Workspaces"
   /workspaces/[id]:
     $ref: "./workspace/paths.yml#/Workspace"
+  /workspaces/[id]/security:
+    $ref: "./workspace/security/paths.yml"
 
 components:
   schemas:

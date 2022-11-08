@@ -1,0 +1,42 @@
+get:
+  summary: ワークスペースのセキュリティ設定の取得を行います。
+  description: IDを使用してワークスペースのセキュリティ設定を取得します。
+  tags:
+    - workspace
+  operationId: findSecurity
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+  responses:
+    "200":
+      $ref: "./workspace/security/responses.yml#/WorkspaceSecurityGetSuccessResponse"
+    "400":
+      $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+    "401":
+      $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+    "403":
+      $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
+    "419":
+      $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+patch:
+  summary: ワークスペースのセキュリティ設定の更新を行います。
+  description: IDを使用してワークスペースのセキュリティ設定を更新します。
+  tags:
+    - workspace
+  operationId: updateSecurity
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+  requestBody:
+    $ref: "./workspace/security/request_bodies.yml#/WorkspaceSecurityUpdateRequestBody"
+  responses:
+    "204":
+      $ref: "./workspace/security/responses.yml#/WorkspaceSecurityUpdateSuccessResponse"
+    "400":
+      $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+    "401":
+      $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+    "403":
+      $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
+    "409":
+      $ref: "./error/409_conflict/responses.yml#/ConflictErrorResponse"
+    "419":
+      $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"

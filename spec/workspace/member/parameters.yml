@@ -1,0 +1,7 @@
+MemberId:
+  name: memberId
+  in: path
+  description: 参加者のIDです。
+  required: true
+  schema:
+    $ref: "../../user/schemas.yml#/UserId"

@@ -4,7 +4,7 @@ Workspaces:
     description: ユーザーの所属するワークスペースの一覧を取得します。
     tags:
       - workspace
-    operationId: fetchList
+    operationId: search
     responses:
       "200":
         $ref: "./workspace/responses.yml#/WorkspacesGetSuccessResponse"

@@ -1,5 +1,5 @@
-OffsetPagenation:
-  title: OffsetPagenation
+OffsetPagination:
+  title: OffsetPagination
   description: オフセットベースのページネーションです。
   type: object
   required:

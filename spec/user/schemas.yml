@@ -50,7 +50,6 @@ UserEmail:
   format: email
 UserEmailVerifiedAt:
   type: string
-  nullable: true
   format: date-time
 UserCreatedAt:
   $ref: "../util/datetime/schemas.yml#/CreatedAt"

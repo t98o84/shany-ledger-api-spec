@@ -2,7 +2,7 @@ Workspaces:
   title: Workspace
   description: 対象のユーザーが所属するワークスペースの一覧情報です。
   allOf:
-    - $ref: "../util/pagenation/schemas.yml#/OffsetPagenation"
+    - $ref: "../util/pagination/schemas.yml#/OffsetPagination"
     - properties:
         data:
           type: array

@@ -1,0 +1,9 @@
+WorkspaceMemberSecurityGetSuccessResponse:
+  description: ワークスペース参加者のセキュリティ設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceMemberSecurity"
+
+WorkspaceMemberSecurityUpdateSuccessResponse:
+  description: ワークスペース参加者のセキュリティ設定の更新が成功した場合のレスポンスです。

@@ -32,10 +32,16 @@ paths:
     $ref: "./auth/signin/paths.yml"
   /workspaces:
     $ref: "./workspace/paths.yml#/Workspaces"
-  /workspaces/[id]:
+  /workspaces/[workspaceId]:
     $ref: "./workspace/paths.yml#/Workspace"
-  /workspaces/[id]/security:
+  /workspaces/[workspaceId]/security:
     $ref: "./workspace/security/paths.yml"
+  /workspaces/[workspaceId]/members:
+    $ref: "./workspace/member/paths.yml#/Members"
+  /workspaces/[workspaceId]/members/[memberId]:
+    $ref: "./workspace/member/paths.yml#/Member"
+  /workspaces/[workspaceId]/members/[memberId]/security:
+    $ref: "./workspace/member/security/paths.yml"
 
 components:
   schemas:

@@ -1,0 +1,29 @@
+WorkspaceMembers:
+  title: WorkspaceMembers
+  description: ワークスペースの参加者一覧情報です。
+  allOf:
+    - $ref: "../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          type: array
+          items:
+            $ref: "#/WorkspaceMember"
+
+WorkspaceMember:
+  title: WorkspaceMember
+  description: ワークスペースの参加者情報です。
+  type: object
+  properties:
+    id:
+      $ref: "#/WorkspaceMemberId"
+    name:
+      $ref: "#/WorkspaceMemberName"
+    avatar:
+      $ref: "#/WorkspaceMemberAvatar"
+
+WorkspaceMemberId:
+  $ref: "../../user/schemas.yml#/UserId"
+WorkspaceMemberName:
+  $ref: "../../user/schemas.yml#/UserName"
+WorkspaceMemberAvatar:
+  $ref: "../../user/schemas.yml#/UserAvatar"

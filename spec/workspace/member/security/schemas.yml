@@ -1,0 +1,22 @@
+WorkspaceMemberSecurity:
+  title: WorkspaceMemberSecurity
+  description: ワークスペースの参加者に関するセキュリティ設定です。
+  type: object
+  properties:
+    role:
+      $ref: "#/WorkspaceMemberSecurityRole"
+
+WorkspaceMemberSecurityRole:
+  description: |
+    | Role             | Description                                                                                   | 
+    | ---------------- | --------------------------------------------------------------------------------------------- | 
+    | Owner            | すべての操作が可能です。                                                                           | 
+    | Admin            | ワークスペースの一部設定以外すべての操作が可能です。                                                    | 
+    | Member           | ワークスペースの設定とメンバーの操作以外のすべての操作が可能です。                                         | 
+    | Guest            | 招待された台帳のみパーミッションに準じた操作が可能です。ワークスペース全体に招待することはできません。            |
+  type: string
+  enum:
+    - "Owner"
+    - "Admin"
+    - "Member"
+    - "Guest"

@@ -1,0 +1,19 @@
+MembersGetSuccessResponse:
+  description: ワークスペースの参加者一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceMembers"
+
+MemberGetSuccessResponse:
+  description: ワークスペースの参加者の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceMember"
+
+MemberUpdateSuccessResponse:
+  description: ワークスペースの参加者の更新が成功した場合のレスポンスです。
+
+MemberDeleteSuccessResponse:
+  description: ワークスペースの参加者の削除が成功した場合のレスポンスです。

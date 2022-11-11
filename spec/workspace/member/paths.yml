@@ -1,0 +1,56 @@
+Members:
+  get:
+    summary: ワークスペースの参加者一覧の取得を行います。
+    description: ワークスペースの参加者一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchMember
+    responses:
+      "200":
+        $ref: "./workspace/member/responses.yml#/MembersGetSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+
+Member:
+  get:
+    summary: ワークスペースの参加者の取得を行います。
+    description: IDを使用してワークスペースの参加者を取得します。
+    tags:
+      - workspace
+    operationId: findMember
+    parameters:
+      - $ref: "./workspace/member/parameters.yml#/MemberId"
+    responses:
+      "200":
+        $ref: "./workspace/member/responses.yml#/MemberGetSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "403":
+        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+  delete:
+    summary: ワークスペースの参加者の削除を行います。
+    description: IDを使用してワークスペースの参加者を削除します。
+    tags:
+      - workspace
+    operationId: deleteMember
+    parameters:
+      - $ref: "./workspace/member/parameters.yml#/MemberId"
+    responses:
+      "204":
+        $ref: "./workspace/member/responses.yml#/MemberDeleteSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "403":
+        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"

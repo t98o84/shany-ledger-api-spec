@@ -5,6 +5,9 @@ Members:
     tags:
       - workspace
     operationId: searchMember
+    parameters:
+      - $ref: "./workspace/member/parameters.yml#/ExclusionMemberRoles"
+      - $ref: "./workspace/member/parameters.yml#/InclusionMemberRoles"
     responses:
       "200":
         $ref: "./workspace/member/responses.yml#/MembersGetSuccessResponse"

@@ -5,3 +5,27 @@ MemberId:
   required: true
   schema:
     $ref: "../../user/schemas.yml#/UserId"
+
+ExclusionMemberRoles:
+  name: exclusion_member_roles[]
+  in: query
+  description: 参加者一覧から除外するロールです。InclusionMemberRolesが指定されていた場合ExclusionMemberRolesは無視されます。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./security/schemas.yml#/WorkspaceMemberSecurityRole"
+  style: form
+  explode: true
+
+InclusionMemberRoles:
+  name: inclusion_member_roles[]
+  in: query
+  description: 参加者一覧に含めるロールです。ExclusionMemberRolesが指定されていた場合InclusionMemberRolesのみ適用されます。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./security/schemas.yml#/WorkspaceMemberSecurityRole"
+  style: form
+  explode: true

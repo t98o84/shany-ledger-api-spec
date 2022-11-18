@@ -1,0 +1,91 @@
+WorkspaceInvitationSearchRequestBody:
+  title: WorkspaceInvitationSearchRequestBody
+  description: ワークスペースのメンバー招待検索リクエストのボディです。
+  type: object
+  properties:
+    status:
+
+WorkspaceInvitations:
+  title: WorkspaceInvitations
+  description: ワークスペースの参加者一覧情報です。
+  allOf:
+    - $ref: "../../util/pagination/schemas.yml#/OffsetPagination"
+    - properties:
+        data:
+          type: array
+          items:
+            $ref: "#/WorkspaceInvitation"
+
+WorkspaceInvitation:
+  title: WorkspaceInvitation
+  description: ワークスペースの参加者情報です。
+  type: object
+  properties:
+    id:
+      allOf:
+        - $ref: "#/WorkspaceInvitationId"
+        - readOnly: true
+    url:
+      allOf:
+        - $ref: "#/WorkspaceInvitationUrl"
+        - readOnly: true
+    status:
+      $ref: "#/WorkspaceInvitationStatus"
+    role:
+      $ref: "#/WorkspaceInvitationRole"
+    ledgers:
+      $ref: "#/WorkspaceInvitationLedgers"
+    only_emails:
+      $ref: "#/WorkspaceInvitationOnlyEmails"
+    expires_at:
+      $ref: "#/WorkspaceInvitationExpiresAt"
+    max_participants:
+      $ref: "#/WorkspaceInvitationMaxParticipants"
+  required:
+    - id
+    - status
+
+WorkspaceInvitationId:
+  $ref: "../../util/id/schemas.yml#/Uuid"
+
+WorkspaceInvitationUrl:
+  allOf:
+    - $ref: "../../util/url/schemas.yml#/UrlPathId"
+    - description: only_emailの指定がある場合は取得できません。
+
+WorkspaceInvitationStatus:
+  type: string
+  enum:
+    - Enable
+    - Disable
+
+WorkspaceInvitationRole:
+  $ref: "../member/schemas.yml#/WorkspaceMemberRole"
+
+WorkspaceInvitationLedgers:
+  allOf:
+    - description: 招待者がゲストとして参加する場合にどの台帳に参加するかを指定します。また、ゲスト招待時のみ有効かつ必須です。
+    - $ref: "#/WorkspaceInvitationLedger"
+
+WorkspaceInvitationLedger:
+  $ref: "../ledger/schemas.yml#/WorkspaceLedgerId"
+
+WorkspaceInvitationOnlyEmails:
+  description: 指定されたメールアドレスごとに一意のリンクを作成し招待メールを送信します。
+  type: array
+  maxLength: 10
+  items:
+    $ref: "#/WorkspaceInvitationOnlyEmail"
+
+WorkspaceInvitationOnlyEmail:
+  type: string
+  format: email
+
+WorkspaceInvitationExpiresAt:
+  type: string
+  format: date-time
+
+WorkspaceInvitationMaxParticipants:
+  type: integer
+  format: int32
+  minimum: 1

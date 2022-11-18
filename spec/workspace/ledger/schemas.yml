@@ -1,0 +1,40 @@
+WorkspaceLedger:
+  title: WorkspaceLedger
+  description: 台帳の情報です。
+  type: object
+  properties:
+    id:
+      allOf:
+        - $ref: "#/WorkspaceLedgerId"
+        - readOnly: true
+    icon:
+      $ref: "#/WorkspaceLedgerIcon"
+    url:
+      $ref: "#Workspace/LedgerUrl"
+    name:
+      $ref: "#Workspace/LedgerName"
+    description:
+      $ref: "#/WorkspaceLedgerDescription"
+  required:
+    - id
+    - icon
+    - url
+    - name
+    - description
+
+
+WorkspaceLedgerId:
+  $ref: "../../util/id/schemas.yml#/Uuid"
+WorkspaceLedgerIcon:
+  type: string
+  format: uri
+WorkspaceLedgerUrl:
+  $ref: "../../util/url/schemas.yml#/UrlPathId"
+WorkspaceLedgerName:
+  type: string
+  minLength: 1
+  maxLength: 100
+WorkspaceLedgerDescription:
+  type: string
+  nullable: true
+  maxLength: 255

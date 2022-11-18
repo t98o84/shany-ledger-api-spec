@@ -3,3 +3,8 @@ UrlPathId:
   minLength: 1
   maxLength: 100
   pattern: "^(?!-)([0-9a-z-]){1,100}(?<!-)$"
+
+Domain:
+  type: string
+  minLength: 4
+  maxLength: 255

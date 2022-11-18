@@ -42,6 +42,10 @@ paths:
     $ref: "./workspace/member/paths.yml#/Member"
   /workspaces/[workspaceId]/members/[memberId]/security:
     $ref: "./workspace/member/security/paths.yml"
+  /workspaces/[workspaceId]/invitations:
+    $ref: "./workspace/invitation/paths.yml#/Invitations"
+  /workspaces/[workspaceId]/invitations/[workspaceInvitationId]:
+    $ref: "./workspace/invitation/paths.yml#/Invitation"
 
 components:
   schemas:

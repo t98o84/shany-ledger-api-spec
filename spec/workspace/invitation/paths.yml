@@ -1,0 +1,108 @@
+Invitations:
+  get:
+    summary: ワークスペースの参加招待の一覧の取得を行います。
+    description: ワークスペースの参加招待の一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
+      - $ref: "./workspace/invitation/parameters.yml#/ExclusionWorkspaceInvitationRoles"
+      - $ref: "./workspace/invitation/parameters.yml#/InclusionWorkspaceInvitationRoles"
+      - $ref: "./workspace/invitation/parameters.yml#/ExclusionWorkspaceInvitationStatuses"
+      - $ref: "./workspace/invitation/parameters.yml#/InclusionWorkspaceInvitationStatuses"
+    responses:
+      "200":
+        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationsGetSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+  post:
+    summary: ワークスペースの参加招待の作成を行います。
+    description: ワークスペースの参加招待を作成します。
+    tags:
+      - workspace
+    operationId: createInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    requestBody:
+      $ref: "./workspace/invitation/request_bodies.yml#/WorkspaceInvitationCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationCreateSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+
+Invitation:
+  get:
+    summary: ワークスペースの参加招待の取得を行います。
+    description: IDを使用してワークスペースの参加招待を取得します。
+    tags:
+      - workspace
+    operationId: findInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
+    responses:
+      "200":
+        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationGetSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "403":
+        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+  patch:
+    summary: ワークスペースの参加招待の更新を行います。
+    description: IDを使用してワークスペースの参加招待を更新します。
+    tags:
+      - workspace
+    operationId: updateInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
+    requestBody:
+      $ref: "./workspace/invitation/request_bodies.yml#/WorkspaceInvitationUpdateRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationUpdateSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "403":
+        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
+      "409":
+        $ref: "./error/409_conflict/responses.yml#/ConflictErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
+  delete:
+    summary: ワークスペースの参加招待の削除を行います。
+    description: IDを使用してワークスペースの参加招待を削除します。
+    tags:
+      - workspace
+    operationId: deleteInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
+    responses:
+      "204":
+        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationDeleteSuccessResponse"
+      "400":
+        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
+      "401":
+        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
+      "403":
+        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
+      "419":
+        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"

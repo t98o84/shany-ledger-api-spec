@@ -1,5 +1,5 @@
-IncrimentId:
-  title: IncrimentId
+IncrementId:
+  title: IncrementId
   description: 数値フォーマットのIDです
   type: integer
   format: int64

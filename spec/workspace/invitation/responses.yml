@@ -1,0 +1,30 @@
+WorkspaceInvitationsGetSuccessResponse:
+  description: ワークスペースの招待一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceInvitations"
+
+WorkspaceInvitationGetSuccessResponse:
+  description: ワークスペースの招待の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceInvitation"
+
+WorkspaceInvitationCreateSuccessResponse:
+    description: ワークスペースの招待の新規作成が成功した場合のレスポンスです。
+    headers:
+      Location:
+        schema:
+          $ref: "#/components/headers/Location"
+    content:
+      application/json:
+        schema:
+          $ref: "./schemas.yml#/WorkspaceInvitation"
+
+WorkspaceInvitationUpdateSuccessResponse:
+  description: ワークスペースの招待の更新が成功した場合のレスポンスです。
+
+WorkspaceInvitationDeleteSuccessResponse:
+  description: ワークスペースの招待の削除が成功した場合のレスポンスです。

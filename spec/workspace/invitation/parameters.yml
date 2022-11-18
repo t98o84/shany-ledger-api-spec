@@ -1,0 +1,55 @@
+WorkspaceInvitationId:
+  name: workspaceInvitationId
+  in: path
+  description: 参加者招待IDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceInvitationId"
+
+ExclusionWorkspaceInvitationRoles:
+  name: exclusion_member_roles[]
+  in: query
+  description: 招待一覧から除外するロールです。InclusionWorkspaceInvitationRolesが指定されていた場合この項目は無視されます。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./schemas.yml#/WorkspaceInvitationRole"
+  style: form
+  explode: true
+
+InclusionWorkspaceInvitationRoles:
+  name: inclusion_member_roles[]
+  in: query
+  description: 招待一覧に含めるロールです。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./schemas.yml#/WorkspaceInvitationRole"
+  style: form
+  explode: true
+
+ExclusionWorkspaceInvitationStatuses:
+  name: exclusion_invitation_statuses[]
+  in: query
+  description: 招待一覧から除外するステータスです。InclusionInvitationStatusesが指定されていた場合この項目は無視されます。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./schemas.yml#/WorkspaceInvitationStatus"
+  style: form
+  explode: true
+
+InclusionWorkspaceInvitationStatuses:
+  name: inclusion_invitation_statuses[]
+  in: query
+  description:  招待一覧に含めるステータスです。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./schemas.yml#/WorkspaceInvitationStatus"
+  style: form
+  explode: true

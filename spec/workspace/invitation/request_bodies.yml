@@ -1,0 +1,15 @@
+WorkspaceInvitationCreateRequestBody:
+  description: ワークスペースのメンバー招待作成リクエストのボディです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceInvitation"
+
+WorkspaceInvitationUpdateRequestBody:
+  description: ワークスペースのメンバー招待更新リクエストのボディです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceInvitation"

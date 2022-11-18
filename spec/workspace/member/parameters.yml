@@ -14,7 +14,7 @@ ExclusionMemberRoles:
   schema:
     type: array
     items:
-      $ref: "./security/schemas.yml#/WorkspaceMemberSecurityRole"
+      $ref: "./schemas.yml#/WorkspaceMemberRole"
   style: form
   explode: true
 
@@ -26,6 +26,6 @@ InclusionMemberRoles:
   schema:
     type: array
     items:
-      $ref: "./security/schemas.yml#/WorkspaceMemberSecurityRole"
+      $ref: "./schemas.yml#/WorkspaceMemberRole"
   style: form
   explode: true

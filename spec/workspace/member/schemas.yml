@@ -20,6 +20,8 @@ WorkspaceMember:
       $ref: "#/WorkspaceMemberName"
     avatar:
       $ref: "#/WorkspaceMemberAvatar"
+    role:
+      $re: "#/WorkspaceMemberRole"
 
 WorkspaceMemberId:
   $ref: "../../user/schemas.yml#/UserId"
@@ -27,3 +29,17 @@ WorkspaceMemberName:
   $ref: "../../user/schemas.yml#/UserName"
 WorkspaceMemberAvatar:
   $ref: "../../user/schemas.yml#/UserAvatar"
+WorkspaceMemberRole:
+  description: |
+    | Role             | Description                                                                                   | 
+    | ---------------- | --------------------------------------------------------------------------------------------- | 
+    | Owner            | すべての操作が可能です。                                                                           | 
+    | Admin            | ワークスペースの一部設定以外すべての操作が可能です。                                                    | 
+    | Member           | ワークスペースの設定とメンバーの操作以外のすべての操作が可能です。                                         | 
+    | Guest            | 招待された台帳のみパーミッションに準じた操作が可能です。ワークスペース全体に招待することはできません。            |
+  type: string
+  enum:
+    - "Owner"
+    - "Admin"
+    - "Member"
+    - "Guest"

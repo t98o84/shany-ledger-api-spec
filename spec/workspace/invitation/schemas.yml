@@ -33,8 +33,6 @@ WorkspaceInvitation:
       $ref: "#/WorkspaceInvitationStatus"
     role:
       $ref: "#/WorkspaceInvitationRole"
-    ledgers:
-      $ref: "#/WorkspaceInvitationLedgers"
     only_emails:
       $ref: "#/WorkspaceInvitationOnlyEmails"
     expires_at:
@@ -60,15 +58,12 @@ WorkspaceInvitationStatus:
     - Disable
 
 WorkspaceInvitationRole:
-  $ref: "../member/schemas.yml#/WorkspaceMemberRole"
-
-WorkspaceInvitationLedgers:
-  allOf:
-    - description: 招待者がゲストとして参加する場合にどの台帳に参加するかを指定します。また、ゲスト招待時のみ有効かつ必須です。
-    - $ref: "#/WorkspaceInvitationLedger"
-
-WorkspaceInvitationLedger:
-  $ref: "../ledger/schemas.yml#/WorkspaceLedgerId"
+  description: ゲストはワークスペース全体には参加できないので招待可能な権限から除外しています。
+  type: string
+  enum:
+    - "Owner"
+    - "Admin"
+    - "Member"
 
 WorkspaceInvitationOnlyEmails:
   description: 指定されたメールアドレスごとに一意のリンクを作成し招待メールを送信します。

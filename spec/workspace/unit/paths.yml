@@ -1,0 +1,27 @@
+Units:
+  get:
+    summary: 台帳で使用する管理単位の一覧取得を行います。
+    description: 台帳で使用する管理単位の一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchUnit
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
+    responses:
+      "200":
+        $ref: "./workspace/unit/responses.yml#/WorkspaceUnitsSearchSuccessResponse"
+
+Unit:
+  get:
+    summary: 台帳で使用する管理単位の取得を行います。
+    description: IDを使用して台帳で使用する管理単位を取得します。
+    tags:
+      - workspace
+    operationId: findUnit
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
+    responses:
+      "200":
+        $ref: "./workspace/unit/responses.yml#/WorkspaceUnitFindSuccessResponse"

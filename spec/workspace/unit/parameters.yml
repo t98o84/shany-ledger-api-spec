@@ -1,0 +1,7 @@
+WorkspaceUnitId:
+  name: workspaceUnitId
+  in: path
+  description: 台帳の管理単位のIDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceUnitId"

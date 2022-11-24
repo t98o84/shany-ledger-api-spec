@@ -1,0 +1,13 @@
+WorkspaceUnitsSearchSuccessResponse:
+  description: 台帳の管理単位一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceUnits"
+
+WorkspaceUnitFindSuccessResponse:
+  description: 台帳の管理単位の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceUnit"

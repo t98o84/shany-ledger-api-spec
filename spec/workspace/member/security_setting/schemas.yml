@@ -1,10 +1,10 @@
-WorkspaceMemberSecurity:
-  title: WorkspaceMemberSecurity
+WorkspaceMemberSecuritySettings:
+  title: WorkspaceMemberSecuritySettings
   description: ワークスペースの参加者に関するセキュリティ設定です。
   type: object
   properties:
     role:
-      $ref: "#/WorkspaceMemberSecurityRole"
+      $ref: "#/WorkspaceMemberSecuritySettingsRole"
 
-WorkspaceMemberSecurityRole:
+WorkspaceMemberSecuritySettingsRole:
   $ref: "../schemas.yml#/WorkspaceMemberRole"

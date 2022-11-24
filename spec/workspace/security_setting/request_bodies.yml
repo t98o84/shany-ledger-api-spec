@@ -1,6 +1,6 @@
-WorkspaceSecurityUpdateRequestBody:
+WorkspaceSecuritySettingsUpdateRequestBody:
   description: ワークスペースのセキュリティー設定の更新リクエストのボディです。
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/WorkspaceSecurity"
+        $ref: "./schemas.yml#/WorkspaceSecuritySettings"

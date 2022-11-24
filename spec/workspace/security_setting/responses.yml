@@ -1,9 +1,9 @@
-WorkspaceSecurityFindSuccessResponse:
+WorkspaceSecuritySettingsFindSuccessResponse:
   description: ワークスペースのセキュリティー設定の取得が成功した場合のレスポンスです。
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/WorkspaceSecurity"
+        $ref: "./schemas.yml#/WorkspaceSecuritySettings"
 
-WorkspaceSecurityUpdateSuccessResponse:
+WorkspaceSecuritySettingsUpdateSuccessResponse:
   description: ワークスペースのセキュリティー設定の更新が成功した場合のレスポンスです。

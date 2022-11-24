@@ -3,22 +3,22 @@ get:
   description: IDを使用してワークスペースのセキュリティ設定を取得します。
   tags:
     - workspace
-  operationId: findSecurity
+  operationId: findSecuritySetting
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
   responses:
     "200":
-      $ref: "./workspace/security/responses.yml#/WorkspaceSecurityFindSuccessResponse"
+      $ref: "./workspace/security_setting/responses.yml#/WorkspaceSecuritySettingsFindSuccessResponse"
 patch:
   summary: ワークスペースのセキュリティ設定の更新を行います。
   description: IDを使用してワークスペースのセキュリティ設定を更新します。
   tags:
     - workspace
-  operationId: updateSecurity
+  operationId: updateSecuritySetting
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
   requestBody:
-    $ref: "./workspace/security/request_bodies.yml#/WorkspaceSecurityUpdateRequestBody"
+    $ref: "./workspace/security_setting/request_bodies.yml#/WorkspaceSecuritySettingsUpdateRequestBody"
   responses:
     "204":
-      $ref: "./workspace/security/responses.yml#/WorkspaceSecurityUpdateSuccessResponse"
+      $ref: "./workspace/security_setting/responses.yml#/WorkspaceSecuritySettingsUpdateSuccessResponse"

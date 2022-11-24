@@ -34,14 +34,14 @@ paths:
     $ref: "./workspace/paths.yml#/Workspaces"
   /workspaces/[workspaceId]:
     $ref: "./workspace/paths.yml#/Workspace"
-  /workspaces/[workspaceId]/security:
-    $ref: "./workspace/security/paths.yml"
+  /workspaces/[workspaceId]/security-settings:
+    $ref: "./workspace/security_setting/paths.yml"
   /workspaces/[workspaceId]/members:
     $ref: "./workspace/member/paths.yml#/Members"
   /workspaces/[workspaceId]/members/[memberId]:
     $ref: "./workspace/member/paths.yml#/Member"
-  /workspaces/[workspaceId]/members/[memberId]/security:
-    $ref: "./workspace/member/security/paths.yml"
+  /workspaces/[workspaceId]/members/[memberId]/security-settings:
+    $ref: "./workspace/member/security_setting/paths.yml"
   /workspaces/[workspaceId]/member-groups:
       $ref: "./workspace/member_group/paths.yml#/MemberGroups"
   /workspaces/[workspaceId]/member-groups/[workspaceMemberGroupId]:

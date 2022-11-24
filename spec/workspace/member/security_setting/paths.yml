@@ -3,24 +3,24 @@ get:
   description: IDを使用してワークスペース参加者のセキュリティ設定を取得します。
   tags:
     - workspace
-  operationId: findMemberSecurity
+  operationId: findMemberSecuritySetting
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
     - $ref: "./workspace/member/parameters.yml#/MemberId"
   responses:
     "200":
-      $ref: "./workspace/member/security/responses.yml#/WorkspaceMemberSecurityFindSuccessResponse"
+      $ref: "./workspace/member/security_setting/responses.yml#/WorkspaceMemberSecuritySettingsFindSuccessResponse"
 patch:
   summary: ワークスペース参加者のセキュリティ設定の更新を行います。
   description: IDを使用してワークスペース参加者のセキュリティ設定を更新します。
   tags:
     - workspace
-  operationId: updateMemberSecurity
+  operationId: updateMemberSecuritySetting
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
     - $ref: "./workspace/member/parameters.yml#/MemberId"
   requestBody:
-    $ref: "./workspace/member/security/request_bodies.yml#/WorkspaceMemberSecurityUpdateRequestBody"
+    $ref: "./workspace/member/security_setting/request_bodies.yml#/WorkspaceMemberSecuritySettingsUpdateRequestBody"
   responses:
     "204":
-      $ref: "./workspace/member/security/responses.yml#/WorkspaceMemberSecurityUpdateSuccessResponse"
+      $ref: "./workspace/member/security_setting/responses.yml#/WorkspaceMemberSecuritySettingsUpdateSuccessResponse"

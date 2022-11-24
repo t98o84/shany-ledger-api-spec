@@ -10,15 +10,6 @@ get:
   responses:
     "200":
       $ref: "./workspace/member/security/responses.yml#/WorkspaceMemberSecurityGetSuccessResponse"
-    "400":
-      $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-    "401":
-      $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
-    "403":
-      $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
-    "419":
-      $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
-
 patch:
   summary: ワークスペース参加者のセキュリティ設定の更新を行います。
   description: IDを使用してワークスペース参加者のセキュリティ設定を更新します。
@@ -33,11 +24,3 @@ patch:
   responses:
     "204":
       $ref: "./workspace/member/security/responses.yml#/WorkspaceMemberSecurityUpdateSuccessResponse"
-    "400":
-      $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-    "401":
-      $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
-    "403":
-      $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
-    "419":
-      $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"

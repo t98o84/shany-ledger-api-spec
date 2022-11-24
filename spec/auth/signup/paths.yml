@@ -9,7 +9,3 @@ post:
   responses:
     "200":
       $ref: "./auth/signup/responses.yml#/AuthSignupSuccessResponse"
-    "400":
-      $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-    "419":
-      $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"

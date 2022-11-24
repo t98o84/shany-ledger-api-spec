@@ -8,12 +8,6 @@ Workspaces:
     responses:
       "200":
         $ref: "./workspace/responses.yml#/WorkspacesGetSuccessResponse"
-      "400":
-        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-      "401":
-        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
-      "419":
-        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
   post:
     summary: ワークスペースの作成を行います。
     description: ワークスペースを作成します。
@@ -25,12 +19,6 @@ Workspaces:
     responses:
       "201":
         $ref: "./workspace/responses.yml#/WorkspaceCreateSuccessResponse"
-      "400":
-        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-      "401":
-        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
-      "419":
-        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
 
 Workspace:
   get:
@@ -44,14 +32,6 @@ Workspace:
     responses:
       "200":
         $ref: "./workspace/responses.yml#/WorkspaceGetSuccessResponse"
-      "400":
-        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-      "401":
-        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
-      "403":
-        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
-      "419":
-        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
   patch:
     summary: ワークスペースの更新を行います。
     description: IDを使用してワークスペースを更新します。
@@ -65,16 +45,6 @@ Workspace:
     responses:
       "204":
         $ref: "./workspace/responses.yml#/WorkspaceUpdateSuccessResponse"
-      "400":
-        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-      "401":
-        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
-      "403":
-        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
-      "409":
-        $ref: "./error/409_conflict/responses.yml#/ConflictErrorResponse"
-      "419":
-        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"
   delete:
     summary: ワークスペースの削除を行います。
     description: IDを使用してワークスペースを削除します。
@@ -86,11 +56,3 @@ Workspace:
     responses:
       "204":
         $ref: "./workspace/responses.yml#/WorkspaceDeleteSuccessResponse"
-      "400":
-        $ref: "./error/400_bad_request/responses.yml#/BadRequestErrorResponse"
-      "401":
-        $ref: "./error/401_unauthorized/responses.yml#/UnauthorizedErrorResponse"
-      "403":
-        $ref: "./error/403_forbidden/responses.yml#/ForbiddenErrorResponse"
-      "419":
-        $ref: "./error/429_too_many_requests/responses.yml#/TooManyRequestsErrorResponse"

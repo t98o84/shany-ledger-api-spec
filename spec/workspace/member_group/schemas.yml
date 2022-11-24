@@ -1,0 +1,75 @@
+WorkspaceMemberGroupCreateRequestBody:
+  title: WorkspaceMemberGroups
+  description: ワークスペースの参加者グループ一覧情報です。
+  allOf:
+    - $ref: "#/WorkspaceMemberGroup"
+    - properties:
+        members:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: "../member/schemas.yml#/WorkspaceMemberId"
+
+WorkspaceMemberGroupUpdateRequestBody:
+  title: WorkspaceMemberGroups
+  description: ワークスペースの参加者グループ一覧情報です。
+  type: object
+  properties:
+    name:
+      $ref: "#/WorkspaceMemberGroupName"
+    description:
+      $ref: "#/WorkspaceMemberGroupDescription"
+
+WorkspaceMemberGroups:
+  title: WorkspaceMemberGroups
+  description: ワークスペースの参加者グループ一覧情報です。
+  allOf:
+    - $ref: "../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          type: array
+          maxItems: 100
+          items:
+            $ref: "#/WorkspaceMemberGroup"
+
+WorkspaceMemberGroup:
+  title: WorkspaceMemberGroup
+  description: ワークスペースの参加者グループ情報です。
+  type: object
+  properties:
+    id:
+      allOf:
+        - $ref: "#/WorkspaceMemberGroupId"
+        - readOnly: true
+    name:
+      $ref: "#/WorkspaceMemberGroupName"
+    description:
+      $ref: "#/WorkspaceMemberGroupDescription"
+    members:
+      allOf:
+        - $ref: "./member/schemas.yml#/WorkspaceMemberGroupMembers"
+        - properties:
+            data:
+              maxItems: 10
+  required:
+    - id
+    - name
+    - members
+
+WorkspaceMemberGroupId:
+  $ref: "../../util/id/schemas.yml#/Uuid"
+
+WorkspaceMemberGroupName:
+  type: string
+  minLength: 1
+  maxLength: 100
+
+WorkspaceMemberGroupSymbol:
+  type: string
+  minLength: 1
+  maxLength: 10
+
+WorkspaceMemberGroupDescription:
+  type: string
+  maxLength: 255

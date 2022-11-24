@@ -1,0 +1,41 @@
+Members:
+  get:
+    summary: ワークスペースの参加者グループの参加者の取得を行います。
+    description: IDを使用してワークスペースの参加者グループの参加者を取得します。
+    tags:
+      - workspace
+    operationId: searchMemberGroupMembers
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
+    responses:
+      "200":
+        $ref: "./workspace/member_group/member/responses.yml#/WorkspaceMemberGroupMembersSearchSuccessResponse"
+  patch:
+    summary: ワークスペースの参加者グループの参加者の更新を行います。
+    description: IDを使用してワークスペースの参加者グループの参加者を更新します。
+    tags:
+      - workspace
+    operationId: addMemberGroupMembers
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
+    requestBody:
+      $ref: "./workspace/member_group/member/request_bodies.yml#/WorkspaceMemberGroupMembersAddRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/member_group/member/responses.yml#/WorkspaceMemberGroupMembersAddSuccessResponse"
+  delete:
+    summary: ワークスペースの参加者グループの参加者の削除を行います。
+    description: IDを使用してワークスペースの参加者グループの参加者を削除します。
+    tags:
+      - workspace
+    operationId: deleteMemberGroupMembers
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
+    requestBody:
+      $ref: "./workspace/member_group/member/request_bodies.yml#/WorkspaceMemberGroupMembersDeleteRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/member_group/member/responses.yml#/WorkspaceMemberGroupMembersDeleteSuccessResponse"

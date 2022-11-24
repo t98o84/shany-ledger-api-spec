@@ -1,0 +1,12 @@
+WorkspaceMemberGroupMembersSearchSuccessResponse:
+  description: ワークスペースの参加者グループの参加者一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceMemberGroupMembers"
+
+WorkspaceMemberGroupMembersAddSuccessResponse:
+  description: ワークスペースの参加者グループに参加者の追加が成功した場合のレスポンスです。
+
+WorkspaceMemberGroupMembersDeleteSuccessResponse:
+  description: ワークスペースの参加者グループから参加者の削除が成功した場合のレスポンスです。

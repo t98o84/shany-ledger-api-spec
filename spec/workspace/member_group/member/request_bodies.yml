@@ -1,0 +1,14 @@
+WorkspaceMemberGroupMembersAddRequestBody:
+  description: ワークスペースの参加者グループの作成リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceMemberGroupMembersAddRequestBody"
+
+
+WorkspaceMemberGroupMembersDeleteRequestBody:
+  description: ワークスペースの参加者グループの更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceMemberGroupMembersDeleteRequestBody"

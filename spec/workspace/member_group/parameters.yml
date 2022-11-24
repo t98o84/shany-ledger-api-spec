@@ -1,0 +1,7 @@
+WorkspaceMemberGroupId:
+  name: workspaceMemberGroupId
+  in: path
+  description: 参加者グループのIDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceMemberGroupId"

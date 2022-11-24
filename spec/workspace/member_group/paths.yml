@@ -1,0 +1,66 @@
+MemberGroups:
+  get:
+    summary: ワークスペースの参加者グループの取得を行います。
+    description: ワークスペースの参加者グループの一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchMemberGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
+    responses:
+      "200":
+        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupsGetSuccessResponse"
+  post:
+    summary: ワークスペースの参加者グループの作成を行います。
+    description: ワークスペースの参加者グループを作成します。
+    tags:
+      - workspace
+    operationId: createMemberGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    requestBody:
+      $ref: "./workspace/member_group/request_bodies.yml#/WorkspaceMemberGroupCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupCreateSuccessResponse"
+
+MemberGroup:
+  get:
+    summary: ワークスペースの参加者グループの取得を行います。
+    description: IDを使用してワークスペースの参加者グループを取得します。
+    tags:
+      - workspace
+    operationId: findMemberGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
+    responses:
+      "200":
+        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupGetSuccessResponse"
+  patch:
+    summary: ワークスペースの参加者グループの更新を行います。
+    description: IDを使用してワークスペースの参加者グループを更新します。
+    tags:
+      - workspace
+    operationId: updateMemberGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
+    requestBody:
+      $ref: "./workspace/member_group/request_bodies.yml#/WorkspaceMemberGroupUpdateRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupUpdateSuccessResponse"
+  delete:
+    summary: ワークスペースの参加者グループの削除を行います。
+    description: IDを使用してワークスペースの参加者グループを削除します。
+    tags:
+      - workspace
+    operationId: deleteMemberGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
+    responses:
+      "204":
+        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupDeleteSuccessResponse"

@@ -42,6 +42,12 @@ paths:
     $ref: "./workspace/member/paths.yml#/Member"
   /workspaces/[workspaceId]/members/[memberId]/security:
     $ref: "./workspace/member/security/paths.yml"
+  /workspaces/[workspaceId]/member-groups:
+      $ref: "./workspace/member_group/paths.yml#/MemberGroups"
+  /workspaces/[workspaceId]/member-groups/[workspaceMemberGroupId]:
+    $ref: "./workspace/member_group/paths.yml#/MemberGroup"
+  /workspaces/[workspaceId]/member-groups/[workspaceMemberGroupId]/members:
+    $ref: "./workspace/member_group/member/paths.yml#/Members"
   /workspaces/[workspaceId]/invitations:
     $ref: "./workspace/invitation/paths.yml#/Invitations"
   /workspaces/[workspaceId]/invitations/[workspaceInvitationId]:

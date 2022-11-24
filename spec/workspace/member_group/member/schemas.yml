@@ -1,0 +1,31 @@
+WorkspaceMemberGroupMembersAddRequestBody:
+  title: WorkspaceMemberGroupAddMemberRequestBody
+  description: ワークスペースの参加者グループに参加者を追加するリクエストボディです。
+  type: array
+  minItems: 1
+  maxItems: 100
+  items:
+    $ref: "../../member/schemas.yml#/WorkspaceMemberId"
+
+WorkspaceMemberGroupMembersDeleteRequestBody:
+  title: WorkspaceMemberGroupDeleteMemberRequestBody
+  description: ワークスペースの参加者グループから参加者を削除するリクエストボディです。
+  type: array
+  minItems: 1
+  maxItems: 100
+  items:
+    $ref: "../../member/schemas.yml#/WorkspaceMemberId"
+
+WorkspaceMemberGroupMembers:
+  allOf:
+    - $ref: "../../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: "#/WorkspaceMemberGroupMember"
+
+WorkspaceMemberGroupMember:
+  $ref: "../../member/schemas.yml#/WorkspaceMember"

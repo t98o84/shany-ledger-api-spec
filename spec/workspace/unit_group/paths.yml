@@ -1,0 +1,66 @@
+UnitGroups:
+  get:
+    summary: 台帳で使用する管理単位のグループの一覧取得を行います。
+    description: 台帳で使用する管理単位のグループの一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchUnitGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit_group/parameters.yml#/WorkspaceUnitGroupId"
+    responses:
+      "200":
+        $ref: "./workspace/unit_group/responses.yml#/WorkspaceUnitGroupsSearchSuccessResponse"
+  post:
+    summary: 台帳で使用する管理単位のグループの作成を行います。
+    description: 台帳で使用する管理単位のグループを作成します。
+    tags:
+      - workspace
+    operationId: createUnitGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    requestBody:
+      $ref: "./workspace/unit_group/request_bodies.yml#/WorkspaceUnitGroupCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/unit_group/responses.yml#/WorkspaceUnitGroupCreateSuccessResponse"
+
+UnitGroup:
+  get:
+    summary: 台帳で使用する管理単位のグループの取得を行います。
+    description: IDを使用して台帳で使用する管理単位のグループを取得します。
+    tags:
+      - workspace
+    operationId: findUnitGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit_group/parameters.yml#/WorkspaceUnitGroupId"
+    responses:
+      "200":
+        $ref: "./workspace/unit_group/responses.yml#/WorkspaceUnitGroupFindSuccessResponse"
+  patch:
+    summary: 台帳で使用する管理単位のグループの更新を行います。
+    description: IDを使用して台帳で使用する管理単位のグループを更新します。
+    tags:
+      - workspace
+    operationId: updateUnitGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit_group/parameters.yml#/WorkspaceUnitGroupId"
+    requestBody:
+      $ref: "./workspace/unit_group/request_bodies.yml#/WorkspaceUnitGroupUpdateRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/unit_group/responses.yml#/WorkspaceUnitGroupUpdateSuccessResponse"
+  delete:
+    summary: 台帳で使用する管理単位のグループの削除を行います。
+    description: IDを使用して台帳で使用する管理単位のグループを削除します。
+    tags:
+      - workspace
+    operationId: deleteUnitGroup
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit_group/parameters.yml#/WorkspaceUnitGroupId"
+    responses:
+      "204":
+        $ref: "./workspace/unit_group/responses.yml#/WorkspaceUnitGroupDeleteSuccessResponse"

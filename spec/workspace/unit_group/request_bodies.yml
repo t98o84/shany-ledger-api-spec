@@ -1,0 +1,14 @@
+WorkspaceUnitGroupCreateRequestBody:
+  description: 台帳の管理単位のグループの作成リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceUnitGroupCreateRequestBody"
+
+
+WorkspaceUnitGroupUpdateRequestBody:
+  description: 台帳の管理単位のグループの更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceUnitGroupUpdateRequestBody"

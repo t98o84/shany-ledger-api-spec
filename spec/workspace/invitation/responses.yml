@@ -1,11 +1,11 @@
-WorkspaceInvitationsGetSuccessResponse:
+WorkspaceInvitationsSearchSuccessResponse:
   description: ワークスペースの招待一覧の取得が成功した場合のレスポンスです。
   content:
     application/json:
       schema:
         $ref: "./schemas.yml#/WorkspaceInvitations"
 
-WorkspaceInvitationGetSuccessResponse:
+WorkspaceInvitationFindSuccessResponse:
   description: ワークスペースの招待の取得が成功した場合のレスポンスです。
   content:
     application/json:

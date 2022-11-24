@@ -1,4 +1,4 @@
-WorkspaceSecurityGetSuccessResponse:
+WorkspaceSecurityFindSuccessResponse:
   description: ワークスペースのセキュリティー設定の取得が成功した場合のレスポンスです。
   content:
     application/json:

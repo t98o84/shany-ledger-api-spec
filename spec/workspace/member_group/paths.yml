@@ -10,7 +10,7 @@ MemberGroups:
       - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
     responses:
       "200":
-        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupsGetSuccessResponse"
+        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupsSearchSuccessResponse"
   post:
     summary: ワークスペースの参加者グループの作成を行います。
     description: ワークスペースの参加者グループを作成します。
@@ -37,7 +37,7 @@ MemberGroup:
       - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
     responses:
       "200":
-        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupGetSuccessResponse"
+        $ref: "./workspace/member_group/responses.yml#/WorkspaceMemberGroupFindSuccessResponse"
   patch:
     summary: ワークスペースの参加者グループの更新を行います。
     description: IDを使用してワークスペースの参加者グループを更新します。

@@ -1,11 +1,11 @@
-WorkspaceMemberGroupsGetSuccessResponse:
+WorkspaceMemberGroupsSearchSuccessResponse:
   description: ワークスペースの参加者グループの一覧取得が成功した場合のレスポンスです。
   content:
     application/json:
       schema:
         $ref: "./schemas.yml#/WorkspaceMemberGroups"
 
-WorkspaceMemberGroupGetSuccessResponse:
+WorkspaceMemberGroupFindSuccessResponse:
   description: ワークスペースの参加者グループの取得が成功した場合のレスポンスです。
   content:
     application/json:

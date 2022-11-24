@@ -14,7 +14,7 @@ Invitations:
       - $ref: "./workspace/invitation/parameters.yml#/InclusionWorkspaceInvitationStatuses"
     responses:
       "200":
-        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationsGetSuccessResponse"
+        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationsSearchSuccessResponse"
   post:
     summary: ワークスペースの参加招待の作成を行います。
     description: ワークスペースの参加招待を作成します。
@@ -41,7 +41,7 @@ Invitation:
       - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
     responses:
       "200":
-        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationGetSuccessResponse"
+        $ref: "./workspace/invitation/responses.yml#/WorkspaceInvitationFindSuccessResponse"
   patch:
     summary: ワークスペースの参加招待の更新を行います。
     description: IDを使用してワークスペースの参加招待を更新します。

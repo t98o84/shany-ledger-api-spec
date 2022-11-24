@@ -11,7 +11,7 @@ Members:
       - $ref: "./workspace/member/parameters.yml#/InclusionMemberRoles"
     responses:
       "200":
-        $ref: "./workspace/member/responses.yml#/MembersGetSuccessResponse"
+        $ref: "./workspace/member/responses.yml#/MembersSearchSuccessResponse"
 
 Member:
   get:
@@ -25,7 +25,7 @@ Member:
       - $ref: "./workspace/member/parameters.yml#/MemberId"
     responses:
       "200":
-        $ref: "./workspace/member/responses.yml#/MemberGetSuccessResponse"
+        $ref: "./workspace/member/responses.yml#/MemberFindSuccessResponse"
   delete:
     summary: ワークスペースの参加者の削除を行います。
     description: IDを使用してワークスペースの参加者を削除します。

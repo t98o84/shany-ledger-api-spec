@@ -8,7 +8,7 @@ get:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
   responses:
     "200":
-      $ref: "./workspace/security/responses.yml#/WorkspaceSecurityGetSuccessResponse"
+      $ref: "./workspace/security/responses.yml#/WorkspaceSecurityFindSuccessResponse"
 patch:
   summary: ワークスペースのセキュリティ設定の更新を行います。
   description: IDを使用してワークスペースのセキュリティ設定を更新します。

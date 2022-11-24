@@ -1,4 +1,4 @@
-WorkspacesGetSuccessResponse:
+WorkspacesSearchSuccessResponse:
   description: ワークスペースの一覧の取得が成功した場合のレスポンスです。
   content:
     application/json:
@@ -16,7 +16,7 @@ WorkspaceCreateSuccessResponse:
       schema:
         $ref: "./schemas.yml#/Workspace"
 
-WorkspaceGetSuccessResponse:
+WorkspaceFindSuccessResponse:
   description: ワークスペースの取得が成功した場合のレスポンスです。
   content:
     application/json:

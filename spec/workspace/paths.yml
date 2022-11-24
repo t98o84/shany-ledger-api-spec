@@ -7,7 +7,7 @@ Workspaces:
     operationId: search
     responses:
       "200":
-        $ref: "./workspace/responses.yml#/WorkspacesGetSuccessResponse"
+        $ref: "./workspace/responses.yml#/WorkspacesSearchSuccessResponse"
   post:
     summary: ワークスペースの作成を行います。
     description: ワークスペースを作成します。
@@ -31,7 +31,7 @@ Workspace:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
     responses:
       "200":
-        $ref: "./workspace/responses.yml#/WorkspaceGetSuccessResponse"
+        $ref: "./workspace/responses.yml#/WorkspaceFindSuccessResponse"
   patch:
     summary: ワークスペースの更新を行います。
     description: IDを使用してワークスペースを更新します。

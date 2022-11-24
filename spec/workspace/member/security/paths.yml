@@ -9,7 +9,7 @@ get:
     - $ref: "./workspace/member/parameters.yml#/MemberId"
   responses:
     "200":
-      $ref: "./workspace/member/security/responses.yml#/WorkspaceMemberSecurityGetSuccessResponse"
+      $ref: "./workspace/member/security/responses.yml#/WorkspaceMemberSecurityFindSuccessResponse"
 patch:
   summary: ワークスペース参加者のセキュリティ設定の更新を行います。
   description: IDを使用してワークスペース参加者のセキュリティ設定を更新します。

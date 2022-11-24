@@ -100,3 +100,16 @@ CursorPagination:
       type: array
       items:
         type: {}
+
+Page:
+  type: integer
+  format: int32
+
+Cursor:
+  type:
+    - integer
+    - string
+
+PerPage:
+  type: integer
+  format: int32

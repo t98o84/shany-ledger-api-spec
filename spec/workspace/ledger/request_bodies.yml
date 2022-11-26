@@ -1,0 +1,14 @@
+WorkspaceLedgerCreateRequestBody:
+  description: 台帳の作成リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerCreateRequestBody"
+
+
+WorkspaceLedgerUpdateRequestBody:
+  description: 台帳の更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerUpdateRequestBody"

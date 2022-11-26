@@ -1,0 +1,26 @@
+WorkspaceLedgersSearchSuccessResponse:
+  description: 台帳一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgers"
+
+WorkspaceLedgerFindSuccessResponse:
+  description: 台帳の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedger"
+
+WorkspaceLedgerCreateSuccessResponse:
+  description: 台帳の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedger"
+
+WorkspaceLedgerUpdateSuccessResponse:
+  description: 台帳の更新が成功した場合のレスポンスです。
+
+WorkspaceLedgerDeleteSuccessResponse:
+  description: 台帳の削除が成功した場合のレスポンスです。

@@ -1,0 +1,65 @@
+Ledgers:
+  get:
+    summary: 台帳の一覧取得を行います。
+    description: 台帳の一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchLedger
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/responses.yml#/WorkspaceLedgersSearchSuccessResponse"
+  post:
+    summary: 台帳の作成を行います。
+    description: 台帳を作成します。
+    tags:
+      - workspace
+    operationId: createLedger
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    requestBody:
+      $ref: "./workspace/ledger/request_bodies.yml#/WorkspaceLedgerCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/ledger/responses.yml#/WorkspaceLedgerCreateSuccessResponse"
+
+Ledger:
+  get:
+    summary: 台帳の取得を行います。
+    description: IDを使用して台帳を取得します。
+    tags:
+      - workspace
+    operationId: findLedger
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/responses.yml#/WorkspaceLedgerFindSuccessResponse"
+  patch:
+    summary: 台帳の更新を行います。
+    description: IDを使用して台帳を更新します。
+    tags:
+      - workspace
+    operationId: updateLedger
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    requestBody:
+      $ref: "./workspace/ledger/request_bodies.yml#/WorkspaceLedgerUpdateRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/responses.yml#/WorkspaceLedgerUpdateSuccessResponse"
+  delete:
+    summary: 台帳の削除を行います。
+    description: IDを使用して台帳を削除します。
+    tags:
+      - workspace
+    operationId: deleteLedger
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/responses.yml#/WorkspaceLedgerDeleteSuccessResponse"

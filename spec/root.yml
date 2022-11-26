@@ -60,6 +60,10 @@ paths:
     $ref: "./workspace/unit_group/paths.yml#/UnitGroups"
   /workspaces/[workspaceId]/unit-groups/[workspaceUnitGroupId]:
     $ref: "./workspace/unit_group/paths.yml#/UnitGroup"
+  /workspaces/[workspaceId]/ledgers:
+    $ref: "./workspace/ledger/paths.yml#/Ledgers"
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]:
+    $ref: "./workspace/ledger/paths.yml#/Ledger"
 
 components:
   schemas:

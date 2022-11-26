@@ -1,40 +1,122 @@
+WorkspaceLedgerCreateRequestBody:
+  allOf:
+    - $ref: "#/WorkspaceLedger"
+
+WorkspaceLedgerUpdateRequestBody:
+  allOf:
+    - $ref: "#/WorkspaceLedgerInformation"
+    - properties:
+        items:
+          $ref: "#/WorkspaceLedgerItems"
+
+WorkspaceLedgers:
+  title: WorkspaceLedgers
+  description: 台帳の管理単位のグループ一覧です。
+  allOf:
+    - $ref: "../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/WorkspaceLedgerInformation"
+              - properties:
+                  id:
+                    allOf:
+                      - $ref: "#/WorkspaceLedgerId"
+                      - readOnly: true
+                  security_settings:
+                    $ref: "./security_setting/schemas.yml#/WorkspaceLedgerSecuritySettings"
+              - required:
+                  - id
+                  - security_settings
+
 WorkspaceLedger:
   title: WorkspaceLedger
   description: 台帳の情報です。
-  type: object
-  properties:
-    id:
-      allOf:
-        - $ref: "#/WorkspaceLedgerId"
-        - readOnly: true
-    icon:
-      $ref: "#/WorkspaceLedgerIcon"
-    url:
-      $ref: "#Workspace/LedgerUrl"
-    name:
-      $ref: "#Workspace/LedgerName"
-    description:
-      $ref: "#/WorkspaceLedgerDescription"
-  required:
-    - id
-    - icon
-    - url
-    - name
-    - description
-
+  allOf:
+    - $ref: "#/WorkspaceLedgerInformation"
+    - properties:
+        id:
+          allOf:
+            - $ref: "#/WorkspaceLedgerId"
+            - readOnly: true
+        items:
+          $ref: "#/WorkspaceLedgerItems"
+        security_settings:
+          $ref: "./security_setting/schemas.yml#/WorkspaceLedgerSecuritySettings"
+    - required:
+        - id
+        - items
+        - security_settings
 
 WorkspaceLedgerId:
   $ref: "../../util/id/schemas.yml#/Uuid"
+
+WorkspaceLedgerInformation:
+  type: object
+  properties:
+    address:
+      allOf:
+        - $ref: "#/WorkspaceLedgerAccount"
+        - readOnly: true
+    icon:
+      $ref: "#/WorkspaceLedgerIcon"
+    name:
+      $ref: "#/WorkspaceLedgerName"
+    description:
+      $ref: "#/WorkspaceLedgerDescription"
+  required:
+    - address
+    - name
+
+WorkspaceLedgerAccount:
+  description: 他の台帳との取引に使用する台帳番号です。
+  allOf:
+    - $ref: "../../util/id/schemas.yml#/Uuid"
+
 WorkspaceLedgerIcon:
   type: string
   format: uri
-WorkspaceLedgerUrl:
-  $ref: "../../util/url/schemas.yml#/UrlPathId"
+
 WorkspaceLedgerName:
   type: string
   minLength: 1
   maxLength: 100
+
 WorkspaceLedgerDescription:
   type: string
   nullable: true
   maxLength: 255
+
+WorkspaceLedgerItems:
+  type: array
+  minItems: 1
+  maxItems: 100
+  items:
+    $ref: "#/WorkspaceLedgerItem"
+
+WorkspaceLedgerItem:
+  type: object
+  properties:
+    id:
+      $ref: "#/WorkspaceLedgerItemId"
+    unit:
+      $ref: "#/WorkspaceLedgerItemUnit"
+    priority:
+      $ref: "#/WorkspaceLedgerItemPriority"
+
+WorkspaceLedgerItemId:
+  $ref: "../../util/id/schemas.yml#/Uuid"
+
+WorkspaceLedgerItemUnit:
+  oneOf:
+    - $ref: "../unit/schemas.yml#/WorkspaceUnit"
+    - $ref: "../unit_group/schemas.yml#/WorkspaceUnitGroup"
+
+WorkspaceLedgerItemPriority:
+  type: array
+  minItems: 1
+  maxItems: 50
+  items:
+    $ref: "#/WorkspaceLedgerItem"

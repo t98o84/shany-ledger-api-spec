@@ -1,0 +1,7 @@
+WorkspaceLedgerId:
+  name: workspaceLedgerId
+  in: path
+  description: 台帳のIDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceLedgerId"

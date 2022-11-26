@@ -1,0 +1,48 @@
+WorkspaceLedgerSecuritySettings:
+  title: WorkspaceLedgerSecuritySettings
+  description: ワークスペースの参加者情報です。
+  type: object
+  properties:
+    public_scope:
+      $ref: "#/WorkspaceLedgerSecuritySettingsPublicScope"
+    public_url:
+      $ref: "#/WorkspaceLedgerSecuritySettingPublicUrl"
+    entry_method:
+      $ref: "#/WorkspaceLedgerSecuritySettingsEntryMethod"
+  required:
+    - public_scope
+    - public_url
+    - entry_method
+
+WorkspaceLedgerSecuritySettingsPublicScope:
+  description: |
+    | Public Scope           | Description                                                                              | 
+    | ---------------------- | ---------------------------------------------------------------------------------------- | 
+    | Public                 | URLを知っている人であれば誰でも閲覧が可能です。                                                  | 
+    | WorkspaceMember        | ワークスペースの参加者であれば誰でも閲覧が可能です。                                               | 
+    | LedgerMember           | 参加者のみ閲覧が可能です。                                                                    |
+  type: string
+  default: WorkspaceMember
+  enum:
+    - Public
+    - WorkspaceMember
+    - LedgerMember
+
+WorkspaceLedgerSecuritySettingPublicUrl:
+  allOf:
+    - $ref: "../../../util/url/schemas.yml#/UrlPathId"
+    - description: public_scope の設定が Public の場合のみ有効です。
+
+WorkspaceLedgerSecuritySettingsEntryMethod:
+  description: |
+    | Entry Method           | Description                                                                              | 
+    | ---------------------- | ---------------------------------------------------------------------------------------- | 
+    | Free                   | URLを知っている人であれば誰で参加が可能です。                                                    | 
+    | WorkspaceMemberFree    | ワークスペースの参加者であれば誰で参加が可能です。                                                 | 
+    | Invitation             | 招待された参加者のみ参加が可能です。                                                            |
+  type: string
+  default: WorkspaceMember
+  enum:
+    - None
+    - WorkspaceMemberFree
+    - Invitation

@@ -1,0 +1,55 @@
+Transactions:
+  get:
+    summary: 台帳の取引の一覧取得を行います。
+    description: 台帳の取引の一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchLedgerTransaction
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/transaction/responses.yml#/WorkspaceLedgerTransactionsSearchSuccessResponse"
+  post:
+    summary: 台帳の取引の作成を行います。
+    description: 台帳を作成します。
+    tags:
+      - workspace
+    operationId: createLedgerTransaction
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    requestBody:
+      $ref: "./workspace/ledger/transaction/request_bodies.yml#/WorkspaceLedgerTransactionCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/ledger/transaction/responses.yml#/WorkspaceLedgerTransactionCreateSuccessResponse"
+
+Transaction:
+  get:
+    summary: 台帳の取引の取得を行います。
+    description: IDを使用して台帳を取得します。
+    tags:
+      - workspace
+    operationId: findLedgerTransaction
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/transaction/responses.yml#/WorkspaceLedgerTransactionFindSuccessResponse"
+  delete:
+    summary: 台帳の取引の削除を行います。
+    description: IDを使用して台帳を削除します。
+    tags:
+      - workspace
+    operationId: deleteLedgerTransaction
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/transaction/responses.yml#/WorkspaceLedgerTransactionDeleteSuccessResponse"

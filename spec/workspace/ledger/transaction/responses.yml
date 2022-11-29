@@ -1,0 +1,26 @@
+WorkspaceLedgerTransactionsSearchSuccessResponse:
+  description: 台帳の取引一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerTransactions"
+
+WorkspaceLedgerTransactionFindSuccessResponse:
+  description: 台帳の取引の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerTransaction"
+
+WorkspaceLedgerTransactionCreateSuccessResponse:
+  description: 台帳の取引の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerTransaction"
+
+WorkspaceLedgerTransactionUpdateSuccessResponse:
+  description: 台帳の取引の更新が成功した場合のレスポンスです。
+
+WorkspaceLedgerTransactionDeleteSuccessResponse:
+  description: 台帳の取引の削除が成功した場合のレスポンスです。

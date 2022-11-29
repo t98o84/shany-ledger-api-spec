@@ -64,6 +64,10 @@ paths:
     $ref: "./workspace/ledger/paths.yml#/Ledgers"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]:
     $ref: "./workspace/ledger/paths.yml#/Ledger"
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions:
+    $ref: "./workspace/ledger/transaction/paths.yml#/Transactions"
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]:
+    $ref: "./workspace/ledger/transaction/paths.yml#/Transaction"
 
 components:
   schemas:

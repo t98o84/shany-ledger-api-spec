@@ -1,0 +1,7 @@
+WorkspaceLedgerTransactionId:
+  name: workspaceLedgerTransactionId
+  in: path
+  description: 台帳の取引IDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceLedgerTransactionId"

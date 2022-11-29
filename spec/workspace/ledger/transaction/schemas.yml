@@ -1,0 +1,91 @@
+WorkspaceLedgerTransactionCreateRequestBody:
+  allOf:
+    - $ref: "#/WorkspaceLedgerTransaction"
+    - properties:
+        description:
+          $ref: "#/WorkspaceLedgerTransactionDescriptionWrite"
+
+WorkspaceLedgerTransactions:
+  allOf:
+    - $ref: "../../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          type: array
+          items:
+            $ref: "#/WorkspaceLedgerTransaction"
+
+WorkspaceLedgerTransaction:
+  title: Transaction
+  description: 台帳の取引情報です。
+  type: object
+  properties:
+    id:
+      allOf:
+        - $ref: "#/WorkspaceLedgerTransactionId"
+        - readOnly: true
+    prev_id:
+      allOf:
+        - $ref: "#/WorkspaceLedgerTransactionPrevId"
+        - readOnly: true
+    expiration_date:
+      $ref: "#/WorkspaceLedgerTransactionExpirationDate"
+    description:
+      $ref: "#/WorkspaceLedgerTransactionDescriptionRead"
+    data:
+      $ref: "#/WorkspaceLedgerTransactionData"
+  required:
+    - id
+    - data
+
+WorkspaceLedgerTransactionId:
+  $ref: "../../../util/id/schemas.yml#/Uuid"
+
+WorkspaceLedgerTransactionPrevId:
+  $ref: "#/WorkspaceLedgerTransactionId"
+
+WorkspaceLedgerTransactionDescriptionWrite:
+  description: textかfilesどちらかは必ず指定する必要があります。
+  type: object
+  properties:
+    text:
+      $ref: "#/WorkspaceLedgerTransactionDescriptionText"
+    files:
+      type: array
+      items:
+        $ref: "#/WorkspaceLedgerTransactionDescriptionFile"
+
+WorkspaceLedgerTransactionDescriptionRead:
+  description: textかfilesどちらかは必ず指定する必要があります。
+  type: object
+  properties:
+    text:
+      $ref: "#/WorkspaceLedgerTransactionDescriptionText"
+    files:
+      type: array
+      items:
+        $ref: "#/WorkspaceLedgerTransactionDescriptionFilePath"
+
+WorkspaceLedgerTransactionDescriptionText:
+  type: string
+  maxLength: 10000
+
+WorkspaceLedgerTransactionDescriptionFile:
+  type: string
+  format: binary
+
+WorkspaceLedgerTransactionDescriptionFilePath:
+  type: string
+  format: uri
+
+WorkspaceLedgerTransactionData:
+  type: object
+
+WorkspaceLedgerTransactionExpirationDate:
+  type: object
+  properties:
+    from:
+      type: string
+      format: date-time
+    to:
+      type: string
+      format: date-time

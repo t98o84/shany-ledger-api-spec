@@ -1,0 +1,6 @@
+WorkspaceLedgerTransactionCreateRequestBody:
+  description: 台帳の取引の作成リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerTransactionCreateRequestBody"

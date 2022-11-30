@@ -1,0 +1,72 @@
+Comments:
+  get:
+    summary: 台帳の取引のコメント一覧取得を行います。
+    description: 台帳の取引のコメント一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchLedgerTransactionComment
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/transaction/comment/responses.yml#/WorkspaceLedgerTransactionCommentsSearchSuccessResponse"
+  post:
+    summary: 台帳の取引のコメント作成を行います。
+    description: 台帳を作成します。
+    tags:
+      - workspace
+    operationId: createLedgerTransactionComment
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
+    requestBody:
+      $ref: "./workspace/ledger/transaction/comment/request_bodies.yml#/WorkspaceLedgerTransactionCommentCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/ledger/transaction/comment/responses.yml#/WorkspaceLedgerTransactionCommentCreateSuccessResponse"
+
+Comment:
+  get:
+    summary: 台帳の取引のコメント取得を行います。
+    description: IDを使用して台帳を取得します。
+    tags:
+      - workspace
+    operationId: findLedgerTransactionComment
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/transaction/comment/responses.yml#/WorkspaceLedgerTransactionCommentFindSuccessResponse"
+  post:
+    summary: 台帳の取引のコメント更新を行います。
+    description: IDを使用して台帳の取引のコメントを更新します。
+    tags:
+      - workspace
+    operationId: updateLedgerTransactionComment
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
+    requestBody:
+      $ref: "./workspace/ledger/transaction/comment/request_bodies.yml#/WorkspaceLedgerTransactionCommentUpdateRequestBody"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/transaction/comment/responses.yml#/WorkspaceLedgerTransactionCommentUpdateSuccessResponse"
+  delete:
+    summary: 台帳の取引のコメント削除を行います。
+    description: IDを使用して台帳を削除します。
+    tags:
+      - workspace
+    operationId: deleteLedgerTransactionComment
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/transaction/comment/responses.yml#/WorkspaceLedgerTransactionCommentDeleteSuccessResponse"

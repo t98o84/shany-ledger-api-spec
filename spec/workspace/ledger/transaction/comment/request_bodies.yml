@@ -1,0 +1,13 @@
+WorkspaceLedgerTransactionCommentCreateRequestBody:
+  description: 台帳の取引のコメントの作成リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerTransactionCommentCreateRequestBody"
+
+WorkspaceLedgerTransactionCommentUpdateRequestBody:
+  description: 台帳の取引のコメントの更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerTransactionCommentUpdateRequestBody"

@@ -1,0 +1,59 @@
+WorkspaceLedgerTransactionCommentCreateRequestBody:
+  allOf:
+    - $ref: "#/WorkspaceLedgerTransactionCommentWrite"
+
+WorkspaceLedgerTransactionCommentUpdateRequestBody:
+  allOf:
+    - $ref: "#/WorkspaceLedgerTransactionCommentWrite"
+
+WorkspaceLedgerTransactionComments:
+  allOf:
+    - $ref: "../../../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          type: array
+          items:
+            $ref: "#/WorkspaceLedgerTransactionCommentRead"
+
+WorkspaceLedgerTransactionCommentWrite:
+  title: Comment
+  description: |
+    書き込み時のトランザクションに対するコメントです。
+    textかfilesどちらかは必ず指定する必要があります。
+  type: object
+  properties:
+    id:
+      $ref: "#/WorkspaceLedgerTransactionCommentId"
+    text:
+      type: string
+      maxLength: 10000
+    files:
+      type: array
+      items:
+        $ref: "#/WorkspaceLedgerTransactionCommentFile"
+
+WorkspaceLedgerTransactionCommentRead:
+  title: Comment
+  description: 読み取り時のトランザクションに対するコメントです。
+  type: object
+  properties:
+    id:
+      $ref: "#/WorkspaceLedgerTransactionCommentId"
+    text:
+      type: string
+      maxLength: 10000
+    files:
+      type: array
+      items:
+        $ref: "#/WorkspaceLedgerTransactionCommentFilePath"
+
+WorkspaceLedgerTransactionCommentId:
+  $ref: "../../../../util/id/schemas.yml#/Uuid"
+
+WorkspaceLedgerTransactionCommentFile:
+  type: string
+  format: binary
+
+WorkspaceLedgerTransactionCommentFilePath:
+  type: string
+  format: uri

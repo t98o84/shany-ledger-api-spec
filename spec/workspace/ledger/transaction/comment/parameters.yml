@@ -1,0 +1,7 @@
+WorkspaceLedgerTransactionCommentId:
+  name: workspaceLedgerTransactionCommentId
+  in: path
+  description: 台帳の取引に対するコメントのIDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceLedgerTransactionCommentId"

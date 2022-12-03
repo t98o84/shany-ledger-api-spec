@@ -1,0 +1,57 @@
+Members:
+  get:
+    summary: 台帳の参加者の一覧取得を行います。
+    description: 台帳の参加者の一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchLedgerMember
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberExclusionMemberRoles"
+      - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberInclusionMemberRoles"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/member/responses.yml#/WorkspaceLedgerMembersSearchSuccessResponse"
+  post:
+    summary: 台帳の参加者の追加を行います。
+    description: 台帳の参加者を追加します。
+    tags:
+      - workspace
+    operationId: addLedgerMember
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    requestBody:
+      $ref: "./workspace/ledger/member/request_bodies.yml#/WorkspaceLedgerMemberAddRequestBody"
+    responses:
+      "207":
+        $ref: "./workspace/ledger/member/responses.yml#/WorkspaceLedgerMemberAddSuccessResponse"
+
+Member:
+  get:
+    summary: 台帳の参加者の取得を行います。
+    description: IDを使用して台帳の参加者を取得します。
+    tags:
+      - workspace
+    operationId: findLedgerMember
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/member/responses.yml#/WorkspaceLedgerMemberFindSuccessResponse"
+  delete:
+    summary: 台帳の参加者の削除を行います。
+    description: IDを使用して台帳の参加者を削除します。
+    tags:
+      - workspace
+    operationId: deleteLedgerMember
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/member/responses.yml#/WorkspaceLedgerMemberDeleteSuccessResponse"

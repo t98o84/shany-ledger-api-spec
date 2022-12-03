@@ -1,0 +1,31 @@
+WorkspaceLedgerMemberId:
+  name: workspaceLedgerId
+  in: path
+  description: 台帳のIDです。
+  required: true
+  schema:
+    $ref: "./schemas.yml#/WorkspaceLedgerMemberId"
+
+WorkspaceLedgerMemberExclusionMemberRoles:
+  name: exclusion_member_roles[]
+  in: query
+  description: 参加者一覧から除外するロールです。InclusionMemberRolesが指定されていた場合ExclusionMemberRolesは無視されます。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./schemas.yml#/WorkspaceLedgerMemberRole"
+  style: form
+  explode: true
+
+WorkspaceLedgerMemberInclusionMemberRoles:
+  name: inclusion_member_roles[]
+  in: query
+  description: 参加者一覧に含めるロールです。ExclusionMemberRolesが指定されていた場合InclusionMemberRolesのみ適用されます。
+  required: false
+  schema:
+    type: array
+    items:
+      $ref: "./schemas.yml#/WorkspaceLedgerMemberRole"
+  style: form
+  explode: true

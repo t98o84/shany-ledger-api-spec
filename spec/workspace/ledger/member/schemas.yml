@@ -1,0 +1,81 @@
+WorkspaceLedgerMemberAddSuccessResponse:
+  description: 台帳の参加者の追加が成功した場合のレスポンスです。
+  allOf:
+    - $ref: "../../../util/response/schemas.yml#/MultiStatusResponse"
+    - properties:
+        items:
+          allOf:
+            - $ref: "../../../util/response/schemas.yml#/MultiStatusResponseItem"
+            - properties:
+                body:
+                  anyOf:
+                    - $ref: "#/WorkspaceLedgerMember"
+                    - $ref: "../../../error/schemas.yml#/ProblemDetails"
+                    - $ref: "../invitation/schemas.yml#/WorkspaceLedgerInvitation"
+
+WorkspaceLedgerMemberAddRequestBody:
+  description: |
+    台帳へ参加者を追加する際のリクエストボディです。
+    メールアドレスかユーザーIDで複数指定が可能で、ID指定で招待可能なユーザーはワークスペース参加者のみとなります。
+    メールアドレスで指定したユーザーがゲストの場合は招待が送信され、承認されることで参加となります。
+  type: array
+  minItems: 1
+  maxItems: 30
+  items:
+    $ref: "#/WorkspaceLedgerMemberAddRequestBodyItem"
+
+WorkspaceLedgerMemberAddRequestBodyItem:
+  anyOf:
+    - $ref: "#/WorkspaceLedgerMemberUserEmail"
+    - $ref: "#/WorkspaceLedgerMemberId"
+
+WorkspaceLedgerMembers:
+  title: WorkspaceLedgerMembers
+  description: 台帳の参加者一覧です。
+  allOf:
+    - $ref: "../../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          $ref: "#/WorkspaceLedgerMember"
+
+WorkspaceLedgerMember:
+  title: WorkspaceLedgerMember
+  type: object
+  properties:
+    id:
+      $ref: "#/WorkspaceLedgerMemberId"
+    name:
+      $ref: "#/WorkspaceLedgerMemberName"
+    avatar:
+      $ref: "#/WorkspaceLedgerMemberAvatar"
+    role:
+      $ref: "#/WorkspaceLedgerMemberRole"
+
+WorkspaceLedgerMemberRole:
+  description: |
+    | Role             | Description                                                                                   | 
+    | ---------------- | --------------------------------------------------------------------------------------------- | 
+    | Owner            | すべての操作が可能です。                                                                           | 
+    | Admin            | すべての操作が可能です。                                                                           | 
+    | Editor           | 台帳の設定とメンバーの操作以外のすべての操作が可能です。                                                 | 
+    | Commentator      | コメントのみ可能です。                                                                             | 
+    | Viewer           | 閲覧のみ可能です。                                                                                |
+  type: string
+  enum:
+    - "Owner"
+    - "Admin"
+    - "Editor"
+    - "Commentator"
+    - "Viewer"
+
+WorkspaceLedgerMemberUserEmail:
+  $ref: "../../../user/schemas.yml#/UserEmail"
+
+WorkspaceLedgerMemberId:
+  $ref: "../../../user/schemas.yml#/UserId"
+
+WorkspaceLedgerMemberName:
+  $ref: "../../../user/schemas.yml#/UserName"
+
+WorkspaceLedgerMemberAvatar:
+  $ref: "../../../user/schemas.yml#/UserAvatar"

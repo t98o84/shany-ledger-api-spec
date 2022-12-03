@@ -1,0 +1,38 @@
+MultiStatusResponse:
+  type: object
+  properties:
+    total:
+      type: object
+      properties:
+        success:
+          type: integer
+        error:
+          type: integer
+    items:
+      $ref: "#/MultiStatusResponseItems"
+
+MultiStatusResponseItems:
+  type: array
+  items:
+    $ref: "#/MultiStatusResponseItem"
+
+MultiStatusResponseItem:
+  type: object
+  required:
+    - code
+  properties:
+    code:
+      $ref: "#/MultiStatusResponseItemCode"
+    headers:
+      $ref: "#/MultiStatusResponseItemHeaders"
+    body:
+      $ref: "#/MultiStatusResponseItemBody"
+
+MultiStatusResponseItemCode:
+  type: integer
+
+MultiStatusResponseItemHeaders:
+  type: object
+
+MultiStatusResponseItemBody:
+  type: object

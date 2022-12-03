@@ -1,0 +1,23 @@
+WorkspaceLedgerMembersSearchSuccessResponse:
+  description: 台帳の参加者一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerMembers"
+
+WorkspaceLedgerMemberFindSuccessResponse:
+  description: 台帳の参加者の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerMember"
+
+WorkspaceLedgerMemberAddSuccessResponse:
+  description: 台帳の参加者の追加が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerMemberAddSuccessResponse"
+
+WorkspaceLedgerMemberDeleteSuccessResponse:
+  description: 台帳の参加者の削除が成功した場合のレスポンスです。

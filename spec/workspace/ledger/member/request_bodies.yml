@@ -1,0 +1,6 @@
+WorkspaceLedgerMemberAddRequestBody:
+  description: 台帳の参加者の追加リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerMemberAddRequestBody"

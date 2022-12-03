@@ -1,0 +1,12 @@
+WorkspaceLedgerMemberSecuritySettings:
+  title: WorkspaceLedgerMemberSecuritySettings
+  description: 台帳の参加者に関するセキュリティ設定です。
+  type: object
+  required:
+    - role
+  properties:
+    role:
+      $ref: "#/WorkspaceLedgerMemberSecuritySettingsRole"
+
+WorkspaceLedgerMemberSecuritySettingsRole:
+  $ref: "../schemas.yml#/WorkspaceLedgerMemberRole"

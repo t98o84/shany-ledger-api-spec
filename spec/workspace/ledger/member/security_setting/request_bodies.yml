@@ -1,0 +1,6 @@
+WorkspaceLedgerMemberSecuritySettingsUpdateRequestBody:
+  description: ワークスペース参加者のセキュリティー設定の更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerMemberSecuritySettings"

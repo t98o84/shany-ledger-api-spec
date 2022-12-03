@@ -1,0 +1,15 @@
+WorkspaceLedgerInvitationCreateRequestBody:
+  description: 台帳のメンバー招待作成リクエストのボディです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerInvitation"
+
+WorkspaceLedgerInvitationUpdateRequestBody:
+  description: 台帳のメンバー招待更新リクエストのボディです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerInvitation"

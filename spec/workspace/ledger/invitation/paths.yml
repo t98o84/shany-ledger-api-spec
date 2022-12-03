@@ -1,0 +1,70 @@
+Invitations:
+  get:
+    summary: 台帳の参加招待の一覧の取得を行います。
+    description: 台帳の参加招待の一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/ExclusionWorkspaceLedgerInvitationRoles"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/InclusionWorkspaceLedgerInvitationRoles"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/ExclusionWorkspaceLedgerInvitationStatuses"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/InclusionWorkspaceLedgerInvitationStatuses"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/invitation/responses.yml#/WorkspaceLedgerInvitationsSearchSuccessResponse"
+  post:
+    summary: 台帳の参加招待の作成を行います。
+    description: 台帳の参加招待を作成します。
+    tags:
+      - workspace
+    operationId: createInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    requestBody:
+      $ref: "./workspace/ledger/invitation/request_bodies.yml#/WorkspaceLedgerInvitationCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/ledger/invitation/responses.yml#/WorkspaceLedgerInvitationCreateSuccessResponse"
+
+Invitation:
+  get:
+    summary: 台帳の参加招待の取得を行います。
+    description: IDを使用して台帳の参加招待を取得します。
+    tags:
+      - workspace
+    operationId: findInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/invitation/responses.yml#/WorkspaceLedgerInvitationFindSuccessResponse"
+  patch:
+    summary: 台帳の参加招待の更新を行います。
+    description: IDを使用して台帳の参加招待を更新します。
+    tags:
+      - workspace
+    operationId: updateInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"
+    requestBody:
+      $ref: "./workspace/ledger/invitation/request_bodies.yml#/WorkspaceLedgerInvitationUpdateRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/invitation/responses.yml#/WorkspaceLedgerInvitationUpdateSuccessResponse"
+  delete:
+    summary: 台帳の参加招待の削除を行います。
+    description: IDを使用して台帳の参加招待を削除します。
+    tags:
+      - workspace
+    operationId: deleteInvitation
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/invitation/responses.yml#/WorkspaceLedgerInvitationDeleteSuccessResponse"

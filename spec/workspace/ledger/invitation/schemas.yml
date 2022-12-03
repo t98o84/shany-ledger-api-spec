@@ -1,0 +1,67 @@
+WorkspaceLedgerInvitationSearchRequestBody:
+  title: WorkspaceLedgerInvitationSearchRequestBody
+  description: 台帳のメンバー招待検索リクエストのボディです。
+  type: object
+  properties:
+    status:
+
+WorkspaceLedgerInvitations:
+  title: WorkspaceLedgerInvitations
+  description: 台帳の参加者招待一覧情報です。
+  allOf:
+    - $ref: "../../../util/pagination/schemas.yml#/OffsetPagination"
+    - properties:
+        data:
+          type: array
+          items:
+            $ref: "#/WorkspaceLedgerInvitation"
+
+WorkspaceLedgerInvitation:
+  title: WorkspaceLedgerInvitation
+  description: |
+    台帳の招待情報です。
+    ワークスペースメンバーは招待なく自動的に追加されるので、ゲストのみ対象となる。
+  type: object
+  properties:
+    id:
+      allOf:
+        - $ref: "#/WorkspaceLedgerInvitationId"
+        - readOnly: true
+    url:
+      allOf:
+        - $ref: "#/WorkspaceLedgerInvitationUrl"
+        - readOnly: true
+    status:
+      $ref: "#/WorkspaceLedgerInvitationStatus"
+    role:
+      $ref: "#/WorkspaceLedgerInvitationRole"
+    expires_at:
+      $ref: "#/WorkspaceLedgerInvitationExpiresAt"
+  required:
+    - id
+    - status
+
+WorkspaceLedgerInvitationId:
+  $ref: "../../../util/id/schemas.yml#/Uuid"
+
+WorkspaceLedgerInvitationUrl:
+  allOf:
+    - $ref: "../../../util/url/schemas.yml#/UrlPathId"
+    - description: only_emailの指定がある場合は取得できません。
+
+WorkspaceLedgerInvitationStatus:
+  type: string
+  enum:
+    - Enable
+    - Disable
+
+WorkspaceLedgerInvitationRole:
+  $ref: "../member/schemas.yml#/WorkspaceLedgerMemberRole"
+
+WorkspaceLedgerInvitationOnlyEmail:
+  type: string
+  format: email
+
+WorkspaceLedgerInvitationExpiresAt:
+  type: string
+  format: date-time

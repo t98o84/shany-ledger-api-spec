@@ -64,6 +64,10 @@ paths:
     $ref: "./workspace/ledger/paths.yml#/Ledgers"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]:
     $ref: "./workspace/ledger/paths.yml#/Ledger"
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations:
+    $ref: "./workspace/ledger/invitation/paths.yml#/Invitations"
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations/[workspaceInvitationId]:
+    $ref: "./workspace/ledger/invitation/paths.yml#/Invitation"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members:
     $ref: "./workspace/ledger/member/paths.yml#/Members"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]:

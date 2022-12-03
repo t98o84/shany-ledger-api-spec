@@ -1,0 +1,30 @@
+WorkspaceLedgerInvitationsSearchSuccessResponse:
+  description: 台帳の招待一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerInvitations"
+
+WorkspaceLedgerInvitationFindSuccessResponse:
+  description: 台帳の招待の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerInvitation"
+
+WorkspaceLedgerInvitationCreateSuccessResponse:
+    description: 台帳の招待の新規作成が成功した場合のレスポンスです。
+    headers:
+      Location:
+        schema:
+          $ref: "#/components/headers/Location"
+    content:
+      application/json:
+        schema:
+          $ref: "./schemas.yml#/WorkspaceLedgerInvitation"
+
+WorkspaceLedgerInvitationUpdateSuccessResponse:
+  description: 台帳の招待の更新が成功した場合のレスポンスです。
+
+WorkspaceLedgerInvitationDeleteSuccessResponse:
+  description: 台帳の招待の削除が成功した場合のレスポンスです。

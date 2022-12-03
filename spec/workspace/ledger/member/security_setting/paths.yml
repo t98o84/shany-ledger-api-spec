@@ -7,7 +7,7 @@ get:
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
-    - $ref: "./workspace/member/parameters.yml#/MemberId"
+    - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
   responses:
     "200":
       $ref: "./workspace/ledger/member/security_setting/responses.yml#/WorkspaceLedgerMemberSecuritySettingsFindSuccessResponse"
@@ -20,7 +20,7 @@ patch:
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
-    - $ref: "./workspace/member/parameters.yml#/MemberId"
+    - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
   requestBody:
     $ref: "./workspace/ledger/member/security_setting/request_bodies.yml#/WorkspaceLedgerMemberSecuritySettingsUpdateRequestBody"
   responses:

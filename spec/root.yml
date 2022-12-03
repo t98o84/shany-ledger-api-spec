@@ -72,7 +72,7 @@ paths:
     $ref: "./workspace/ledger/member/paths.yml#/Members"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]:
     $ref: "./workspace/ledger/member/paths.yml#/Member"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]security-settings:
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]/security-settings:
     $ref: "./workspace/ledger/member/security_setting/paths.yml"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions:
     $ref: "./workspace/ledger/transaction/paths.yml#/Transactions"

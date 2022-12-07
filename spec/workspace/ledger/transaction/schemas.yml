@@ -41,7 +41,8 @@ WorkspaceLedgerTransactionId:
   $ref: "../../../util/id/schemas.yml#/Uuid"
 
 WorkspaceLedgerTransactionPrevId:
-  $ref: "#/WorkspaceLedgerTransactionId"
+  allOf:
+    - $ref: "#/WorkspaceLedgerTransactionId"
 
 WorkspaceLedgerTransactionDescriptionWrite:
   description: textかfilesどちらかは必ず指定する必要があります。

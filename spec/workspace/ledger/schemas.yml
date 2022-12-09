@@ -105,6 +105,16 @@ WorkspaceLedgerItem:
       $ref: "#/WorkspaceLedgerItemUnit"
     priority:
       $ref: "#/WorkspaceLedgerItemPriority"
+    min:
+      $ref: "#/WorkspaceLedgerItemMin"
+    max:
+      $ref: "#/WorkspaceLedgerItemMax"
+    input_limit:
+      $ref: "#/WorkspaceLedgerItemInputLimit"
+    alerts:
+      $ref: "#/WorkspaceLedgerItemAlerts"
+    goals:
+      $ref: "#/WorkspaceLedgerItemGoals"
 
 WorkspaceLedgerItemId:
   $ref: "../../util/id/schemas.yml#/Uuid"
@@ -120,3 +130,56 @@ WorkspaceLedgerItemPriority:
   maxItems: 50
   items:
     $ref: "#/WorkspaceLedgerItem"
+
+WorkspaceLedgerItemAlerts:
+  type: array
+  maxItems: 5
+  items:
+    $ref: "#/WorkspaceLedgerItemAlert"
+
+WorkspaceLedgerItemAlert:
+  description: 閾値にかかった場合、アラート通知をオンにしているユーザーに通知します。
+  type: object
+  properties:
+    threshold:
+      type: integer
+    type:
+      $ref: "#/WorkspaceLedgerItemAlertType"
+
+WorkspaceLedgerItemAlertType:
+  type: string
+  enum:
+    - More
+    - Less
+
+WorkspaceLedgerItemGoals:
+  type: array
+  maxItems: 5
+  items:
+    $ref: "#/WorkspaceLedgerItemAlert"
+
+WorkspaceLedgerItemGoal:
+  type: object
+  properties:
+    threshold:
+      type: integer
+    type:
+      $ref: "#/WorkspaceLedgerItemGoalType"
+
+WorkspaceLedgerItemGoalType:
+  type: string
+  enum:
+    - More
+    - Less
+
+WorkspaceLedgerItemMin:
+  type: integer
+
+WorkspaceLedgerItemMax:
+  type: integer
+
+WorkspaceLedgerItemInputLimit:
+  min:
+    type: integer
+  max:
+    type: integer

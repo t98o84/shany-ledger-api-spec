@@ -4,7 +4,7 @@ Invitations:
     description: 台帳の参加招待の一覧を取得します。
     tags:
       - workspace
-    operationId: searchInvitation
+    operationId: searchLedgerInvitation
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
       - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"
@@ -20,7 +20,7 @@ Invitations:
     description: 台帳の参加招待を作成します。
     tags:
       - workspace
-    operationId: createInvitation
+    operationId: createLedgerInvitation
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
     requestBody:
@@ -35,7 +35,7 @@ Invitation:
     description: IDを使用して台帳の参加招待を取得します。
     tags:
       - workspace
-    operationId: findInvitation
+    operationId: findLedgerInvitation
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
       - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"
@@ -47,7 +47,7 @@ Invitation:
     description: IDを使用して台帳の参加招待を更新します。
     tags:
       - workspace
-    operationId: updateInvitation
+    operationId: updateLedgerInvitation
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
       - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"
@@ -61,7 +61,7 @@ Invitation:
     description: IDを使用して台帳の参加招待を削除します。
     tags:
       - workspace
-    operationId: deleteInvitation
+    operationId: deleteLedgerInvitation
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
       - $ref: "./workspace/ledger/invitation/parameters.yml#/WorkspaceLedgerInvitationId"

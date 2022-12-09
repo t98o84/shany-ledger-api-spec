@@ -3,7 +3,7 @@ get:
   description: IDを使用してワークスペース参加者のセキュリティ設定を取得します。
   tags:
     - workspace
-  operationId: findMemberSecuritySetting
+  operationId: findLedgerMemberSecuritySetting
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
@@ -16,7 +16,7 @@ patch:
   description: IDを使用してワークスペース参加者のセキュリティ設定を更新します。
   tags:
     - workspace
-  operationId: updateMemberSecuritySetting
+  operationId: updateLedgerMemberSecuritySetting
   parameters:
     - $ref: "./workspace/parameters.yml#/WorkspaceId"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"

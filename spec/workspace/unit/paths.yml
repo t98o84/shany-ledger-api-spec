@@ -11,6 +11,17 @@ Units:
     responses:
       "200":
         $ref: "./workspace/unit/responses.yml#/WorkspaceUnitsSearchSuccessResponse"
+  post:
+    summary: 台帳で使用する管理単位の作成を行います。
+    description: 台帳で使用する管理単位を作成します。
+    tags:
+      - workspace
+    operationId: createUnit
+    requestBody:
+      $ref: "./workspace/unit/request_bodies.yml#/WorkspaceUnitCreateRequestBody"
+    responses:
+      "201":
+        $ref: "./workspace/unit/responses.yml#/WorkspaceUnitCreateSuccessResponse"
 
 Unit:
   get:
@@ -25,3 +36,29 @@ Unit:
     responses:
       "200":
         $ref: "./workspace/unit/responses.yml#/WorkspaceUnitFindSuccessResponse"
+  patch:
+    summary: 台帳で使用する管理単位の更新を行います。
+    description: IDを使用して台帳で使用する管理単位を更新します。
+    tags:
+      - workspace
+    operationId: updateUnit
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
+    requestBody:
+      $ref: "./workspace/unit/request_bodies.yml#/WorkspaceUnitUpdateRequestBody"
+    responses:
+      "204":
+        $ref: "./workspace/unit/responses.yml#/WorkspaceUnitUpdateSuccessResponse"
+  delete:
+    summary: 台帳で使用する管理単位の削除を行います。
+    description: IDを使用して台帳で使用する管理単位を削除します。
+    tags:
+      - workspace
+    operationId: deleteUnit
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
+    responses:
+      "204":
+        $ref: "./workspace/unit/responses.yml#/WorkspaceUnitDeleteSuccessResponse"

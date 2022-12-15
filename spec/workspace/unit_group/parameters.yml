@@ -1,7 +1,0 @@
-WorkspaceUnitGroupId:
-  name: workspaceUnitGroupId
-  in: path
-  description: 台帳の管理単位のグループのIDです。
-  required: true
-  schema:
-    $ref: "./schemas.yml#/WorkspaceUnitGroupId"

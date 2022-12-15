@@ -120,9 +120,7 @@ WorkspaceLedgerItemId:
   $ref: "../../util/id/schemas.yml#/Uuid"
 
 WorkspaceLedgerItemUnit:
-  oneOf:
-    - $ref: "../unit/schemas.yml#/WorkspaceUnit"
-    - $ref: "../unit_group/schemas.yml#/WorkspaceUnitGroup"
+  $ref: "../unit/schemas.yml#/WorkspaceUnit"
 
 WorkspaceLedgerItemPriority:
   type: array

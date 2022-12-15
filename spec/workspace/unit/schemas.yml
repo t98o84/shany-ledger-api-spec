@@ -18,6 +18,10 @@ WorkspaceUnit:
       allOf:
         - $ref: "#/WorkspaceUnitId"
         - readOnly: true
+    definer:
+      allOf:
+        - $ref: "#/WorkspaceUnitDefiner"
+        - readOnly: true
     category:
       $ref: "#/WorkspaceUnitCategory"
     name:
@@ -26,14 +30,19 @@ WorkspaceUnit:
       $ref: "#/WorkspaceUnitSymbol"
     description:
       $ref: "#/WorkspaceUnitDescription"
-    supplementary_units:
-      $ref: "#/WorkspaceUnitSupplementaryUnits"
   required:
     - id
     - name
 
 WorkspaceUnitId:
   $ref: "../../util/id/schemas.yml#/Uuid"
+
+WorkspaceUnitDefiner:
+  description: システムで用意しているユニットとユーザー定義のユニットを分けるための定義者項目です。
+  type: string
+  enum:
+    - "System"
+    - "User"
 
 WorkspaceUnitCategory:
   description: |
@@ -45,6 +54,7 @@ WorkspaceUnitCategory:
     - Quantity: 数量
     - Time: 時間
     - Energy: エネルギー
+    - Other: その他
   type: string
   enum:
     - "Money"
@@ -55,6 +65,7 @@ WorkspaceUnitCategory:
     - "Quantity"
     - "Time"
     - "Energy"
+    - "Other"
 
 WorkspaceUnitName:
   type: string
@@ -69,28 +80,3 @@ WorkspaceUnitSymbol:
 WorkspaceUnitDescription:
   type: string
   maxLength: 255
-
-WorkspaceUnitSupplementaryUnits:
-  type: array
-  items:
-    $ref: "#/WorkspaceUnitSupplementaryUnit"
-
-WorkspaceUnitSupplementaryUnit:
-  type: object
-  properties:
-    name:
-      $ref: "#/WorkspaceUnitName"
-    symbol:
-      $ref: "#/WorkspaceUnitSymbol"
-    description:
-      $ref: "#/WorkspaceUnitDescription"
-    conversion_rate:
-      $ref: "#/WorkspaceUnitConversionRate"
-  required:
-    - name
-    - conversion_rate
-
-WorkspaceUnitConversionRate:
-  description: ベース単位からターゲット単位へ変換する際の倍率です。（ベース単位：1m / 単位：1mm の場合「0.001」）
-  type: number
-  format: double

@@ -56,10 +56,6 @@ paths:
     $ref: "./workspace/unit/paths.yml#/Units"
   /workspaces/[workspaceId]/units/[workspaceUnitId]:
     $ref: "./workspace/unit/paths.yml#/Unit"
-  /workspaces/[workspaceId]/unit-groups:
-    $ref: "./workspace/unit_group/paths.yml#/UnitGroups"
-  /workspaces/[workspaceId]/unit-groups/[workspaceUnitGroupId]:
-    $ref: "./workspace/unit_group/paths.yml#/UnitGroup"
   /workspaces/[workspaceId]/ledgers:
     $ref: "./workspace/ledger/paths.yml#/Ledgers"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]:

@@ -1,0 +1,15 @@
+WorkspaceUnitCreateRequestBody:
+  description: 台帳で使用する管理単位の新規作成リクエストです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceUnit"
+
+WorkspaceUnitUpdateRequestBody:
+  description: 台帳で使用する管理単位の更新リクエストです。
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceUnit"

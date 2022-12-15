@@ -5,9 +5,26 @@ WorkspaceUnitsSearchSuccessResponse:
       schema:
         $ref: "./schemas.yml#/WorkspaceUnits"
 
+WorkspaceUnitCreateSuccessResponse:
+  description: 台帳の管理単位の新規作成が成功した場合のレスポンスです。
+  headers:
+    Location:
+      schema:
+        $ref: "#/components/headers/Location"
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceUnit"
+
 WorkspaceUnitFindSuccessResponse:
   description: 台帳の管理単位の取得が成功した場合のレスポンスです。
   content:
     application/json:
       schema:
         $ref: "./schemas.yml#/WorkspaceUnit"
+
+WorkspaceUnitUpdateSuccessResponse:
+  description: 台帳の管理単位の更新が成功した場合のレスポンスです。
+
+WorkspaceUnitDeleteSuccessResponse:
+  description: 台帳の管理単位の削除が成功した場合のレスポンスです。

@@ -30,7 +30,7 @@ WorkspaceLedgerTransactionCommentWrite:
     files:
       type: array
       items:
-        $ref: "#/WorkspaceLedgerTransactionCommentFile"
+        $ref: "#/WorkspaceLedgerTransactionCommentFileUpload"
 
 WorkspaceLedgerTransactionCommentRead:
   title: Comment
@@ -50,10 +50,8 @@ WorkspaceLedgerTransactionCommentRead:
 WorkspaceLedgerTransactionCommentId:
   $ref: "../../../../util/id/schemas.yml#/Uuid"
 
-WorkspaceLedgerTransactionCommentFile:
-  type: string
-  format: binary
+WorkspaceLedgerTransactionCommentFileUpload:
+    $ref: "../../../../util/file/schemas.yml#/FileUpload"
 
 WorkspaceLedgerTransactionCommentFilePath:
-  type: string
-  format: uri
+    $ref: "../../../../util/file/schemas.yml#/FilePath"

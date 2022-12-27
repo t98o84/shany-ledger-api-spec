@@ -23,12 +23,8 @@ WorkspaceLedgerTransaction:
       allOf:
         - $ref: "#/WorkspaceLedgerTransactionId"
         - readOnly: true
-    prev_id:
-      allOf:
-        - $ref: "#/WorkspaceLedgerTransactionPrevId"
-        - readOnly: true
-    expiration_date:
-      $ref: "#/WorkspaceLedgerTransactionExpirationDate"
+    type:
+      $re: "#/WorkspaceLedgerTransactionType"
     description:
       $ref: "#/WorkspaceLedgerTransactionDescriptionRead"
     data:
@@ -40,9 +36,20 @@ WorkspaceLedgerTransaction:
 WorkspaceLedgerTransactionId:
   $ref: "../../../util/id/schemas.yml#/Uuid"
 
-WorkspaceLedgerTransactionPrevId:
-  allOf:
-    - $ref: "#/WorkspaceLedgerTransactionId"
+WorkspaceLedgerTransactionType:
+  description: |
+    | Type                   | Description                                                                              | 
+    | ---------------------- | ---------------------------------------------------------------------------------------- | 
+    | Deposit                | 自身の台帳への預け入れです。                                                                  | 
+    | Withdrawal             | 自身の台帳からの引き出しです。                                                                | 
+    | Receipt                | 自身以外の台帳からの受け取りです。                                                             |
+    | Transfer               | 自身以外の台帳への振り込みです。                                                               |
+  type: string
+  enum:
+    - Deposit
+    - Withdrawal
+    - Receipt
+    - Transfer
 
 WorkspaceLedgerTransactionDescriptionWrite:
   description: textかfilesどちらかは必ず指定する必要があります。
@@ -53,7 +60,7 @@ WorkspaceLedgerTransactionDescriptionWrite:
     files:
       type: array
       items:
-        $ref: "#/WorkspaceLedgerTransactionDescriptionFile"
+        $ref: "#/WorkspaceLedgerTransactionDescriptionFileUpload"
 
 WorkspaceLedgerTransactionDescriptionRead:
   description: textかfilesどちらかは必ず指定する必要があります。
@@ -70,23 +77,11 @@ WorkspaceLedgerTransactionDescriptionText:
   type: string
   maxLength: 10000
 
-WorkspaceLedgerTransactionDescriptionFile:
-  type: string
-  format: binary
+WorkspaceLedgerTransactionDescriptionFileUpload:
+  $ref: "../../../util/file/schemas.yml#/FileUpload"
 
 WorkspaceLedgerTransactionDescriptionFilePath:
-  type: string
-  format: uri
+  $ref: "../../../util/file/schemas.yml#/FilePath"
 
 WorkspaceLedgerTransactionData:
-  type: object
-
-WorkspaceLedgerTransactionExpirationDate:
-  type: object
-  properties:
-    from:
-      type: string
-      format: date-time
-    to:
-      type: string
-      format: date-time
+  type: integer

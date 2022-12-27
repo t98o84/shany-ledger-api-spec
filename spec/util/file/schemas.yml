@@ -1,0 +1,11 @@
+FileUpload:
+  type: string
+  format: binary
+
+FileDownload:
+  type: string
+  format: binary
+
+FilePath:
+  type: string
+  format: uri

@@ -1,0 +1,8 @@
+ComparisonMethod:
+  type: string
+  enum:
+    - Equal
+    - Greater
+    - GreaterOrEqual
+    - Less
+    - LessOrEqual

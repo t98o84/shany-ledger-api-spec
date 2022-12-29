@@ -1,0 +1,13 @@
+WorkspaceLedgerSettings:
+  publication:
+    $ref: "./publication/schemas.yml#/WorkspaceLedgerSettingPublication"
+  transaction:
+    $ref: "./transaction/schemas.yml#/WorkspaceLedgerSettingTransaction"
+  collaboration:
+    $ref: "./collaboration/schemas.yml#/WorkspaceLedgerSettingCollaboration"
+  balance:
+    $ref: "./balance/schemas.yml#/WorkspaceLedgerSettingBalance"
+  alert:
+    $ref: "./alert/schemas.yml#/WorkspaceLedgerSettingAlert"
+  goal:
+    $ref: "./goal/schemas.yml#/WorkspaceLedgerSettingGoal"

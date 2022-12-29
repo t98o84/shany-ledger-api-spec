@@ -78,6 +78,8 @@ paths:
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/collaborators/[workspaceLedgerCollaboratorId]:
     $ref: "./workspace/ledger/collaborator/paths.yml#/Collaborator"
 
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings:
+    $ref: "./workspace/ledger/setting/paths.yml"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/publication:
     $ref: "./workspace/ledger/setting/publication/paths.yml"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/transaction:

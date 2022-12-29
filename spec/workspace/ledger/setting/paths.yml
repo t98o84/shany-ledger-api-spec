@@ -1,0 +1,12 @@
+get:
+  summary: 台帳の設定の取得を行います。
+  description: IDを使用して台帳の設定を取得します。
+  tags:
+    - workspace
+  operationId: searchLedgerSetting
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  responses:
+    "200":
+      $ref: "./workspace/ledger/setting/responses.yml#/WorkspaceLedgerSettingSearchSuccessResponse"

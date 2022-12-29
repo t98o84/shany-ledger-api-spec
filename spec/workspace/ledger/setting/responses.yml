@@ -1,0 +1,6 @@
+WorkspaceLedgerSettingSearchSuccessResponse:
+  description: 台帳の設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettings"

@@ -10,21 +10,21 @@ WorkspaceLedgerTransactionCommentFindSuccessResponse:
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/WorkspaceLedgerTransactionCommentRead"
+        $ref: "./schemas.yml#/WorkspaceLedgerTransactionComment"
 
 WorkspaceLedgerTransactionCommentCreateSuccessResponse:
   description: 台帳の取引のコメント取得が成功した場合のレスポンスです。
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/WorkspaceLedgerTransactionCommentRead"
+        $ref: "./schemas.yml#/WorkspaceLedgerTransactionComment"
 
 WorkspaceLedgerTransactionCommentUpdateSuccessResponse:
   description: 台帳の取引のコメント更新が成功した場合のレスポンスです。
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/WorkspaceLedgerTransactionCommentRead"
+        $ref: "./schemas.yml#/WorkspaceLedgerTransactionComment"
 
 WorkspaceLedgerTransactionCommentDeleteSuccessResponse:
   description: 台帳の取引のコメント削除が成功した場合のレスポンスです。

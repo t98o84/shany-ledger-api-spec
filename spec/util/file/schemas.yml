@@ -1,11 +1,10 @@
 FileUpload:
   type: string
   format: binary
+  writeOnly: true
+  max: 20000000 # 20MB
 
 FileDownload:
   type: string
   format: binary
-
-FilePath:
-  type: string
-  format: uri
+  readOnlyOnly: true

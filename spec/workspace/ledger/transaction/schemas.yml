@@ -1,9 +1,6 @@
 WorkspaceLedgerTransactionCreateRequestBody:
   allOf:
     - $ref: "#/WorkspaceLedgerTransaction"
-    - properties:
-        description:
-          $ref: "#/WorkspaceLedgerTransactionDescriptionWrite"
 
 WorkspaceLedgerTransactions:
   allOf:
@@ -15,7 +12,7 @@ WorkspaceLedgerTransactions:
             $ref: "#/WorkspaceLedgerTransaction"
 
 WorkspaceLedgerTransaction:
-  title: Transaction
+  title: WorkspaceLedgerTransaction
   description: 台帳の取引情報です。
   type: object
   properties:
@@ -34,7 +31,7 @@ WorkspaceLedgerTransaction:
     type:
       $re: "#/WorkspaceLedgerTransactionType"
     description:
-      $ref: "#/WorkspaceLedgerTransactionDescriptionRead"
+      $ref: "#/WorkspaceLedgerTransactionDescription"
     data:
       $ref: "#/WorkspaceLedgerTransactionData"
   required:
@@ -65,7 +62,7 @@ WorkspaceLedgerTransactionType:
     - Receipt
     - Transfer
 
-WorkspaceLedgerTransactionDescriptionWrite:
+WorkspaceLedgerTransactionDescription:
   description: textかfilesどちらかは必ず指定する必要があります。
   type: object
   properties:
@@ -74,28 +71,18 @@ WorkspaceLedgerTransactionDescriptionWrite:
     files:
       type: array
       items:
-        $ref: "#/WorkspaceLedgerTransactionDescriptionFileUpload"
-
-WorkspaceLedgerTransactionDescriptionRead:
-  description: textかfilesどちらかは必ず指定する必要があります。
-  type: object
-  properties:
-    text:
-      $ref: "#/WorkspaceLedgerTransactionDescriptionText"
-    files:
-      type: array
-      items:
-        $ref: "#/WorkspaceLedgerTransactionDescriptionFilePath"
+        oneOf:
+          - $ref: "../../../util/file/schemas.yml#/FileUpload"
+          - $ref: "#/WorkspaceLedgerTransactionDescriptionFilePath"
 
 WorkspaceLedgerTransactionDescriptionText:
   type: string
   maxLength: 10000
 
-WorkspaceLedgerTransactionDescriptionFileUpload:
-  $ref: "../../../util/file/schemas.yml#/FileUpload"
-
 WorkspaceLedgerTransactionDescriptionFilePath:
-  $ref: "../../../util/file/schemas.yml#/FilePath"
+  type: string
+  format: uri
+  readOnly: true
 
 WorkspaceLedgerTransactionData:
   type: integer

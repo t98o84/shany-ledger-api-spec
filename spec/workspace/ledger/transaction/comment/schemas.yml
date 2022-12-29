@@ -1,10 +1,10 @@
 WorkspaceLedgerTransactionCommentCreateRequestBody:
   allOf:
-    - $ref: "#/WorkspaceLedgerTransactionCommentWrite"
+    - $ref: "#/WorkspaceLedgerTransactionComment"
 
 WorkspaceLedgerTransactionCommentUpdateRequestBody:
   allOf:
-    - $ref: "#/WorkspaceLedgerTransactionCommentWrite"
+    - $ref: "#/WorkspaceLedgerTransactionComment"
 
 WorkspaceLedgerTransactionComments:
   allOf:
@@ -13,26 +13,9 @@ WorkspaceLedgerTransactionComments:
         data:
           type: array
           items:
-            $ref: "#/WorkspaceLedgerTransactionCommentRead"
+            $ref: "#/WorkspaceLedgerTransactionComment"
 
-WorkspaceLedgerTransactionCommentWrite:
-  title: Comment
-  description: |
-    書き込み時のトランザクションに対するコメントです。
-    textかfilesどちらかは必ず指定する必要があります。
-  type: object
-  properties:
-    id:
-      $ref: "#/WorkspaceLedgerTransactionCommentId"
-    text:
-      type: string
-      maxLength: 10000
-    files:
-      type: array
-      items:
-        $ref: "#/WorkspaceLedgerTransactionCommentFileUpload"
-
-WorkspaceLedgerTransactionCommentRead:
+WorkspaceLedgerTransactionComment:
   title: Comment
   description: 読み取り時のトランザクションに対するコメントです。
   type: object
@@ -45,13 +28,14 @@ WorkspaceLedgerTransactionCommentRead:
     files:
       type: array
       items:
-        $ref: "#/WorkspaceLedgerTransactionCommentFilePath"
+        oneOf:
+          - $ref: "../../../../util/file/schemas.yml#/FileUpload"
+          - $ref: "#/WorkspaceLedgerTransactionCommentFilePath"
 
 WorkspaceLedgerTransactionCommentId:
   $ref: "../../../../util/id/schemas.yml#/Uuid"
 
-WorkspaceLedgerTransactionCommentFileUpload:
-    $ref: "../../../../util/file/schemas.yml#/FileUpload"
-
 WorkspaceLedgerTransactionCommentFilePath:
-    $ref: "../../../../util/file/schemas.yml#/FilePath"
+  type: string
+  format: uri
+  readOnly: true

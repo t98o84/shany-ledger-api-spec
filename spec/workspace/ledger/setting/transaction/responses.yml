@@ -1,0 +1,9 @@
+WorkspaceLedgerSettingTransactionFindSuccessResponse:
+  description: 台帳の取引設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingTransaction"
+
+WorkspaceLedgerSettingTransactionUpdateSuccessResponse:
+  description: ワークスペースの更新が成功した場合のレスポンスです。

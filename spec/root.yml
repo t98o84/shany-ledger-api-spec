@@ -75,6 +75,8 @@ paths:
 
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/publication:
     $ref: "./workspace/ledger/setting/publication/paths.yml"
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/transaction:
+    $ref: "./workspace/ledger/setting/transaction/paths.yml"
 
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations:
     $ref: "./workspace/ledger/invitation/paths.yml#/Invitations"

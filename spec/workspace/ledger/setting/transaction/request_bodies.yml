@@ -1,0 +1,6 @@
+WorkspaceLedgerSettingTransactionUpdateRequestBody:
+  description: 台帳の取引設定の更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingTransaction"

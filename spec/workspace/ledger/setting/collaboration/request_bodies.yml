@@ -1,0 +1,6 @@
+WorkspaceLedgerSettingCollaborationUpdateRequestBody:
+  description: 台帳のコラボレーション設定の更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingCollaboration"

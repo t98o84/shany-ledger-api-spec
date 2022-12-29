@@ -1,0 +1,9 @@
+WorkspaceLedgerSettingCollaborationFindSuccessResponse:
+  description: 台帳のコラボレーション設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingCollaboration"
+
+WorkspaceLedgerSettingCollaborationUpdateSuccessResponse:
+  description: ワークスペースの更新が成功した場合のレスポンスです。

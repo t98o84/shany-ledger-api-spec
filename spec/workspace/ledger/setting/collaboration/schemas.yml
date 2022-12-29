@@ -1,0 +1,23 @@
+WorkspaceLedgerSettingCollaboration:
+  description: 有効にした場合は、登録された台帳とコラボレーションが可能になります。コラボレーションを行うにはコラボレーション相手のコラボレーション機能が有効になっている必要があります。
+  type: object
+  properties:
+    enable:
+      type: boolean
+      default: false
+    receipt:
+      type: object
+      properties:
+        min:
+          type: integer
+          default: 0
+        max:
+          type: integer
+    transfer:
+      type: object
+      properties:
+        min:
+          type: integer
+          default: 0
+        max:
+          type: integer

@@ -2,8 +2,6 @@ WorkspaceLedgerSettingTransaction:
   description: 台帳の取引に関する設定です。
   type: object
   properties:
-    collaboration:
-      $ref: "#/WorkspaceLedgerSettingTransactionCollaboration"
     deposit:
       min:
         type: integer
@@ -16,27 +14,3 @@ WorkspaceLedgerSettingTransaction:
         default: 0
       max:
         type: integer
-
-WorkspaceLedgerSettingTransactionCollaboration:
-  description: 有効にした場合は、登録された台帳と取引が可能になります。取引を行うには取引相手のコラボレーション機能が有効になっている必要があります。
-  type: object
-  properties:
-    enable:
-      type: boolean
-      default: false
-    receipt:
-      type: object
-      properties:
-        min:
-          type: integer
-          default: 0
-        max:
-          type: integer
-    transfer:
-      type: object
-      properties:
-        min:
-          type: integer
-          default: 0
-        max:
-          type: integer

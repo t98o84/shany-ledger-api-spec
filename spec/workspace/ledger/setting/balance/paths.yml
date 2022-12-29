@@ -1,0 +1,26 @@
+get:
+  summary: 台帳の残高設定の取得を行います。
+  description: IDを使用して台帳の残高設定を取得します。
+  tags:
+    - workspace
+  operationId: findLedgerSettingBalance
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  responses:
+    "200":
+      $ref: "./workspace/ledger/setting/balance/responses.yml#/WorkspaceLedgerSettingBalanceFindSuccessResponse"
+patch:
+  summary: 台帳の残高設定の更新を行います。
+  description: IDを使用して台帳の残高設定を更新します。
+  tags:
+    - workspace
+  operationId: updateLedgerSettingBalance
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  requestBody:
+    $ref: "./workspace/ledger/setting/balance/request_bodies.yml#/WorkspaceLedgerSettingBalanceUpdateRequestBody"
+  responses:
+    "204":
+      $ref: "./workspace/ledger/setting/balance/responses.yml#/WorkspaceLedgerSettingBalanceUpdateSuccessResponse"

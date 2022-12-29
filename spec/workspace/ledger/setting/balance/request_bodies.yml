@@ -1,0 +1,6 @@
+WorkspaceLedgerSettingBalanceUpdateRequestBody:
+  description: 台帳の残高設定の更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingBalance"

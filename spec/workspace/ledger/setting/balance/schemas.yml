@@ -1,0 +1,8 @@
+WorkspaceLedgerSettingBalance:
+  type: object
+  properties:
+    min:
+      type: integer
+      default: 0
+    max:
+      type: integer

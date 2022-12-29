@@ -1,0 +1,9 @@
+WorkspaceLedgerSettingBalanceFindSuccessResponse:
+  description: 台帳の残高設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingBalance"
+
+WorkspaceLedgerSettingBalanceUpdateSuccessResponse:
+  description: ワークスペースの残高更新が成功した場合のレスポンスです。

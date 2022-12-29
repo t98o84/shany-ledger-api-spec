@@ -86,6 +86,8 @@ paths:
     $ref: "./workspace/ledger/setting/collaboration/paths.yml"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/balance:
     $ref: "./workspace/ledger/setting/balance/paths.yml"
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/alert:
+    $ref: "./workspace/ledger/setting/alert/paths.yml"
 
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations:
     $ref: "./workspace/ledger/invitation/paths.yml#/Invitations"

@@ -1,0 +1,26 @@
+get:
+  summary: 台帳のアラート設定の取得を行います。
+  description: IDを使用して台帳のアラート設定を取得します。
+  tags:
+    - workspace
+  operationId: findLedgerSettingAlert
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  responses:
+    "200":
+      $ref: "./workspace/ledger/setting/alert/responses.yml#/WorkspaceLedgerSettingAlertFindSuccessResponse"
+patch:
+  summary: 台帳のアラート設定の更新を行います。
+  description: IDを使用して台帳のアラート設定を更新します。
+  tags:
+    - workspace
+  operationId: updateLedgerSettingAlert
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  requestBody:
+    $ref: "./workspace/ledger/setting/alert/request_bodies.yml#/WorkspaceLedgerSettingAlertUpdateRequestBody"
+  responses:
+    "204":
+      $ref: "./workspace/ledger/setting/alert/responses.yml#/WorkspaceLedgerSettingAlertUpdateSuccessResponse"

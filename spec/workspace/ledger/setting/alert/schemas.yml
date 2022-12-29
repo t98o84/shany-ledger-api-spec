@@ -1,0 +1,11 @@
+WorkspaceLedgerSettingAlert:
+  description: 閾値にかかった場合、アラート通知をオンにしている参加者に通知します。
+  type: object
+  properties:
+    threshold:
+      type: integer
+    comparison_method:
+      $ref: "#/WorkspaceLedgerSettingAlertComparisonMethod"
+
+WorkspaceLedgerSettingAlertComparisonMethod:
+  $ref: "../../../../util/number/schemas.yml#/ComparisonMethod"

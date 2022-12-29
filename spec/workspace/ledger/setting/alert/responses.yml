@@ -1,0 +1,9 @@
+WorkspaceLedgerSettingAlertFindSuccessResponse:
+  description: 台帳のアラート設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingAlert"
+
+WorkspaceLedgerSettingAlertUpdateSuccessResponse:
+  description: ワークスペースのアラート更新が成功した場合のレスポンスです。

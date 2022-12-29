@@ -1,0 +1,6 @@
+WorkspaceLedgerSettingGoalUpdateRequestBody:
+  description: 台帳の目標設定の更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingGoal"

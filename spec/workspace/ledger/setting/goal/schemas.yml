@@ -1,0 +1,10 @@
+WorkspaceLedgerSettingGoal:
+  type: object
+  properties:
+    threshold:
+      type: integer
+    comparison_method:
+      $ref: "#/WorkspaceLedgerSettingGoalComparisonMethod"
+
+WorkspaceLedgerSettingGoalComparisonMethod:
+  $ref: "../../../../util/number/schemas.yml#/ComparisonMethod"

@@ -1,0 +1,26 @@
+get:
+  summary: 台帳の目標設定の取得を行います。
+  description: IDを使用して台帳の目標設定を取得します。
+  tags:
+    - workspace
+  operationId: findLedgerSettingGoal
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  responses:
+    "200":
+      $ref: "./workspace/ledger/setting/goal/responses.yml#/WorkspaceLedgerSettingGoalFindSuccessResponse"
+patch:
+  summary: 台帳の目標設定の更新を行います。
+  description: IDを使用して台帳の目標設定を更新します。
+  tags:
+    - workspace
+  operationId: updateLedgerSettingGoal
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  requestBody:
+    $ref: "./workspace/ledger/setting/goal/request_bodies.yml#/WorkspaceLedgerSettingGoalUpdateRequestBody"
+  responses:
+    "204":
+      $ref: "./workspace/ledger/setting/goal/responses.yml#/WorkspaceLedgerSettingGoalUpdateSuccessResponse"

@@ -1,0 +1,9 @@
+WorkspaceLedgerSettingGoalFindSuccessResponse:
+  description: 台帳の目標設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingGoal"
+
+WorkspaceLedgerSettingGoalUpdateSuccessResponse:
+  description: ワークスペースの目標更新が成功した場合のレスポンスです。

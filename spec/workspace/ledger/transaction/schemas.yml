@@ -23,6 +23,14 @@ WorkspaceLedgerTransaction:
       allOf:
         - $ref: "#/WorkspaceLedgerTransactionId"
         - readOnly: true
+    collaborator:
+      allOf:
+        - $ref: "#/WorkspaceLedgerTransactionCollaborator"
+        - readOnly: true
+    collaborator_id:
+      allOf:
+        - $ref: "#/WorkspaceLedgerTransactionCollaboratorId"
+        - writeOnly: true
     type:
       $re: "#/WorkspaceLedgerTransactionType"
     description:
@@ -35,6 +43,12 @@ WorkspaceLedgerTransaction:
 
 WorkspaceLedgerTransactionId:
   $ref: "../../../util/id/schemas.yml#/Uuid"
+
+WorkspaceLedgerTransactionCollaborator:
+  $ref: "../collaborator/schemas.yml#/WorkspaceLedgerCollaborator"
+
+WorkspaceLedgerTransactionCollaboratorId:
+  $ref: "../collaborator/schemas.yml#/WorkspaceLedgerCollaboratorId"
 
 WorkspaceLedgerTransactionType:
   description: |

@@ -1,0 +1,29 @@
+WorkspaceLedgerSettingPublication:
+  description: ワークスペースの公開設定です。
+  type: object
+  required:
+    - scope
+  properties:
+    scope:
+      $ref: "#/WorkspaceLedgerSettingPublicationScope"
+    url:
+      $ref: "#/WorkspaceLedgerSecuritySettingPublicationUrl"
+
+WorkspaceLedgerSettingPublicationScope:
+  description: |
+    | Public Scope           | Description                                                                              | 
+    | ---------------------- | ---------------------------------------------------------------------------------------- | 
+    | Public                 | URLを知っている人であれば誰でも閲覧が可能です。                                                  | 
+    | WorkspaceMember        | ワークスペースの参加者であれば誰でも閲覧と参加が可能です。                                          | 
+    | LedgerMember           | 参加者のみ閲覧が可能です。参加するには招待が必要となります。                                        |
+  type: string
+  default: WorkspaceMember
+  enum:
+    - Public
+    - WorkspaceMember
+    - LedgerMember
+
+WorkspaceLedgerSecuritySettingPublicationUrl:
+  allOf:
+    - $ref: "../../../../util/url/schemas.yml#/UrlPathId"
+    - description: public_scope の設定が Public の場合のみ有効です。

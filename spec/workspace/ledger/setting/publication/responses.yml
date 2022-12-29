@@ -1,0 +1,9 @@
+WorkspaceLedgerSettingPublicationFindSuccessResponse:
+  description: 台帳の公開設定の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingPublication"
+
+WorkspaceLedgerSettingPublicationUpdateSuccessResponse:
+  description: ワークスペースの更新が成功した場合のレスポンスです。

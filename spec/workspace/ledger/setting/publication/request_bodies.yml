@@ -1,0 +1,6 @@
+WorkspaceLedgerSettingPublicationUpdateRequestBody:
+  description: 台帳の公開設定の更新リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerSettingPublication"

@@ -1,13 +1,13 @@
 WorkspaceLedgerCreateRequestBody:
   allOf:
     - $ref: "#/WorkspaceLedger"
+    - properties:
+        publication:
+          $ref: "./setting/publication/schemas.yml#/WorkspaceLedgerSettingPublication"
 
 WorkspaceLedgerUpdateRequestBody:
   allOf:
-    - $ref: "#/WorkspaceLedgerInformation"
-    - properties:
-        items:
-          $ref: "#/WorkspaceLedgerItems"
+    - $ref: "#/WorkspaceLedger"
 
 WorkspaceLedgers:
   title: WorkspaceLedgers
@@ -18,66 +18,40 @@ WorkspaceLedgers:
         data:
           type: array
           items:
-            allOf:
-              - $ref: "#/WorkspaceLedgerInformation"
-              - properties:
-                  id:
-                    allOf:
-                      - $ref: "#/WorkspaceLedgerId"
-                      - readOnly: true
-                  security_settings:
-                    $ref: "./security_setting/schemas.yml#/WorkspaceLedgerSecuritySettings"
-              - required:
-                  - id
-                  - security_settings
+            $ref: "#/WorkspaceLedger"
 
 WorkspaceLedger:
   title: WorkspaceLedger
   description: 台帳の情報です。
-  allOf:
-    - $ref: "#/WorkspaceLedgerInformation"
-    - properties:
-        id:
-          allOf:
-            - $ref: "#/WorkspaceLedgerId"
-            - readOnly: true
-        items:
-          $ref: "#/WorkspaceLedgerItems"
-        security_settings:
-          $ref: "./security_setting/schemas.yml#/WorkspaceLedgerSecuritySettings"
-    - required:
-        - id
-        - items
-        - security_settings
-
-WorkspaceLedgerId:
-  $ref: "../../util/id/schemas.yml#/Uuid"
-
-WorkspaceLedgerInformation:
   type: object
+  required:
+    - id
+    - address
+    - name
+    - unit
   properties:
+    id:
+      allOf:
+        - $ref: "#/WorkspaceLedgerId"
+        - readOnly: true
     address:
       allOf:
-        - $ref: "#/WorkspaceLedgerAccount"
+        - $ref: "#/WorkspaceLedgerAddress"
         - readOnly: true
-    icon:
-      $ref: "#/WorkspaceLedgerIcon"
     name:
       $ref: "#/WorkspaceLedgerName"
     description:
       $ref: "#/WorkspaceLedgerDescription"
-  required:
-    - address
-    - name
+    unit:
+      $ref: "#/WorkspaceLedgerUnit"
 
-WorkspaceLedgerAccount:
+WorkspaceLedgerId:
+  $ref: "../../util/id/schemas.yml#/Uuid"
+
+WorkspaceLedgerAddress:
   description: 他の台帳との取引に使用する台帳番号です。
   allOf:
     - $ref: "../../util/id/schemas.yml#/Uuid"
-
-WorkspaceLedgerIcon:
-  type: string
-  format: uri
 
 WorkspaceLedgerName:
   type: string
@@ -89,95 +63,5 @@ WorkspaceLedgerDescription:
   nullable: true
   maxLength: 255
 
-WorkspaceLedgerItems:
-  type: array
-  minItems: 1
-  maxItems: 100
-  items:
-    $ref: "#/WorkspaceLedgerItem"
-
-WorkspaceLedgerItem:
-  type: object
-  properties:
-    id:
-      $ref: "#/WorkspaceLedgerItemId"
-    unit:
-      $ref: "#/WorkspaceLedgerItemUnit"
-    priority:
-      $ref: "#/WorkspaceLedgerItemPriority"
-    min:
-      $ref: "#/WorkspaceLedgerItemMin"
-    max:
-      $ref: "#/WorkspaceLedgerItemMax"
-    input_limit:
-      $ref: "#/WorkspaceLedgerItemInputLimit"
-    alerts:
-      $ref: "#/WorkspaceLedgerItemAlerts"
-    goals:
-      $ref: "#/WorkspaceLedgerItemGoals"
-
-WorkspaceLedgerItemId:
-  $ref: "../../util/id/schemas.yml#/Uuid"
-
-WorkspaceLedgerItemUnit:
+WorkspaceLedgerUnit:
   $ref: "../unit/schemas.yml#/WorkspaceUnit"
-
-WorkspaceLedgerItemPriority:
-  type: array
-  minItems: 1
-  maxItems: 50
-  items:
-    $ref: "#/WorkspaceLedgerItem"
-
-WorkspaceLedgerItemAlerts:
-  type: array
-  maxItems: 5
-  items:
-    $ref: "#/WorkspaceLedgerItemAlert"
-
-WorkspaceLedgerItemAlert:
-  description: 閾値にかかった場合、アラート通知をオンにしているユーザーに通知します。
-  type: object
-  properties:
-    threshold:
-      type: integer
-    type:
-      $ref: "#/WorkspaceLedgerItemAlertType"
-
-WorkspaceLedgerItemAlertType:
-  type: string
-  enum:
-    - More
-    - Less
-
-WorkspaceLedgerItemGoals:
-  type: array
-  maxItems: 5
-  items:
-    $ref: "#/WorkspaceLedgerItemAlert"
-
-WorkspaceLedgerItemGoal:
-  type: object
-  properties:
-    threshold:
-      type: integer
-    type:
-      $ref: "#/WorkspaceLedgerItemGoalType"
-
-WorkspaceLedgerItemGoalType:
-  type: string
-  enum:
-    - More
-    - Less
-
-WorkspaceLedgerItemMin:
-  type: integer
-
-WorkspaceLedgerItemMax:
-  type: integer
-
-WorkspaceLedgerItemInputLimit:
-  min:
-    type: integer
-  max:
-    type: integer

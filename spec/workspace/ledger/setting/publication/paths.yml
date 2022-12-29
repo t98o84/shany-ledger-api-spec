@@ -1,0 +1,26 @@
+get:
+  summary: 台帳の公開設定の取得を行います。
+  description: IDを使用して台帳の公開設定を取得します。
+  tags:
+    - workspace
+  operationId: findLedgerSettingPublication
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  responses:
+    "200":
+      $ref: "./workspace/ledger/setting/publication/responses.yml#/WorkspaceLedgerSettingPublicationFindSuccessResponse"
+patch:
+  summary: 台帳の公開設定の更新を行います。
+  description: IDを使用して台帳の公開設定を更新します。
+  tags:
+    - workspace
+  operationId: updateLedgerSettingPublication
+  parameters:
+    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+  requestBody:
+    $ref: "./workspace/ledger/setting/publication/request_bodies.yml#/WorkspaceLedgerSettingPublicationUpdateRequestBody"
+  responses:
+    "204":
+      $ref: "./workspace/ledger/setting/publication/responses.yml#/WorkspaceLedgerSettingPublicationUpdateSuccessResponse"

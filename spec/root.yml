@@ -13,11 +13,13 @@ info:
     url: https://creativecommons.org/licenses/
   version: 0.0.26
 
+
 servers:
   - url: http://localhost/v1
     description: 開発環境
   - url: https://api.shany-ledger.com/v1
     description: 本番環境
+
 
 tags:
   - name: auth
@@ -25,59 +27,78 @@ tags:
   - name: workspace
     description: ワークスペースに関するAPIグループです。
 
+
 paths:
   /sign-up:
     $ref: "./auth/signup/paths.yml"
   /sign-in:
     $ref: "./auth/signin/paths.yml"
+
   /workspaces:
     $ref: "./workspace/paths.yml#/Workspaces"
   /workspaces/[workspaceId]:
     $ref: "./workspace/paths.yml#/Workspace"
+
   /workspaces/[workspaceId]/security-settings:
     $ref: "./workspace/security_setting/paths.yml"
+
   /workspaces/[workspaceId]/members:
     $ref: "./workspace/member/paths.yml#/Members"
   /workspaces/[workspaceId]/members/[memberId]:
     $ref: "./workspace/member/paths.yml#/Member"
+
   /workspaces/[workspaceId]/members/[memberId]/security-settings:
     $ref: "./workspace/member/security_setting/paths.yml"
+
   /workspaces/[workspaceId]/member-groups:
     $ref: "./workspace/member_group/paths.yml#/MemberGroups"
   /workspaces/[workspaceId]/member-groups/[workspaceMemberGroupId]:
     $ref: "./workspace/member_group/paths.yml#/MemberGroup"
+
   /workspaces/[workspaceId]/member-groups/[workspaceMemberGroupId]/members:
     $ref: "./workspace/member_group/member/paths.yml#/Members"
+
   /workspaces/[workspaceId]/invitations:
     $ref: "./workspace/invitation/paths.yml#/Invitations"
   /workspaces/[workspaceId]/invitations/[workspaceInvitationId]:
     $ref: "./workspace/invitation/paths.yml#/Invitation"
+
   /workspaces/[workspaceId]/units:
     $ref: "./workspace/unit/paths.yml#/Units"
   /workspaces/[workspaceId]/units/[workspaceUnitId]:
     $ref: "./workspace/unit/paths.yml#/Unit"
+
   /workspaces/[workspaceId]/ledgers:
     $ref: "./workspace/ledger/paths.yml#/Ledgers"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]:
     $ref: "./workspace/ledger/paths.yml#/Ledger"
+
+  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/publication:
+    $ref: "./workspace/ledger/setting/publication/paths.yml"
+
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations:
     $ref: "./workspace/ledger/invitation/paths.yml#/Invitations"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations/[workspaceInvitationId]:
     $ref: "./workspace/ledger/invitation/paths.yml#/Invitation"
+
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members:
     $ref: "./workspace/ledger/member/paths.yml#/Members"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]:
     $ref: "./workspace/ledger/member/paths.yml#/Member"
+
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]/security-settings:
     $ref: "./workspace/ledger/member/security_setting/paths.yml"
+
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions:
     $ref: "./workspace/ledger/transaction/paths.yml#/Transactions"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]:
     $ref: "./workspace/ledger/transaction/paths.yml#/Transaction"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]/comments:
+
     $ref: "./workspace/ledger/transaction/comment/paths.yml#/Comments"
   /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]/comments/[workspaceLedgerTransactionCommentId]:
     $ref: "./workspace/ledger/transaction/comment/paths.yml#/Comment"
+
 
 components:
   schemas:

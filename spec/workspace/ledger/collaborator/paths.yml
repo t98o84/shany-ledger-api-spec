@@ -1,0 +1,55 @@
+Collaborators:
+  get:
+    summary: 台帳のコラボレーターの一覧取得を行います。
+    description: 台帳のコラボレーターの一覧を取得します。
+    tags:
+      - workspace
+    operationId: searchLedgerCollaborator
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/collaborator/responses.yml#/WorkspaceLedgerCollaboratorsSearchSuccessResponse"
+  post:
+    summary: 台帳のコラボレーターの追加を行います。
+    description: 台帳のコラボレーターを追加します。
+    tags:
+      - workspace
+    operationId: addLedgerCollaborator
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+    requestBody:
+      $ref: "./workspace/ledger/collaborator/request_bodies.yml#/WorkspaceLedgerCollaboratorAddRequestBody"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/collaborator/responses.yml#/WorkspaceLedgerCollaboratorAddSuccessResponse"
+
+Collaborator:
+  get:
+    summary: 台帳のコラボレーターの取得を行います。
+    description: IDを使用して台帳のコラボレーターを取得します。
+    tags:
+      - workspace
+    operationId: findLedgerCollaborator
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/collaborator/parameters.yml#/WorkspaceLedgerCollaboratorId"
+    responses:
+      "200":
+        $ref: "./workspace/ledger/collaborator/responses.yml#/WorkspaceLedgerCollaboratorFindSuccessResponse"
+  delete:
+    summary: 台帳のコラボレーターの削除を行います。
+    description: IDを使用して台帳のコラボレーターを削除します。
+    tags:
+      - workspace
+    operationId: deleteLedgerCollaborator
+    parameters:
+      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
+      - $ref: "./workspace/ledger/collaborator/parameters.yml#/WorkspaceLedgerCollaboratorId"
+    responses:
+      "204":
+        $ref: "./workspace/ledger/collaborator/responses.yml#/WorkspaceLedgerCollaboratorDeleteSuccessResponse"

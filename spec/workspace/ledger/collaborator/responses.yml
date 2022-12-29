@@ -1,0 +1,23 @@
+WorkspaceLedgerCollaboratorsSearchSuccessResponse:
+  description: 台帳のコラボレーター一覧の取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerCollaborators"
+
+WorkspaceLedgerCollaboratorFindSuccessResponse:
+  description: 台帳のコラボレーターの取得が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerCollaborator"
+
+WorkspaceLedgerCollaboratorAddSuccessResponse:
+  description: 台帳のコラボレーターの追加が成功した場合のレスポンスです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerCollaborator"
+
+WorkspaceLedgerCollaboratorDeleteSuccessResponse:
+  description: 台帳のコラボレーターの削除が成功した場合のレスポンスです。

@@ -1,0 +1,34 @@
+WorkspaceLedgerCollaborators:
+  title: WorkspaceLedgers
+  description: 台帳の管理単位のグループ一覧です。
+  allOf:
+    - $ref: "../../../util/pagination/schemas.yml#/CursorPagination"
+    - properties:
+        data:
+          type: array
+          items:
+            $ref: "#/WorkspaceLedgerCollaborator"
+
+WorkspaceLedgerCollaborator:
+  title: WorkspaceLedgerCollaborator
+  description: コラボレーション可能な台帳の情報です。
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      allOf:
+        - $ref: "#/WorkspaceLedgerCollaboratorId"
+        - readOnly: true
+    name:
+      allOf:
+        - $ref: "../schemas.yml#/WorkspaceLedgerName"
+        - readOnly: true
+    description:
+      allOf:
+        - $ref: "../schemas.yml#/WorkspaceLedgerDescription"
+        - readOnly: true
+
+WorkspaceLedgerCollaboratorId:
+  $ref: "../schemas.yml#/WorkspaceLedgerAddress"

@@ -1,0 +1,6 @@
+WorkspaceLedgerCollaboratorAddRequestBody:
+  description: 台帳のコラボレーターの追加リクエストのボディです。
+  content:
+    application/json:
+      schema:
+        $ref: "./schemas.yml#/WorkspaceLedgerCollaboratorId"

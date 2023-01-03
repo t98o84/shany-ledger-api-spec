@@ -1,0 +1,25 @@
+WorkspacesExample:
+  value:
+    - id: 9213b3a9-7028-432f-906b-d63fa77d7466
+      icon: https://exampel.com/exampel-icon-1.webp
+      url: example-url-1
+      name: example_name_1
+      description: example description
+    - id: 8b3c9a95-65d8-490b-bbb1-a7ff82a064c6
+      icon: https://exampel.com/exampel-icon-2.webp
+      url: example-url
+      name: example_name_2
+      description: example description 2
+    - id: a39bd5b6-d4e4-45d9-97c5-66a52e84301a
+      icon: https://exampel.com/exampel-icon-3.webp
+      url: example-url
+      name: example_name_3
+      description: example description 3
+
+WorkspaceExample:
+  value:
+    id: 9213b3a9-7028-432f-906b-d63fa77d7466
+    icon: https://exampel.com/exampel-icon.webp
+    url: example-url
+    name: example_name
+    description: Example description

@@ -2,7 +2,7 @@ FileUpload:
   type: string
   format: binary
   writeOnly: true
-  max: 20000000 # 20MB
+  maximum: 20000000 # 20MB
 
 FileDownload:
   type: string

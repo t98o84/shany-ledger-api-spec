@@ -3,14 +3,10 @@ WorkspacesSearchSuccessResponse:
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/Workspaces"
+        $ref: "./schemas.yml#/WorkspacesWithPagination"
 
 WorkspaceCreateSuccessResponse:
   description: ワークスペースの新規作成が成功した場合のレスポンスです。
-  headers:
-    Location:
-      schema:
-        $ref: "#/components/headers/Location"
   content:
     application/json:
       schema:

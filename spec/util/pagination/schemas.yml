@@ -17,40 +17,59 @@ OffsetPagination:
     total:
       type: integer
       format: int32
+      minimum: 1
+      example: 3
     per_page:
       type: integer
       format: int32
+      minimum: 1
+      example: 1
     current_page:
       type: integer
       format: int32
+      minimum: 1
+      example: 1
     last_page:
       type: integer
       format: int32
+      minimum: 1
+      example: 3
     first_page_url:
       type: string
       format: uri
+      example: https://example.com
     last_page_url:
       type: string
       format: uri
+      example: https://example.com?page=3
     next_page_url:
       type: string
       format: uri
+      example: https://example.com?page=2
     prev_page_url:
       type: string
       format: uri
+      example: null
     path:
       type: string
       format: uri
+      example: https://example.com
     from:
       type: integer
       format: int32
+      example: 1
     to:
       type: integer
       format: int32
+      example: 1
     data:
       type: array
       items:
         type: {}
+      example:
+        - 1
+        - 2
+        - 3
 
 CursorPagination:
   title: CursorPagination
@@ -69,17 +88,21 @@ CursorPagination:
       properties:
         hasMore:
           type: boolean
+          example: true
         perPage:
           type: integer
           format: int32
+          example: 1
         from:
           type:
             - string
             - integer
+          example: 1
         to:
           type:
             - string
             - integer
+          example: 1
     links:
       type: object
       required:
@@ -90,26 +113,30 @@ CursorPagination:
         first:
           type: string
           format: uri
+          example: https://example.com
         prev:
           type: string
           format: uri
+          example: null
         next:
           type: string
           format: uri
+          example: https://example.com?cursor=2
     data:
       type: array
       items:
         type: {}
-
-Page:
-  type: integer
-  format: int32
-
-Cursor:
-  type:
-    - integer
-    - string
-
-PerPage:
-  type: integer
-  format: int32
+#  example:
+#    meta:
+#      hasMore: true
+#      perPage: 1
+#      from: 1
+#      to: 1
+#    links:
+#      first: https://example.com
+#      prev: null
+#      next: https://example.com?cursor=2
+#    data:
+#      - 1
+#      - 2
+#      - 3

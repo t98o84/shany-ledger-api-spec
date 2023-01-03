@@ -1,18 +1,44 @@
-Workspaces:
-  title: Workspace
+WorkspacesWithPagination:
+  title: WorkspacesWithPagination
   description: 対象のユーザーが所属するワークスペースの一覧情報です。
   allOf:
-    - $ref: "../util/pagination/schemas.yml#/OffsetPagination"
-    - properties:
-        data:
-          type: array
-          items:
-            $ref: "#/Workspace"
+    - $ref: "../util/pagination/schemas.yml#/CursorPagination"
+    - $ref: "#/Workspaces"
+
+Workspaces:
+  type: object
+  required:
+    - data
+  properties:
+    data:
+      type: array
+      items:
+        $ref: "#/Workspace"
+      example:
+        - id: 9213b3a9-7028-432f-906b-d63fa77d7466
+          icon: https://exampel.com/exampel-icon-1.webp
+          url: example-url-1
+          name: example_name_1
+          description: example description
+        - id: 8b3c9a95-65d8-490b-bbb1-a7ff82a064c6
+          icon: https://exampel.com/exampel-icon-2.webp
+          url: example-url-2
+          name: example_name_2
+          description: example description 2
+        - id: a39bd5b6-d4e4-45d9-97c5-66a52e84301a
+          icon: https://exampel.com/exampel-icon-3.webp
+          url: example-url-3
+          name: example_name_3
+          description: example description 3
 
 Workspace:
   title: Workspace
   description: ワークスペースの情報です。
   type: object
+  required:
+    - id
+    - url
+    - name
   properties:
     id:
       allOf:
@@ -26,22 +52,22 @@ Workspace:
       $ref: "#/WorkspaceName"
     description:
       $ref: "#/WorkspaceDescription"
-  required:
-    - id
-    - url
-    - name
 
 WorkspaceId:
-   $ref: "../util/id/schemas.yml#/Uuid"
+  $ref: "../util/id/schemas.yml#/Uuid"
+
 WorkspaceIcon:
   type: string
   format: uri
+
 WorkspaceUrl:
   $ref: "../util/url/schemas.yml#/UrlPathId"
+
 WorkspaceName:
   type: string
   minLength: 1
   maxLength: 100
+
 WorkspaceDescription:
   type: string
   maxLength: 255

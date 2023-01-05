@@ -5,6 +5,9 @@ Workspaces:
     tags:
       - workspace
     operationId: search
+    parameters:
+      - $ref: "./util/pagination/parameters.yml#/CursorPaginationCursor"
+      - $ref: "./util/pagination/parameters.yml#/CursorPaginationPerPage"
     responses:
       "200":
         $ref: "./workspace/responses.yml#/WorkspacesSearchSuccessResponse"

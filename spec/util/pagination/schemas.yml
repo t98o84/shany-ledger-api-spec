@@ -1,3 +1,4 @@
+
 OffsetPagination:
   title: OffsetPagination
   description: オフセットベースのページネーションです。
@@ -126,17 +127,3 @@ CursorPagination:
       type: array
       items:
         type: {}
-#  example:
-#    meta:
-#      hasMore: true
-#      perPage: 1
-#      from: 1
-#      to: 1
-#    links:
-#      first: https://example.com
-#      prev: null
-#      next: https://example.com?cursor=2
-#    data:
-#      - 1
-#      - 2
-#      - 3

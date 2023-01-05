@@ -1,0 +1,40 @@
+OffsetPaginationPage:
+  name: page
+  in: query
+  description: オフセットページネーションの表示ページです。
+  required: false
+  schema:
+    type: integer
+    minimum: 1
+
+OffsetPaginationPerPage:
+  name: per_page
+  in: query
+  description: オフセットページネーションの表示件数です。
+  required: false
+  schema:
+    type: integer
+    minimum: 1
+    default: 10
+    example: 1
+
+CursorPaginationCursor:
+  name: cursor
+  in: query
+  description: カーソルページネーションのカーソル位置です。
+  required: false
+  schema:
+    type: string
+    minLength: 1
+    maxLength: 255
+
+CursorPaginationPerPage:
+  name: per_page
+  in: query
+  description: カーソルページネーションの表示件数です。
+  required: false
+  schema:
+    type: integer
+    minimum: 1
+    default: 10
+    example: 1

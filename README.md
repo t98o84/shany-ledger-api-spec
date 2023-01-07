@@ -1,5 +1,5 @@
 # shanle-spec
-ShanyLedgerのAPIスキーマ定義
+ShanleのAPIスキーマ定義
 
 ## 規約
 ###  プロパティは特別な理由がない限りデータに含めない形で設計する。

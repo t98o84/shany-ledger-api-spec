@@ -1,4 +1,4 @@
-# Shanle spec
+# Shanle Spec
 ShanleのAPIスキーマ定義
 
 ## 規約

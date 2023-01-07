@@ -1,3 +1,2 @@
 additionalProperties:
-#  withInterfaces: true
   useSingleRequestParameter: true

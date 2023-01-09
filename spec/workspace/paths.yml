@@ -8,6 +8,7 @@ Workspaces:
     parameters:
       - $ref: "./util/pagination/parameters.yml#/CursorPaginationCursor"
       - $ref: "./util/pagination/parameters.yml#/CursorPaginationPerPage"
+      - $ref: "./workspace/parameters.yml#/WorkspaceFreeWord"
     responses:
       "200":
         $ref: "./workspace/responses.yml#/WorkspacesSearchSuccessResponse"

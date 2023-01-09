@@ -5,3 +5,12 @@ WorkspaceId:
   required: true
   schema:
     $ref: "./schemas.yml#/WorkspaceId"
+
+WorkspaceFreeWord:
+  name: free_word
+  in: query
+  description: ワークスペースのフリーワード検索です。
+  required: false
+  schema:
+    type: string
+    max: 100

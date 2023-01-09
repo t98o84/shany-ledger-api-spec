@@ -1,6 +1,6 @@
-AuthSignupSuccessResponse:
+AuthSignUpSuccessResponse:
   description: サインアップとサインインがどちらも成功した場合のレスポンスです。
   content:
     application/json:
       schema:
-        $ref: "./schemas.yml#/AuthSignupSuccessResponse"
+        $ref: "./schemas.yml#/AuthSignUpSuccessResponse"

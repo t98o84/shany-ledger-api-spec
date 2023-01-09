@@ -165,3 +165,8 @@ components:
       schema:
         type: string
         format: uri
+  securitySchemes:
+    BearerAuth:
+      type: http
+      description: AuthorizationヘッダのBearerスキームに設定されたアクセストークンで認可を行います。
+      scheme: bearer

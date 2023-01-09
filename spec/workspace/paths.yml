@@ -4,6 +4,8 @@ Workspaces:
     description: ユーザーの所属するワークスペースの一覧を取得します。
     tags:
       - workspace
+    security:
+      - BearerAuth: []
     operationId: search
     parameters:
       - $ref: "./util/pagination/parameters.yml#/CursorPaginationCursor"
@@ -17,6 +19,8 @@ Workspaces:
     description: ワークスペースを作成します。
     tags:
       - workspace
+    security:
+      - BearerAuth: []
     operationId: create
     requestBody:
       $ref: "./workspace/request_bodies.yml#/WorkspaceCreateRequestBody"
@@ -30,6 +34,8 @@ Workspace:
     description: IDを使用してワークスペースを取得します。
     tags:
       - workspace
+    security:
+      - BearerAuth: []
     operationId: find
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
@@ -41,6 +47,8 @@ Workspace:
     description: IDを使用してワークスペースを更新します。
     tags:
       - workspace
+    security:
+      - BearerAuth: []
     operationId: update
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"
@@ -54,6 +62,8 @@ Workspace:
     description: IDを使用してワークスペースを削除します。
     tags:
       - workspace
+    security:
+      - BearerAuth: []
     operationId: delete
     parameters:
       - $ref: "./workspace/parameters.yml#/WorkspaceId"

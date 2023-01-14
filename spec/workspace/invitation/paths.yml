@@ -6,7 +6,7 @@ Invitations:
       - workspace
     operationId: searchInvitation
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
       - $ref: "./workspace/invitation/parameters.yml#/ExclusionWorkspaceInvitationRoles"
       - $ref: "./workspace/invitation/parameters.yml#/InclusionWorkspaceInvitationRoles"
@@ -22,7 +22,7 @@ Invitations:
       - workspace
     operationId: createInvitation
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     requestBody:
       $ref: "./workspace/invitation/request_bodies.yml#/WorkspaceInvitationCreateRequestBody"
     responses:
@@ -37,7 +37,7 @@ Invitation:
       - workspace
     operationId: findInvitation
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
     responses:
       "200":
@@ -49,7 +49,7 @@ Invitation:
       - workspace
     operationId: updateInvitation
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
     requestBody:
       $ref: "./workspace/invitation/request_bodies.yml#/WorkspaceInvitationUpdateRequestBody"
@@ -63,7 +63,7 @@ Invitation:
       - workspace
     operationId: deleteInvitation
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/invitation/parameters.yml#/WorkspaceInvitationId"
     responses:
       "204":

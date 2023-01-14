@@ -5,7 +5,7 @@ get:
     - workspace
   operationId: findLedgerMemberSecuritySetting
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
   responses:
@@ -18,7 +18,7 @@ patch:
     - workspace
   operationId: updateLedgerMemberSecuritySetting
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
   requestBody:

@@ -6,7 +6,7 @@ Members:
       - workspace
     operationId: searchLedgerMember
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberExclusionMemberRoles"
       - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberInclusionMemberRoles"
@@ -20,7 +20,7 @@ Members:
       - workspace
     operationId: addLedgerMember
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     requestBody:
       $ref: "./workspace/ledger/member/request_bodies.yml#/WorkspaceLedgerMemberAddRequestBody"
@@ -36,7 +36,7 @@ Member:
       - workspace
     operationId: findLedgerMember
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
     responses:
@@ -49,7 +49,7 @@ Member:
       - workspace
     operationId: deleteLedgerMember
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/member/parameters.yml#/WorkspaceLedgerMemberId"
     responses:

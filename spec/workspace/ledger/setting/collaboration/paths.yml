@@ -5,7 +5,7 @@ get:
     - workspace
   operationId: findLedgerSettingCollaboration
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   responses:
     "200":
@@ -17,7 +17,7 @@ patch:
     - workspace
   operationId: updateLedgerSettingCollaboration
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   requestBody:
     $ref: "./workspace/ledger/setting/collaboration/request_bodies.yml#/WorkspaceLedgerSettingCollaborationUpdateRequestBody"

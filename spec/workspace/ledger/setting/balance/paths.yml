@@ -5,7 +5,7 @@ get:
     - workspace
   operationId: findLedgerSettingBalance
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   responses:
     "200":
@@ -17,7 +17,7 @@ patch:
     - workspace
   operationId: updateLedgerSettingBalance
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   requestBody:
     $ref: "./workspace/ledger/setting/balance/request_bodies.yml#/WorkspaceLedgerSettingBalanceUpdateRequestBody"

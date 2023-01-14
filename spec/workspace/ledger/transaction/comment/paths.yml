@@ -6,7 +6,7 @@ Comments:
       - workspace
     operationId: searchLedgerTransactionComment
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
     responses:
@@ -19,7 +19,7 @@ Comments:
       - workspace
     operationId: createLedgerTransactionComment
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
     requestBody:
@@ -36,7 +36,7 @@ Comment:
       - workspace
     operationId: findLedgerTransactionComment
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
     responses:
@@ -49,7 +49,7 @@ Comment:
       - workspace
     operationId: updateLedgerTransactionComment
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
     requestBody:
@@ -64,7 +64,7 @@ Comment:
       - workspace
     operationId: deleteLedgerTransactionComment
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/transaction/parameters.yml#/WorkspaceLedgerTransactionId"
     responses:

@@ -6,7 +6,7 @@ Members:
       - workspace
     operationId: searchMemberGroupMembers
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
     responses:
       "200":
@@ -18,7 +18,7 @@ Members:
       - workspace
     operationId: addMemberGroupMembers
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
     requestBody:
       $ref: "./workspace/member_group/member/request_bodies.yml#/WorkspaceMemberGroupMembersAddRequestBody"
@@ -32,7 +32,7 @@ Members:
       - workspace
     operationId: deleteMemberGroupMembers
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/member_group/parameters.yml#/WorkspaceMemberGroupId"
     requestBody:
       $ref: "./workspace/member_group/member/request_bodies.yml#/WorkspaceMemberGroupMembersDeleteRequestBody"

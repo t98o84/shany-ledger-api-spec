@@ -1,10 +1,10 @@
-WorkspaceId:
-  name: workspaceId
+WorkspaceUrl:
+  name: workspaceUrl
   in: path
   description: ワークスペースのIDです。
   required: true
   schema:
-    $ref: "./schemas.yml#/WorkspaceId"
+    $ref: "./schemas.yml#/WorkspaceUrl"
 
 WorkspaceFreeWord:
   name: free_word

@@ -6,7 +6,7 @@ Collaborators:
       - workspace
     operationId: searchLedgerCollaborator
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     responses:
       "200":
@@ -18,7 +18,7 @@ Collaborators:
       - workspace
     operationId: addLedgerCollaborator
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     requestBody:
       $ref: "./workspace/ledger/collaborator/request_bodies.yml#/WorkspaceLedgerCollaboratorAddRequestBody"
@@ -34,7 +34,7 @@ Collaborator:
       - workspace
     operationId: findLedgerCollaborator
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/collaborator/parameters.yml#/WorkspaceLedgerCollaboratorId"
     responses:
@@ -47,7 +47,7 @@ Collaborator:
       - workspace
     operationId: deleteLedgerCollaborator
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
       - $ref: "./workspace/ledger/collaborator/parameters.yml#/WorkspaceLedgerCollaboratorId"
     responses:

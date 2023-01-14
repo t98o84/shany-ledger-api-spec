@@ -5,7 +5,7 @@ get:
     - workspace
   operationId: findLedgerSettingGoal
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   responses:
     "200":
@@ -17,7 +17,7 @@ patch:
     - workspace
   operationId: updateLedgerSettingGoal
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   requestBody:
     $ref: "./workspace/ledger/setting/goal/request_bodies.yml#/WorkspaceLedgerSettingGoalUpdateRequestBody"

@@ -37,84 +37,84 @@ paths:
 
   /workspaces:
     $ref: "./workspace/paths.yml#/Workspaces"
-  /workspaces/[workspaceId]:
+  /workspaces/[workspaceUrl]:
     $ref: "./workspace/paths.yml#/Workspace"
 
-  /workspaces/[workspaceId]/security-settings:
+  /workspaces/[workspaceUrl]/security-settings:
     $ref: "./workspace/security_setting/paths.yml"
 
-  /workspaces/[workspaceId]/members:
+  /workspaces/[workspaceUrl]/members:
     $ref: "./workspace/member/paths.yml#/Members"
-  /workspaces/[workspaceId]/members/[memberId]:
+  /workspaces/[workspaceUrl]/members/[memberId]:
     $ref: "./workspace/member/paths.yml#/Member"
 
-  /workspaces/[workspaceId]/members/[memberId]/security-settings:
+  /workspaces/[workspaceUrl]/members/[memberId]/security-settings:
     $ref: "./workspace/member/security_setting/paths.yml"
 
-  /workspaces/[workspaceId]/member-groups:
+  /workspaces/[workspaceUrl]/member-groups:
     $ref: "./workspace/member_group/paths.yml#/MemberGroups"
-  /workspaces/[workspaceId]/member-groups/[workspaceMemberGroupId]:
+  /workspaces/[workspaceUrl]/member-groups/[workspaceMemberGroupId]:
     $ref: "./workspace/member_group/paths.yml#/MemberGroup"
 
-  /workspaces/[workspaceId]/member-groups/[workspaceMemberGroupId]/members:
+  /workspaces/[workspaceUrl]/member-groups/[workspaceMemberGroupId]/members:
     $ref: "./workspace/member_group/member/paths.yml#/Members"
 
-  /workspaces/[workspaceId]/invitations:
+  /workspaces/[workspaceUrl]/invitations:
     $ref: "./workspace/invitation/paths.yml#/Invitations"
-  /workspaces/[workspaceId]/invitations/[workspaceInvitationId]:
+  /workspaces/[workspaceUrl]/invitations/[workspaceInvitationId]:
     $ref: "./workspace/invitation/paths.yml#/Invitation"
 
-  /workspaces/[workspaceId]/units:
+  /workspaces/[workspaceUrl]/units:
     $ref: "./workspace/unit/paths.yml#/Units"
-  /workspaces/[workspaceId]/units/[workspaceUnitId]:
+  /workspaces/[workspaceUrl]/units/[workspaceUnitId]:
     $ref: "./workspace/unit/paths.yml#/Unit"
 
-  /workspaces/[workspaceId]/ledgers:
+  /workspaces/[workspaceUrl]/ledgers:
     $ref: "./workspace/ledger/paths.yml#/Ledgers"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]:
     $ref: "./workspace/ledger/paths.yml#/Ledger"
 
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/collaborators:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/collaborators:
     $ref: "./workspace/ledger/collaborator/paths.yml#/Collaborators"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/collaborators/[workspaceLedgerCollaboratorId]:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/collaborators/[workspaceLedgerCollaboratorId]:
     $ref: "./workspace/ledger/collaborator/paths.yml#/Collaborator"
 
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/settings:
     $ref: "./workspace/ledger/setting/paths.yml"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/publication:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/settings/publication:
     $ref: "./workspace/ledger/setting/publication/paths.yml"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/transaction:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/settings/transaction:
     $ref: "./workspace/ledger/setting/transaction/paths.yml"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/collaboration:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/settings/collaboration:
     $ref: "./workspace/ledger/setting/collaboration/paths.yml"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/balance:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/settings/balance:
     $ref: "./workspace/ledger/setting/balance/paths.yml"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/alert:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/settings/alert:
     $ref: "./workspace/ledger/setting/alert/paths.yml"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/settings/goal:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/settings/goal:
     $ref: "./workspace/ledger/setting/goal/paths.yml"
 
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/invitations:
     $ref: "./workspace/ledger/invitation/paths.yml#/Invitations"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/invitations/[workspaceInvitationId]:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/invitations/[workspaceInvitationId]:
     $ref: "./workspace/ledger/invitation/paths.yml#/Invitation"
 
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/members:
     $ref: "./workspace/ledger/member/paths.yml#/Members"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]:
     $ref: "./workspace/ledger/member/paths.yml#/Member"
 
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]/security-settings:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/members/[workspaceLedgerMemberId]/security-settings:
     $ref: "./workspace/ledger/member/security_setting/paths.yml"
 
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/transactions:
     $ref: "./workspace/ledger/transaction/paths.yml#/Transactions"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]:
     $ref: "./workspace/ledger/transaction/paths.yml#/Transaction"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]/comments:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]/comments:
 
     $ref: "./workspace/ledger/transaction/comment/paths.yml#/Comments"
-  /workspaces/[workspaceId]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]/comments/[workspaceLedgerTransactionCommentId]:
+  /workspaces/[workspaceUrl]/ledgers/[workspaceLedgerId]/transactions/[workspaceLedgerTransactionId]/comments/[workspaceLedgerTransactionCommentId]:
     $ref: "./workspace/ledger/transaction/comment/paths.yml#/Comment"
 
 

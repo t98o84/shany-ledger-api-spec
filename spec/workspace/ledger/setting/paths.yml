@@ -5,7 +5,7 @@ get:
     - workspace
   operationId: searchLedgerSetting
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   responses:
     "200":

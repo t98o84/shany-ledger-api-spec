@@ -5,7 +5,7 @@ get:
     - workspace
   operationId: findMemberSecuritySetting
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/member/parameters.yml#/MemberId"
   responses:
     "200":
@@ -17,7 +17,7 @@ patch:
     - workspace
   operationId: updateMemberSecuritySetting
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/member/parameters.yml#/MemberId"
   requestBody:
     $ref: "./workspace/member/security_setting/request_bodies.yml#/WorkspaceMemberSecuritySettingsUpdateRequestBody"

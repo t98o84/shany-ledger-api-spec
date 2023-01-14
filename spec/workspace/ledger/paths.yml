@@ -6,7 +6,7 @@ Ledgers:
       - workspace
     operationId: searchLedger
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     responses:
       "200":
         $ref: "./workspace/ledger/responses.yml#/WorkspaceLedgersSearchSuccessResponse"
@@ -17,7 +17,7 @@ Ledgers:
       - workspace
     operationId: createLedger
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     requestBody:
       $ref: "./workspace/ledger/request_bodies.yml#/WorkspaceLedgerCreateRequestBody"
     responses:
@@ -32,7 +32,7 @@ Ledger:
       - workspace
     operationId: findLedger
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     responses:
       "200":
@@ -44,7 +44,7 @@ Ledger:
       - workspace
     operationId: updateLedger
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     requestBody:
       $ref: "./workspace/ledger/request_bodies.yml#/WorkspaceLedgerUpdateRequestBody"
@@ -58,7 +58,7 @@ Ledger:
       - workspace
     operationId: deleteLedger
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
     responses:
       "204":

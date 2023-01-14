@@ -5,7 +5,7 @@ get:
     - workspace
   operationId: findLedgerSettingPublication
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   responses:
     "200":
@@ -17,7 +17,7 @@ patch:
     - workspace
   operationId: updateLedgerSettingPublication
   parameters:
-    - $ref: "./workspace/parameters.yml#/WorkspaceId"
+    - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
     - $ref: "./workspace/ledger/parameters.yml#/WorkspaceLedgerId"
   requestBody:
     $ref: "./workspace/ledger/setting/publication/request_bodies.yml#/WorkspaceLedgerSettingPublicationUpdateRequestBody"

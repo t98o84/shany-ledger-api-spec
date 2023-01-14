@@ -6,7 +6,7 @@ Units:
       - workspace
     operationId: searchUnit
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
     responses:
       "200":
@@ -31,7 +31,7 @@ Unit:
       - workspace
     operationId: findUnit
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
     responses:
       "200":
@@ -43,7 +43,7 @@ Unit:
       - workspace
     operationId: updateUnit
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
     requestBody:
       $ref: "./workspace/unit/request_bodies.yml#/WorkspaceUnitUpdateRequestBody"
@@ -57,7 +57,7 @@ Unit:
       - workspace
     operationId: deleteUnit
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/unit/parameters.yml#/WorkspaceUnitId"
     responses:
       "204":

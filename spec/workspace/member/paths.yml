@@ -6,7 +6,7 @@ Members:
       - workspace
     operationId: searchMember
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/member/parameters.yml#/ExclusionMemberRoles"
       - $ref: "./workspace/member/parameters.yml#/InclusionMemberRoles"
     responses:
@@ -21,7 +21,7 @@ Member:
       - workspace
     operationId: findMember
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/member/parameters.yml#/MemberId"
     responses:
       "200":
@@ -33,7 +33,7 @@ Member:
       - workspace
     operationId: deleteMember
     parameters:
-      - $ref: "./workspace/parameters.yml#/WorkspaceId"
+      - $ref: "./workspace/parameters.yml#/WorkspaceUrl"
       - $ref: "./workspace/member/parameters.yml#/MemberId"
     responses:
       "204":
